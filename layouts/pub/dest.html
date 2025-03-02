@@ -1,0 +1,135 @@
+{{- define "main" }}
+{{- with .Site.GetPage "page" "pubs/04-bmvc22-dest.md" }}
+<!DOCTYPE html>
+<html data-theme="light">
+  {{- $stylesheet := resources.Get "css/common.css" }}
+  {{- partial "pub_head.html" (dict "paper" . "stylesheet" $stylesheet) }}
+
+<body>
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop has-text-centered">
+      <h1 class="title is-2 publication-title">
+        Learning Fine-Grained Visual Understanding<br>for Video Question Answering<br>via Decoupling Spatial-Temporal Modeling
+      </h1>
+      <div class="is-size-5 publication-authors">
+        <span class="author-block">
+          <a href="https://shinying.github.io">Hsin-Ying Lee</a><sup>1</sup>&ensp;</span>
+        <span class="author-block">
+          <a href="https://scholar.google.com/citations?user=5oNVau8AAAAJ">Hung-Ting Su</a><sup>1</sup>&ensp;</span>
+        <span class="author-block">
+          <a href="">Bing-Chen Tsai</a><sup>1</sup>&ensp;</span>
+        <span class="author-block">
+          <a href="https://tsunghan-wu.github.io">Tsung-Han Wu</a><sup>1</sup>&ensp;</span>
+        <span class="author-block">
+          <a href="https://www.cmlab.csie.ntu.edu.tw/~jiafongyeh">Jia-Fong Yeh</a><sup>1</sup>&ensp;</span>
+        <span class="author-block">
+          <a href="https://winstonhsu.info">Winston Hsu</a><sup>1,2</sup></span>
+      </div>
+
+      <div class="block is-size-5 publication-authors">
+        <span class="author-block"><sup>1</sup>National Taiwan University&ensp;</span>
+        <span class="author-block"><sup>2</sup>Mobile Drive Technology</span>
+      </div>
+      {{- partial "pub_links.html" . }}
+    </div>
+  </div>
+</section>
+{{- end }}
+
+<section class="hero">
+  <div class="hero-body">
+    <h2 class="title has-text-centered">
+      <em>Do video-language models really<br>understand videos?</em>
+    </h2>
+  </div>
+</section>
+
+<!-- Abstract. -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <div class="content has-text-justified">
+          <p>Video-language models are currently the most popular solutions to video-language tasks, including video question answering. 
+          There are many kinds of questions. Some questions ask for spatial information, while some require temporal reasoning.
+          According to our study, the spatial and temporal modeling of state-of-the-art video-language methods are far from optimal.
+          For the questions related to spatial semantics, we could obtain better performance by simply averaging <strong>frame-by-frame prediction</strong> of an image-language model.
+          For the questions about temporal information, we found the performance of video-language models similar even if they took <strong>shuffled frames</strong> as inputs.
+          In this work, we propose a solution that improves both spatial and temporal modeling.</p>
+
+          <p>Recent breakthroughs in video-language modeling are built on large-scale pre-training over video captions, speech-to-text transcripts, or synthesized QAs. 
+          However, video captions usually describe entire videos, neglecting small events; transcripts contain noisy spoken words unrelated to visual scenes; 
+          and existing synthesized QAs are mostly about spatial information.</p> 
+          <figure>
+            <img src="{{ .Resources.Get "imgs/others.jpg" }}" loading="lazy" width="100%" alt="prior pretraining">
+            <figcaption>Prior video-language pre-training may suffer from lack of event details, video-transcript misalignment or limited diversity.</figcaption>
+          </figure>
+          
+          <p>To learn effective temporal modeling of sequential events in videos, we propose Temporal Referring Modeling. 
+          It first synthesizes long videos with sequential events by concatenating short videos. 
+          Then it queries the model about absolute and relative temporal relationships between events.</p>
+          <figure>
+            <img src="{{ .Resources.Get "imgs/trm.jpg" }}" loading="lazy" width="50%" alt="Temporal Referring Modeling">
+            <figcaption>Temporal Referring Modeling</figcaption>
+          </figure>
+          
+          <p>We then take advantage of image-language models to complement spatial encoding. 
+          We design a double-stream architecture for video question answering, Decoupled Spatial-Temporal Encoders, which contains a spatial and a temporal stream.
+          The spatial stream is a pre-trained image-language model that takes high-resolution but sparsely sampled frames, providing overall spatial information,
+          and the temporal stream is a video-language model trained with Temporal Referring Modeling, which encodes low-resolution but densely sampled frames,
+          modeling temporal relationships of events in videos.
+          The final outputs are the integration of the outputs of two streams.</p>
+          <figure>
+            <img src="{{ .Resources.Get "imgs/model.jpg" }}" loading="lazy" width="60%" alt="Decoupled Spatial-Temporal Encoders">
+            <figcaption>Decoupled Spatial-Temporal Encoders</figcaption>
+          </figure>
+          
+          <p>Our experiments show that the model outperforms previous work pre-trained on orders of magnitude larger datasets. Please refer to the paper for more details.</p>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--/ Abstract. -->
+
+<!-- Paper video. -->
+<section class="section" id="video-section">
+  <div class="container is-max-desktop has-text-centered intro-video">
+    <video controls preload="none" poster="{{ .Resources.Get "imgs/video-cover.jpg" }}">
+      <source src="https://bmvc2022.mpi-inf.mpg.de/0116_video.mp4" type="video/mp4">
+    </video>
+  </div>
+</section>
+<!--/ Paper video. -->
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title has-text-centered">BibTeX</h2>
+    <pre><code>@inproceedings{Lee_2022_BMVC,
+  author    = {Hsin-Ying Lee and Hung-Ting Su and Bing-Chen Tsai and Tsung-Han Wu and Jia-Fong Yeh and Winston H. Hsu},
+  title     = {Learning Fine-Grained Visual Understanding for Video Question Answering via Decoupling Spatial-Temporal Modeling},
+  booktitle = {33rd British Machine Vision Conference 2022, {BMVC} 2022, London, UK, November 21-24, 2022},
+  year      = {2022},
+}</code></pre>
+  </div>
+</section>
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content has-text-centered">
+            <p>Built on <a href="https://nerfies.github.io">this website</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
+{{- end }}

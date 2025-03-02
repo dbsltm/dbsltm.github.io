@@ -1,0 +1,24 @@
+<head>
+    <meta charset="utf-8">
+    <meta name="description"
+          content="{{ .paper.Params.title }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ .paper.Params.page_title }}</title>
+  
+    <link rel="preconnect" href="https://rsms.me/">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.3/dist/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="{{ .stylesheet.RelPermalink }}">
+    <!-- <link rel="icon" href="./static/images/favicon.svg"> -->
+  </head>
+  
+  {{- if .paper.Params.analytics }}
+  <script async src="https://www.googletagmanager.com/gtag/js?id={{ .paper.Params.analytics }}"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', '{{ .paper.Params.analytics }}');
+  </script>
+  {{- end }}

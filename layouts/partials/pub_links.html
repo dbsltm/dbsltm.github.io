@@ -1,0 +1,31 @@
+<h5 class="title is-5">{{ .Params.venue | safeHTML }}</h5>
+<div class="block has-text-centered">
+    {{- if .Params.arxiv }}
+    <span class="link-block">
+    <a href="{{ .Params.arxiv }}"
+        class="external-link button is-normal is-rounded is-dark">
+        {{- partial "icon.html" "arxiv" }}
+        <span>arXiv</span>
+    </a>
+    </span>
+    {{- end }}
+    {{- if .Params.code }}
+    <span class="link-block">
+    <a href="{{ .Params.code }}"
+        class="external-link button is-normal is-rounded is-dark">
+        {{- partial "icon.html" "github" }}
+        <span>Code</span>
+        </a>
+    </span>
+    {{- end }}
+    {{- if .Params.page_video }}
+    {{- $video := or .Params.page_video .Params.video }}
+    <span class="link-block">
+    <a href="{{ $video }}"
+        class="external-link button is-normal is-rounded is-dark">
+        {{- partial "icon.html" "youtube" }}
+        <span>Video</span>
+    </a>
+    </span>
+    {{- end }}
+</div>

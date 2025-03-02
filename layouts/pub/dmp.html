@@ -1,0 +1,240 @@
+{{- define "partials/dmp_compare.html" }}
+  <div class="item">
+    <div class="image-compare is-invisible" class="twentytwenty-container">
+      {{ (printf "imgs/demo/xl/%d.jpg" .idx) }}
+      {{- with .page.Resources.Get (printf "imgs/demo/%s/%d.jpg" .domain .idx) }}
+      <img src="{{ .RelPermalink }}" alt="" />
+      {{- end }}{{- with .page.Resources.Get (printf "imgs/demo/%s/%s/%d.jpg" .domain .task .idx) }}
+      <img src="{{ .RelPermalink }}" alt="" />
+      {{- end }}
+    </div>
+  </div>
+{{- end }}
+
+{{- define "main" }} 
+{{- with .Site.GetPage "page" "pubs/08-cvpr24-dmp.md" }}
+<!DOCTYPE html>
+<html data-theme="light">
+  {{- $twtw := resources.Get "css/twentytwenty.css" }}
+  {{- $common := resources.Get "css/common.css" }}
+  {{- $stylesheet := slice $twtw $common | resources.Concat "assets/css/dmp.css" | minify }}
+  {{- partial "pub_head.html" (dict "paper" . "stylesheet" $stylesheet) }}
+
+<body>
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop has-text-centered">
+      <h1 class="title is-1 publication-title">Exploiting Diffusion Prior<br>for Generalizable Dense Prediction</h1>
+      <div class="is-size-5 publication-authors">
+        <span class="author-block">
+          <a href="https://shinying.github.io">Hsin-Ying Lee</a><sup>1</sup>&ensp;</span>
+        <span class="author-block">
+          <a href="https://hytseng0509.github.io">Hung-Yu Tseng</a><sup>2</sup>&ensp;</span>
+        <span class="author-block">
+          <a href="http://hsinyinglee.com">Hsin-Ying Lee</a><sup>3</sup>&ensp;</span>
+        <span class="author-block">
+          <a href="http://faculty.ucmerced.edu/mhyang">Ming-Hsuan Yang</a><sup>1,4</sup></span>
+      </div>
+
+      <div class="block is-size-5 publication-authors">
+        <span class="author-block"><sup>1</sup>University of California, Merced&ensp;</span>
+        <span class="author-block"><sup>2</sup>Meta&ensp;</span>
+        <span class="author-block"><sup>3</sup>Snap Research&ensp;</span>
+        <span class="author-block"><sup>4</sup>Yonsei University</span>
+      </div>
+      {{- partial "pub_links.html" . }}
+    </div>
+  </div>
+</section>
+{{- end }}
+
+<!-- <section class="hero teaser">
+  <div class="container">
+    <div class="hero-body">
+      <img src="static/images/teaser.webp" alt="teaser">
+      <h2 class="title has-text-centered">
+        (left) We leverage pre-trained text-to-image diffusion models as a prior for various pixel-level semantic prediction tasks.<br>
+        (right) With only limited-domain training data, the model performs favorably against SoTA predictors.
+        A universal transferring framework.
+      </h2>
+    </div>
+  </div>
+</section> -->
+
+  <section class="hero is-light">
+    <div class="hero-body has-text-centered">
+      <p class="title is-3"><em>A Universal Transferring Framework<br> 
+        for Diffusion Models to Generate ...</em></p>
+    </div>
+  </section>
+
+
+  <section class="hero is-light">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <h4 class="title is-4 has-text-centered">Surface Normals</h4>
+        <div id="normal-demo" class="block carousel results-carousel demo-carousel">
+        {{- range $i := (slice 8 18 20 23 27 28 30 31 32 33) }}
+        {{- partial "dmp_compare.html" (dict "page" $ "idx" $i "domain" "xl" "task" "normal") }}
+        {{- end }}
+        </div>
+        <h4 class="title is-4 has-text-centered">Depth</h4>
+        <div id="depth-demo" class="block carousel results-carousel demo-carousel">
+        {{- range $i := (slice 2 4 8 12 17 18 23 28 31 33) }}
+        {{- partial "dmp_compare.html" (dict "page" $ "idx" $i "domain" "xl" "task" "depth") }}
+        {{- end }}
+        </div>
+        <h4 class="title is-4 has-text-centered">Semantic Segmentation</h4>
+        <div id="seg-demo" class="block carousel results-carousel demo-carousel">
+        {{- range $i := (slice 1 2 9 10 11 12 13 14) }}
+        {{- partial "dmp_compare.html" (dict "page" $ "idx" $i "domain" "scenes" "task" "seg") }}
+        {{- end }}
+        </div>
+        <h4 class="title is-4 has-text-centered">Albedo</h4>
+        <div id="ref-demo" class="block carousel results-carousel demo-carousel">
+        {{- range $i := (slice 1 2 3 4 5 6 7 8) }}
+        {{- partial "dmp_compare.html" (dict "page" $ "idx" $i "domain" "scenes" "task" "ref") }}
+        {{- end }}
+        </div>
+        <h4 class="title is-4 has-text-centered">Shading</h4>
+        <div id="sha-demo" class="block carousel results-carousel demo-carousel">
+        {{- range $i := (slice 1 2 3 4 5 6 7 8) }}
+        {{- partial "dmp_compare.html" (dict "page" $ "idx" $i "domain" "scenes" "task" "sha") }}
+        {{- end }}
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- Abstract. -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <div class="content has-text-justified">
+          <p>Contents generated by recent advanced Text-to-Image (T2I) diffusion models are sometimes too imaginative for existing off-the-shelf property semantic predictors to estimate due to the immitigable domain gap. We introduce Diffusion Models as Prior (DMP), a pipeline utilizing pre-trained T2I models as a prior for dense prediction tasks. </p>
+          <p>To address the misalignment between deterministic prediction tasks and stochastic T2I models, we reformulate the diffusion process through a sequence of interpolations, establishing a deterministic mapping between input RGB images (x) and output prediction distributions (y). To preserve generalizability, we use low-rank adaptation to fine-tune pre-trained models.</p>
+          <figure>
+            <img src="{{ .Resources.Get "imgs/method.jpg" }}" loading="lazy" width="70%" alt="method">
+            <figcaption>A sequence of interpolations between an image and its output.</figcaption>
+          </figure>
+          <p>We train the model with 10K bedroom images and evaluate out-of-domain performance of 3D properties and intrinsic images with diverse scenes and arbitrary images. Out-of-domain segmentation is evaluated with bedroom images in various styles. DMP gives faithful estimation, even on the images where the off-the-shelf schemes fail to handle.</p>
+          <figure>
+            <img src="{{ .Resources.Get "imgs/superood.jpg" }}" loading="lazy" alt="results of 3d property estimation">
+            <figcaption>Results of 3D property estimation</figcaption>
+          </figure>
+          <figure>
+            <img src="{{ .Resources.Get "imgs/result-seg.jpg" }}" loading="lazy" alt="results of segmentation">
+            <figcaption>Results of semantic segmentation</figcaption>
+          </figure>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--/ Abstract. -->
+
+<!-- Applicaion. -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-4">Applications</h2>
+        <div class="content has-text-justified">
+          <p>Surface normals and depths facilitate many vision tasks. We show the examples of <a target="_blank" rel="noopener noreferrer" href="https://shihmengli.github.io/3D-Photo-Inpainting">3D photo inpainting</a>. Compared to the default depth estimator (left), the resulting videos produced with the depth maps generated by DMP (right) have more accurate depth relationships between the objects.</p>
+        </div>
+      </div>
+    </div>
+      <div id="carousel-3d-photo" class="carousel results-carousel">
+      {{- range $i, $vid := .Resources.Match "vids/*.mp4" }}
+        <div class="item">
+          <video class="lazy" id="3d-photo-{{ $i }}" autoplay muted loop playsinline 
+                 data-src="{{ $vid.RelPermalink }}">
+            <source data-src="{{ $vid.RelPermalink }}" type="video/mp4">
+          </video>
+        </div>
+      {{- end }}
+      </div>
+  </div>
+</section>
+<!--/ Applicaion. -->
+
+<!-- Paper video. -->
+<section class="section" id="video-section">
+  <div class="container is-max-desktop has-text-centered intro-video">
+    <iframe loading="lazy" src="https://www.youtube.com/embed/z4W0LmI-4C8?si=C_EV-KOZDy9V85dy" 
+    title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  </div>
+</section>
+<!--/ Paper video. -->
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title has-text-centered">BibTeX</h2>
+    <pre><code>@inproceedings{lee2024dmp,
+  author    = {Lee, Hsin-Ying and Tseng, Hung-Yu and Lee, Hsin-Ying and Yang, Ming-Hsuan},
+  title     = {Exploiting Diffusion Prior for Generalizable Dense Prediction},
+  booktitle = {Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},
+  year      = {2024},
+}</code></pre>
+  </div>
+</section>
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content has-text-centered">
+            <p>Built on <a href="https://nerfies.github.io">this website</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.3/dist/js/bulma-carousel.min.js"></script>
+  {{- $jem := resources.Get "js/jquery.event.move.min.js" }}
+  {{- $jtwtw := resources.Get "js/jquery.twentytwenty.min.js" }}
+  {{- $jyall := resources.Get "js/yall.min.js" }}
+  {{- $script := slice $jem $jtwtw $jyall | resources.Concat "assets/js/dmp.js" | minify }}
+  <script src="{{ $script.RelPermalink }}" type="text/javascript"></script>
+  <script>
+    $(window).on('load', function(){
+      var options_demo = {
+        slidesToScroll: 1,
+        slidesToShow: 5,
+        loop: true,
+        infinite: false,
+        autoplay: false,
+      }
+      bulmaCarousel.attach('.demo-carousel', options_demo);
+
+      const cmps = $(".image-compare");
+      cmps.twentytwenty({
+        default_offset_pct:	0.7,
+        before_label: '',
+        after_label: '',
+      });
+      cmps.removeClass("is-invisible");
+
+      var options = {
+        slidesToScroll: 1,
+        slidesToShow: 3,
+        loop: true,
+        infinite: false,
+        autoplay: false,
+        autoplaySpeed: 3000,
+      }
+      bulmaCarousel.attach('#carousel-3d-photo', options);
+    });
+    
+    yall();
+  </script>
+
+</body>
+</html>
+{{- end }}
