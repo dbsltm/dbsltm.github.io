@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Categories on Eunkyu (Eunice) Park</title>
+    <link>https://dbsltm.github.io/categories/</link>
+    <description>Recent content in Categories on Eunkyu (Eunice) Park</description>
+    <image>
+      <title>Eunkyu (Eunice) Park</title>
+      <url>https://dbsltm.github.io/imgs/cover.svg</url>
+      <link>https://dbsltm.github.io/imgs/cover.svg</link>
+    </image>
+    <generator>Hugo -- 0.145.0</generator>
+    <language>en</language>
+    <atom:link href="https://dbsltm.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>
