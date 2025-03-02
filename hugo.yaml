@@ -61,26 +61,23 @@ params:
 
   # home-info mode
   homeInfoParams:
-    Title: Lee Hsin-Ying 李信穎
+    Title: Eunkyu (Eunice) Park
     Content: >
-      I am a PhD student at the University of California Merced advised by Prof. [Ming-Hsuan Yang](https://faculty.ucmerced.edu/mhyang).
-      My current research topics are in generation.
-      Previously, I worked on visual-language learning with Prof. [Winston Hsu](https://winstonhsu.info) at Nataional Taiwan University. 
-      I'm interested in developing intelligence that can interact with human. My research areas are computer vision, partially at the intersection of natural language processing.
-    imageUrl: "imgs/profile.jpg"
+      I am a PhD student at the Seoul National University advised by Prof. [GunHee Kim](https://faculty.ucmerced.edu/mhyang).
+    imageUrl: "imgs/eunice_profilepic_24.jpg"
     imageTitle: profile
     imageWidth: 120
     imageHeight: 120
   
   socialIcons:
     - name: email
-      url: "mailto:hlee307[at]ucmerced.edu"
+      url: "mailto:eunkyu.park[at]vision.snu.ac.kr"
     - name: github
-      url: "https://github.com/shinying"
+      url: "https://github.com/dbsltm"
     - name: googlescholar
       url: "https://scholar.google.com/citations?user=_B6D-wkAAAAJ"
     - name: linkedin
-      url: "https://www.linkedin.com/in/hsinyinglee"
+      url: "https://www.linkedin.com/in/eunkyu-park"
 
   analytics:
     google:
