@@ -1,5 +1,4 @@
-baseURL:
-url: "https://dbsltm.github.io/"
+baseURL: "https://dbsltm.github.io/"
 title: Eunkyu (Eunice) Park
 # paginate: 20
 theme: PaperMod
