@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Pubs on Eunkyu (Eunice) Park</title>
+    <title>Publications on Eunkyu (Eunice) Park</title>
     <link>https://dbsltm.github.io/pubs/</link>
-    <description>Recent content in Pubs on Eunkyu (Eunice) Park</description>
+    <description>Recent content in Publications on Eunkyu (Eunice) Park</description>
     <image>
       <title>Eunkyu (Eunice) Park</title>
       <url>https://dbsltm.github.io/imgs/cover.svg</url>
@@ -11,28 +11,14 @@
     </image>
     <generator>Hugo -- 0.145.0</generator>
     <language>en</language>
+    <lastBuildDate>Sat, 01 Mar 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://dbsltm.github.io/pubs/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title></title>
+      <title>HalLoc: Token-level Localization of Hallucinations for Vision Language Models</title>
       <link>https://dbsltm.github.io/pubs/cvpr25_halloc/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 01 Mar 2025 00:00:00 +0000</pubDate>
       <guid>https://dbsltm.github.io/pubs/cvpr25_halloc/</guid>
-      <description>&lt;p&gt;title: your publication title
-date: date
-venue: conference or journal
-authors:
-- name: first author&amp;rsquo;s name
-home: first author&amp;rsquo;s web page
-- name: second author&amp;rsquo;s name
-&amp;hellip;
-selected: true or false
-arxiv: url
-page: url
-code: url
-video: url
-cover:
-image: path/to/image.jpg
-summary: short description&lt;/p&gt;</description>
+      <description>short description</description>
     </item>
   </channel>
 </rss>
