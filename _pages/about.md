@@ -2,14 +2,14 @@
 layout: about
 title: about
 permalink: /
-subtitle: eunkyu.park@vision.snu.ac.kr
+subtitle: 박은규
 profile:
   align: right
   image: prof_pic.jpg
   image_circular: false # crops the image to make it circular
   more_info: >
-    <p>Ph.D Candidate @ SNU</p>
-    <p>Seoul, South Korea</p>
+    <p>:woman_student: Ph.D Candidate @ SNU</p>
+    <p>:round_pushpin: Seoul, South Korea</p>
 
 selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
