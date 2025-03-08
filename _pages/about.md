@@ -8,7 +8,7 @@ profile:
   image: prof_pic.jpg
   image_circular: false # crops the image to make it circular
   more_info: >
-    <p><a href="assets/pdf/example_pdf.pdf" target="_blank">Curriculum Vitae</a></p>
+    <p><a href="assets/pdf/EunkyuPark_2025_CV_pdf.pdf" target="_blank">Curriculum Vitae</a></p>
     <p>Ph.D. Candidate @ <a href="https://vision.snu.ac.kr/" target="_blank">SNUVL</a></p>
     <p><a href="mailto:eunkyu.park@vision.snu.ac.kr">eunkyu.park@vision.snu.ac.kr</a></p>
     <p>Seoul, South Korea</p>
