@@ -29,3 +29,5 @@ education: true
 Hello! I am a Ph.D. student in Artificial Intelligence at Seoul National University, advised by Professor [Gunhee Kim](https://vision.snu.ac.kr/gunhee/). Before SNU, I received my B.S. in Computer Science from Columbia University :statue_of_liberty: and a B.A. in Mathematics from Bard College.
 
 My research focuses on multimodal AI, with an emphasis on bias-driven hallucinations in Vision-Language Models. I explore how these hallucinations can both emerge from and amplify biases in the underlying components of these models. My goal is to develop a deeper understanding of these biases and their impact on model reliability, while also exploring ways to mitigate them for safer, more robust AI systems.
+
+In my free time, I enjoy playing golf, watching football, and savoring good food and wine with good company.
