@@ -8,9 +8,9 @@ profile:
   image: prof_pic.jpg
   image_circular: false # crops the image to make it circular
   more_info: >
-    <p>[Curriculum Vitae](assets/pdf/example_pdf.pdf)</p>
-    <p>Ph.D. Candidate @ [SNUVL](https://vision.snu.ac.kr/)</p>
-    <p>eunkyu.park@vision.snu.ac.kr</p>
+    <p><a href="assets/pdf/example_pdf.pdf" target="_blank">Curriculum Vitae</a></p>
+    <p>Ph.D. Candidate @ <a href="https://vision.snu.ac.kr/" target="_blank">SNUVL</a></p>
+    <p><a href="mailto:eunkyu.park@vision.snu.ac.kr">eunkyu.park@vision.snu.ac.kr</a></p>
     <p>Seoul, South Korea</p>
 
 selected_papers: true # includes a list of papers marked as "selected={true}"
