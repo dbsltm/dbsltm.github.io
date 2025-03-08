@@ -4,11 +4,13 @@ title: about
 permalink: /
 subtitle: 박은규
 profile:
-  align: right
+  align: center
   image: prof_pic.jpg
   image_circular: false # crops the image to make it circular
   more_info: >
-    <p>Ph.D. Candidate @ SNU</p>
+    <p>[Curriculum Vitae](assets/pdf/example_pdf.pdf)</p>
+    <p>Ph.D. Candidate @ [SNUVL](https://vision.snu.ac.kr/)</p>
+    <p>eunkyu.park@vision.snu.ac.kr</p>
     <p>Seoul, South Korea</p>
 
 selected_papers: true # includes a list of papers marked as "selected={true}"
