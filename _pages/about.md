@@ -30,4 +30,4 @@ Hello! I am a Ph.D. student in Artificial Intelligence at Seoul National Univers
 
 My research focuses on multimodal AI, with an emphasis on bias-driven hallucinations in Vision-Language Models. I explore how these hallucinations can both emerge from and amplify biases in the underlying components of these models. My goal is to develop a deeper understanding of these biases and their impact on model reliability, while also exploring ways to mitigate them for safer, more robust AI systems.
 
-In my free time, I enjoy playing golf, watching football, and savoring good food and wine with good company.
+In my free time, I enjoy playing golf:golf:	, watching football:soccer:, and savoring good food and wine with good company.
