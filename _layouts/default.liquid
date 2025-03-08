@@ -19,7 +19,14 @@
   <body class="{% if site.navbar_fixed %}fixed-top-nav{% endif %} {% unless site.footer_fixed %}sticky-bottom-footer{% endunless %}">
     <!-- Header -->
     {% include header.liquid %}
+    <!-- Social -->
+        {% if page.social %}
+          <div class="social">
+            <div class="contact-icons">{% include social.liquid %}</div>
 
+            <div class="contact-note">{{ site.contact_note }}</div>
+          </div>
+        {% endif %}
     <!-- Content -->
     <div class="container mt-5" role="main">
       {% if page.toc and page.toc.sidebar %}
