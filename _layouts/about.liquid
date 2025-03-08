@@ -32,14 +32,7 @@ layout: default
             cache_bust=true
           %}
         {% endif %}
-        <!-- Social -->
-        {% if page.social %}
-          <div class="social">
-            <div class="contact-icons">{% include social.liquid %}</div>
-
-            <div class="contact-note">{{ site.contact_note }}</div>
-          </div>
-        {% endif %}
+       
         {% if page.profile.more_info %}
           <div class="more-info">{{ page.profile.more_info }}</div>
         {% endif %}
