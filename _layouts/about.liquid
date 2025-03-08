@@ -79,18 +79,9 @@ layout: default
       <h2>education</h2>
       <ul>
         <li><strong>MS/PhD in Artificial Intelligence</strong>, Seoul National University, 2021~</li>
-        <li><strong>B.S. in Computer Science</strong>, Columbia University, 2017-2020</li>
+        <li><strong>B.S. in Computer Science</strong>, Columbia University Fu Foundation School of Engineering and Applied Science, 2017-2020</li>
         <li><strong>B.A. in Mathematics</strong>, Bard College, 2014-2017</li>
       </ul>
-    {% endif %}
-
-    <!-- Social -->
-    {% if page.social %}
-      <div class="social">
-        <div class="contact-icons">{% include social.liquid %}</div>
-
-        <div class="contact-note">{{ site.contact_note }}</div>
-      </div>
     {% endif %}
 
     {% if site.newsletter and site.newsletter.enabled and site.footer_fixed %}
