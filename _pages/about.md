@@ -10,7 +10,7 @@ profile:
   more_info: >
     <p><a href="assets/pdf/EunkyuPark_2025_CV.pdf" target="_blank">Curriculum Vitae</a></p>
     <p>Ph.D. Candidate @ <a href="https://vision.snu.ac.kr/" target="_blank">SNUVL</a></p>
-    <h5>eunkyu.park [at] vision.snu.ac.kr</h5>
+    <p>eunkyu.park [at] vision.snu.ac.kr<p>
     <p>Seoul, South Korea</p>
 
 selected_papers: true # includes a list of papers marked as "selected={true}"
