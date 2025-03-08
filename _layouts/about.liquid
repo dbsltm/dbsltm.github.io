@@ -56,6 +56,18 @@ layout: default
       {% include latest_posts.liquid %}
     {% endif %}
 
+    <!-- Education Section -->
+    {% if page.education %}
+
+      <h2>Education</h2>
+      <ul>
+        <li><strong>PhD in AI</strong>, Seoul National University, 2025 (Expected)</li>
+        <li><strong>BS in Computer Science</strong>, Columbia University, 2020</li>
+        <li><strong>BA in Mathematics</strong>, Bard College, 2020</li>
+      </ul>
+    {% endif %}
+
+
     <!-- Selected papers -->
     {% if page.selected_papers %}
       <h2>
