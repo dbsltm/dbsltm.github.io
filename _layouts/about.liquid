@@ -32,6 +32,14 @@ layout: default
             cache_bust=true
           %}
         {% endif %}
+        <!-- Social -->
+        {% if page.social %}
+          <div class="social">
+            <div class="contact-icons">{% include social.liquid %}</div>
+
+            <div class="contact-note">{{ site.contact_note }}</div>
+          </div>
+        {% endif %}
         {% if page.profile.more_info %}
           <div class="more-info">{{ page.profile.more_info }}</div>
         {% endif %}
@@ -56,24 +64,24 @@ layout: default
       {% include latest_posts.liquid %}
     {% endif %}
 
-    <!-- Education Section -->
-    {% if page.education %}
-
-      <h2>Education</h2>
-      <ul>
-        <li><strong>PhD in AI</strong>, Seoul National University, 2025 (Expected)</li>
-        <li><strong>BS in Computer Science</strong>, Columbia University, 2020</li>
-        <li><strong>BA in Mathematics</strong>, Bard College, 2020</li>
-      </ul>
-    {% endif %}
-
-
+    
     <!-- Selected papers -->
     {% if page.selected_papers %}
       <h2>
         <a href="{{ '/publications/' | relative_url }}" style="color: inherit">selected publications</a>
       </h2>
       {% include selected_papers.liquid %}
+    {% endif %}
+
+    <!-- Education Section -->
+    {% if page.education %}
+
+      <h2>education</h2>
+      <ul>
+        <li><strong>MS/PhD in Artificial Intelligence</strong>, Seoul National University, 2021~</li>
+        <li><strong>B.S. in Computer Science</strong>, Columbia University, 2017-2020</li>
+        <li><strong>B.A. in Mathematics</strong>, Bard College, 2014-2017</li>
+      </ul>
     {% endif %}
 
     <!-- Social -->
