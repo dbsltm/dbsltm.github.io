@@ -52,6 +52,9 @@ layout: default
     {% if page.selected_papers %}
       <h2>publications</h2>
       {% include selected_papers.liquid %}
+      {% if entry.abstract %}
+      <p>{{ entry.abstract }}</p>
+      {% endif %}
     {% endif %}
 
     <!-- Education Section -->
