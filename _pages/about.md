@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: 박은규 | eunkyu.park [at] vision.snu.ac.kr | eunkyup@andrew.cmu.edu
+subtitle: 박은규 | eunkyu.park [at] vision.snu.ac.kr | eunkyup [at] andrew.cmu.edu
 profile:
   align: center
   image: prof_pic.jpg
