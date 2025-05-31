@@ -1,5 +1,13 @@
 ---
 layout: post
+date: 2025-05-28
+inline: true
+related_posts: false
+---
+I will be joining CMU HCII (Human Comp)
+
+---
+layout: post
 date: 2025-02-28
 inline: true
 related_posts: false
