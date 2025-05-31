@@ -366,8 +366,8 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/the_godfather/";
-            },},{id: "news-our-paper-halloc-token-level-localization-of-hallucinations-for-vision-language-models-is-accepted-to-cvpr-2025-drum-smile",
-          title: 'Our paper, HalLoc: Token-level Localization of Hallucinations for Vision Language Models is accepted...',
+            },},{id: "news-i-will-be-joining-cmu-hcii-human-comp-layout-post-date-2025-02-28-inline-true-related-posts-false-our-paper-halloc-token-level-localization-of-hallucinations-for-vision-language-models-is-accepted-to-cvpr-2025-drum-smile",
+          title: 'I will be joining CMU HCII (Human Comp) layout: post date: 2025-02-28 inline:...',
           description: "",
           section: "News",},{id: "projects-project-1",
           title: 'project 1',
