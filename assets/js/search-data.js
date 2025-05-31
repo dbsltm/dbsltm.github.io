@@ -366,8 +366,8 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/the_godfather/";
-            },},{id: "news-i-will-be-joining-cmu-hcii-human-comp-layout-post-date-2025-02-28-inline-true-related-posts-false-our-paper-halloc-token-level-localization-of-hallucinations-for-vision-language-models-is-accepted-to-cvpr-2025-drum-smile",
-          title: 'I will be joining CMU HCII (Human Comp) layout: post date: 2025-02-28 inline:...',
+            },},{id: "news-i-ll-be-spending-the-summer-as-a-visiting-scholar-at-carnegie-mellon-university-cmu-human-computer-interaction-institute-hcii-layout-post-date-2025-02-28-inline-true-related-posts-false-our-paper-halloc-token-level-localization-of-hallucinations-for-vision-language-models-is-accepted-to-cvpr-2025-drum-smile",
+          title: 'I’ll be spending the summer as a Visiting Scholar at Carnegie Mellon University...',
           description: "",
           section: "News",},{id: "projects-project-1",
           title: 'project 1',
