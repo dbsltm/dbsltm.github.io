@@ -10,7 +10,7 @@ profile:
   more_info: >
     <p><a href="assets/pdf/EunkyuPark_2025_CV.pdf" target="_blank">Curriculum Vitae</a></p>
     <p>Ph.D. Candidate @ <a href="https://vision.snu.ac.kr/" target="_blank">SNUVL</a></p>
-    <p>Seoul, South Korea</p>
+    <p>Pittsburgh, Pennsylvania</p>
 
 selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
@@ -27,7 +27,7 @@ education: true
 #   limit: 3 # leave blank to include all the blog posts
 ---
 
-Hello! I am a Ph.D. student in Artificial Intelligence at Seoul National University, advised by Professor [Gunhee Kim](https://vision.snu.ac.kr/gunhee/). Before SNU, I received my B.S. in Computer Science from Columbia University :statue_of_liberty: and a B.A. in Mathematics from Bard College.
+Hello! I am a Ph.D. student in Artificial Intelligence at Seoul National University, advised by Professor [Gunhee Kim](https://vision.snu.ac.kr/gunhee/). Before SNU, I received my B.S. in Computer Science from Columbia University :statue_of_liberty: and a B.A. in Mathematics from Bard College. I am currently visiting Carnegie Mellon University’s Human-Computer Interaction Institute (HCII) as a Collaborative Researcher.
 
 My research focuses on multimodal AI, with an emphasis on bias-driven hallucinations in Vision-Language Models. I explore how these hallucinations can both emerge from and amplify biases in the underlying components of these models. My goal is to develop a deeper understanding of these biases and their impact on model reliability, while also exploring ways to mitigate them for safer, more robust AI systems.
 
