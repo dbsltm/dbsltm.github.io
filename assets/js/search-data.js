@@ -369,8 +369,8 @@ ninja.data = [{
             },},{id: "news-our-paper-halloc-token-level-localization-of-hallucinations-for-vision-language-models-is-accepted-to-cvpr-2025-drum-smile",
           title: 'Our paper, HalLoc: Token-level Localization of Hallucinations for Vision Language Models is accepted...',
           description: "",
-          section: "News",},{id: "news-i-ll-be-spending-the-summer-as-a-visiting-scholar-at-carnegie-mellon-university-cmu-human-computer-interaction-institute-hcii",
-          title: 'I’ll be spending the summer as a Visiting Scholar at Carnegie Mellon University...',
+          section: "News",},{id: "news-i-ll-be-spending-june-through-the-end-of-the-fall-2025-semester-as-a-visiting-scholar-at-carnegie-mellon-university-s-human-computer-interaction-institute-hcii",
+          title: 'I’ll be spending June through the end of the Fall 2025 semester as...',
           description: "",
           section: "News",},{id: "projects-project-1",
           title: 'project 1',
@@ -437,6 +437,13 @@ ninja.data = [{
         section: 'Socials',
         handler: () => {
           window.open("https://www.linkedin.com/in/eunkyu-park", "_blank");
+        },
+      },{
+        id: 'social-scholar',
+        title: 'Google Scholar',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://scholar.google.com/citations?user=Su2mSPsAAAAJ", "_blank");
         },
       },{
         id: 'social-x',
