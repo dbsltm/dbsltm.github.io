@@ -372,6 +372,9 @@ ninja.data = [{
           section: "News",},{id: "news-i-ll-be-spending-june-through-the-end-of-the-fall-2025-semester-as-a-visiting-scholar-at-carnegie-mellon-university-s-human-computer-interaction-institute-hcii",
           title: 'I’ll be spending June through the end of the Fall 2025 semester as...',
           description: "",
+          section: "News",},{id: "news-our-dataset-halloc-v1-is-finally-out-on-huggingface",
+          title: 'Our dataset HalLoc V1 is finally out on HuggingFace!',
+          description: "",
           section: "News",},{id: "projects-project-1",
           title: 'project 1',
           description: "with background image",
@@ -418,6 +421,13 @@ ninja.data = [{
           section: "Projects",handler: () => {
               window.location.href = "/projects/9_project/";
             },},{
+        id: 'social-bluesky',
+        title: 'Bluesky',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://bsky.app/profile/uunicee.bsky.social", "_blank");
+        },
+      },{
         id: 'social-email',
         title: 'email',
         section: 'Socials',
