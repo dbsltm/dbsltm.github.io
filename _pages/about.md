@@ -8,7 +8,7 @@ profile:
   image: prof_pic.jpg
   image_circular: false # crops the image to make it circular
   more_info: >
-    <p><a href="assets/pdf/EunkyuPark_2025_CV.pdf" target="_blank">Curriculum Vitae</a></p>
+    <p><a href="assets/pdf/EunkyuPark_Resume2506.pdf" target="_blank">Curriculum Vitae</a></p>
     <p>Ph.D. Candidate @ <a href="https://vision.snu.ac.kr/" target="_blank">SNUVL</a></p>
     <p>Pittsburgh, Pennsylvania</p>
 
@@ -29,6 +29,6 @@ education: true
 
 Hello! I am a Ph.D. student in Artificial Intelligence at Seoul National University, advised by Professor [Gunhee Kim](https://vision.snu.ac.kr/gunhee/). Before SNU, I received my B.S. in Computer Science from Columbia University :statue_of_liberty: and a B.A. in Mathematics from Bard College. I am currently visiting Carnegie Mellon University’s Human-Computer Interaction Institute (HCII) as a Collaborative Researcher.
 
-My research focuses on multimodal AI, with an emphasis on bias-driven hallucinations in Vision-Language Models. I explore how these hallucinations can both emerge from and amplify biases in the underlying components of these models. My goal is to develop a deeper understanding of these biases and their impact on model reliability, while also exploring ways to mitigate them for safer, more robust AI systems. Currently, I am focusing my research on multimodal reasoning and model trustworthiness; on alignment of Vision-Language Models through preference learning and improving interpretability and explainability of VLMs via user-centered evaluation and annotation.
+My research centers on multimodal AI, with a focus on the trustworthiness and interpretability of Vision-Language Models (VLMs). Previous works range from  (1) bias-driven hallucinations in VLMs—examining how biases in model components can lead to unfaithful outputs to (2) how VLMs make moral judgments in multimodal contexts, and how their outputs align (or misalign) with human values. Most recently, my work investigates how to scaffold intermediate reasoning in order to better evaluate and calibrate user trust in model outputs. Across these directions, I design benchmarks, annotation pipelines, and preference learning techniques to improve the transparency, safety, and alignment of multimodal systems.
 
-In my free time, I enjoy playing golf:golf:	, watching football:soccer:, and savoring good food and wine with good company :sun_with_face:.
+In my free time, I enjoy playing golf:golf:	, watching football:soccer::blue_heart:, and savoring good food and wine with good company :sun_with_face:.
