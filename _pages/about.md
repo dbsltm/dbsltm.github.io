@@ -18,7 +18,7 @@ social: true # includes social icons at the bottom of the page
 announcements:
   enabled: true # includes a list of news items
   scrollable: true # adds a vertical scroll bar if there are more than 3 news items
-  limit: 5 # leave blank to include all the news in the `_news` folder
+  limit: 10 # leave blank to include all the news in the `_news` folder
 education: true
   # enabled: true/
 # latest_posts:
@@ -32,3 +32,12 @@ Hello! I am a Ph.D. student in Artificial Intelligence at Seoul National Univers
 My research centers on multimodal AI, with a focus on the trustworthiness and interpretability of Vision-Language Models (VLMs). Previous works range from  (1) bias-driven hallucinations in VLMs—examining how biases in model components can lead to unfaithful outputs to (2) how VLMs make moral judgments in multimodal contexts, and how their outputs align (or misalign) with human values. Most recently, my work investigates how to scaffold intermediate reasoning in order to better evaluate and calibrate user trust in model outputs. Across these directions, I design benchmarks, annotation pipelines, and preference learning techniques to improve the transparency, safety, and alignment of multimodal systems.
 
 In my free time, I enjoy playing golf:golf:	, watching football:soccer::blue_heart:, and savoring good food and wine with good company :sun_with_face:.
+
+<div class="research-interests" style="display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.2rem;">
+  <span style="background: #eef2ff; padding: 0.35rem 0.75rem; border-radius: 20px; font-size: 0.85rem; font-weight: 500; color: #1a365d; border: 1px solid #c7d2fe;">Multimodal AI</span>
+  <span style="background: #eef2ff; padding: 0.35rem 0.75rem; border-radius: 20px; font-size: 0.85rem; font-weight: 500; color: #1a365d; border: 1px solid #c7d2fe;">Vision-Language Models</span>
+  <span style="background: #eef2ff; padding: 0.35rem 0.75rem; border-radius: 20px; font-size: 0.85rem; font-weight: 500; color: #1a365d; border: 1px solid #c7d2fe;">Trustworthiness & Safety</span>
+  <span style="background: #eef2ff; padding: 0.35rem 0.75rem; border-radius: 20px; font-size: 0.85rem; font-weight: 500; color: #1a365d; border: 1px solid #c7d2fe;">Hallucination Detection</span>
+  <span style="background: #eef2ff; padding: 0.35rem 0.75rem; border-radius: 20px; font-size: 0.85rem; font-weight: 500; color: #1a365d; border: 1px solid #c7d2fe;">AI Alignment</span>
+  <span style="background: #eef2ff; padding: 0.35rem 0.75rem; border-radius: 20px; font-size: 0.85rem; font-weight: 500; color: #1a365d; border: 1px solid #c7d2fe;">Human-AI Interaction</span>
+</div>

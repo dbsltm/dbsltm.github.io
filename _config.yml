@@ -195,8 +195,6 @@ exclude:
   - _pages/profiles.md
   - _pages/repositories.md
   - _pages/teaching.md
-  - _pages/publications.md
-  - _pages/cv.md
   - purgecss.config.js
   - README.md
   - readme_preview/
@@ -273,8 +271,8 @@ display_categories: ["external-services"] # these categories will be displayed o
 # -----------------------------------------------------------------------------
 
 scholar:
-  last_name: [Einstein]
-  first_name: [Albert, A.]
+  last_name: [Park]
+  first_name: [Eunkyu, E.]
 
   style: apa
   locale: en

@@ -2,96 +2,81 @@
   type: map
   contents:
     - name: Full Name
-      value: Albert Einstein
-    - name: Date of Birth
-      value: 14th March 1879
+      value: Eunkyu (Eunice) Park
+    - name: Email
+      value: eunkyu.park@vision.snu.ac.kr
+    - name: Website
+      value: https://dbsltm.github.io
     - name: Languages
-      value: English, German
+      value: Korean, English
 
 - title: Education
   type: time_table
   contents:
-    - title: PhD
-      institution: University of Zurich, Zurich, Switzerland
-      year: 1905
+    - title: MS/PhD in Artificial Intelligence
+      institution: Seoul National University (SNUVL), Seoul, South Korea
+      year: 2021 - Present
       description:
-        - Description 1.
-        - Description 2.
-        - title: Description 3.
-          contents:
-            - Sub-description 1.
-            - Sub-description 2.
-    - title: Federal teaching diploma
-      institution: Eidgenössische Technische Hochschule, Zurich, Switzerland
-      year: 1900
-      description:
-        - Description 1.
-        - Description 2.
+        - Advised by Professor Gunhee Kim
+        - Visiting Scholar at Carnegie Mellon University HCII (2025)
+    - title: B.S. in Computer Science
+      institution: Columbia University, New York, NY
+      year: 2017 - 2020
+    - title: B.A. in Mathematics
+      institution: Bard College, Annandale-on-Hudson, NY
+      year: 2014 - 2017
 
-- title: Experience
+- title: Research Experience
   type: time_table
   contents:
-    - title: Professor of Theoretical Physics
-      institution: Institute for Advanced Study, Princeton University
-      year: 1933 - 1955
+    - title: Visiting Scholar
+      institution: Carnegie Mellon University, Human-Computer Interaction Institute (HCII)
+      year: 2025 - Present
       description:
-        - Description 1.
-        - Description 2.
-        - title: Description 3.
-          contents:
-            - Sub-description 1.
-            - Sub-description 2.
-    - title: Visiting Professor
-      institution: California Institute of Technology, Pasadena, California, US
-      year: 1933
+        - Collaborating with Professor Motahhare Eslami and Professor Maarten Sap
+    - title: Graduate Research Assistant
+      institution: Seoul National University Vision & Learning Lab (SNUVL)
+      year: 2021 - Present
       description:
-        - Description 1.
-        - Description 2.
+        - Research on multimodal AI, VLM trustworthiness, and hallucination detection
 
-    - title: Director
-      institution: Kaiser Wilhelm Institute for Physics, Berlin, Germany.
-      year: 1917-1933
-
-    - title: Professor of Theoretical Physics
-      institution: Karl-Ferdinand University, Prague, Czechoslovakia
-      year: 1911 - 1917
-      description:
-
-    - title: Associate Professor of Theoretical Physics
-      institution: University of Zurich, Zurich, Switzerland
-      year: 1909 - 1911
-
-- title: Open Source Projects
+- title: Selected Publications
   type: time_table
   contents:
-    - title: <a href="https://github.com/alshedivat/al-folio">al-folio</a>
-      year: 2015-now
-      description: A beautiful, simple, clean, and responsive Jekyll theme for academics.
+    - title: "HalLoc: Token-level Localization of Hallucinations for Vision Language Models"
+      year: 2025
+      description:
+        - CVPR 2025
+    - title: "Cognitive Chain-of-Thought: Structured Multimodal Reasoning about Social Situations"
+      year: 2025
+      description:
+        - Pre-print, Under review
+    - title: "Critical or Compliant? The Double-Edged Sword of Reasoning in Chain-of-Thought Explanations"
+      year: 2025
+      description:
+        - arXiv Pre-print
+    - title: "MM-SCALE: Grounded Multimodal Moral Reasoning via Scalar Judgment and Listwise Alignment"
+      year: 2026
+      description:
+        - arXiv Pre-print
 
-- title: Honors and Awards
-  type: time_table
-  contents:
-    - year: 1921
-      items:
-        - Nobel Prize in Physics
-        - Matteucci Medal
-    - year: 2029
-      items:
-        - Max Planck Medal
-
-- title: Academic Interests
+- title: Research Interests
   type: nested_list
   contents:
-    - title: Topic 1.
+    - title: Multimodal AI & Vision-Language Models
       items:
-        - Description 1.
-        - Description 2.
-    - title: Topic 2.
+        - Hallucination detection and localization in VLMs
+        - Trustworthiness and interpretability of multimodal systems
+    - title: AI Safety & Alignment
       items:
-        - Description 1.
-        - Description 2.
+        - Moral reasoning in multimodal contexts
+        - Scaffolded reasoning for calibrating user trust
+    - title: Human-AI Interaction
+      items:
+        - How explanations influence user trust and error detection
+        - Benchmark and annotation pipeline design
 
 - title: Other Interests
   type: list
   contents:
-    - <u>Hobbies:</u> Hobby 1, Hobby 2, etc.
+    - <u>Hobbies:</u> Golf, football, food & wine
