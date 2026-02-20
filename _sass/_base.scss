@@ -1572,3 +1572,299 @@ figure.cover {
     color: #23212d !important;
   }
 }
+
+/*******************************************************************************
+ * PASTE THIS AT THE VERY BOTTOM of _sass/_base.scss
+ * This overrides al-folio's default layout to match a clean, Wesley-style look.
+ ******************************************************************************/
+
+/* ── 1. Google Fonts ──────────────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap');
+
+/* ── 2. Body & global typography ─────────────────────────────────────────── */
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-weight: 300 !important;
+  background-color: #fdfdfc !important;
+  color: #1c1c1c !important;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.75;
+}
+
+/* ── 3. Navbar ────────────────────────────────────────────────────────────── */
+.navbar {
+  background-color: #fdfdfc !important;
+  box-shadow: none !important;
+  border-bottom: 1px solid rgba(0,0,0,0.08) !important;
+  font-size: 0.875rem !important;
+  font-weight: 400 !important;
+}
+.navbar .navbar-brand {
+  font-family: 'Lora', Georgia, serif !important;
+  font-weight: 500 !important;
+  font-size: 1.05rem !important;
+}
+.navbar-nav .nav-link {
+  color: #555 !important;
+  font-weight: 400 !important;
+}
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+  color: #2a5db0 !important;
+}
+
+/* ── 4. Main content width ───────────────────────────────────────────────── */
+.container {
+  max-width: 900px !important;
+}
+
+/* ── 5. Profile / About page layout ─────────────────────────────────────── */
+
+/* Hide the default sidebar layout and reflow to single column */
+.profile {
+  float: none !important;
+  width: 100% !important;
+  margin: 0 0 0 0 !important;
+  padding: 0 !important;
+}
+
+/* The about page uses a row with two columns: profile img left, text right.
+   We want: image inline with text in a side-by-side header block */
+.post-header { display: none; }  /* hide default h1 above */
+
+/* Profile image: make it float right, smaller and cleaner */
+.profile img {
+  width: 140px !important;
+  height: 140px !important;
+  object-fit: cover !important;
+  border-radius: 6px !important;
+  box-shadow: none !important;
+  float: right !important;
+  margin: 0 0 20px 28px !important;
+}
+.profile .address,
+.profile p { display: none !important; }  /* hide address block under photo */
+
+/* Name heading */
+h1.post-title,
+.about h1 {
+  font-family: 'Lora', Georgia, serif !important;
+  font-size: 1.85rem !important;
+  font-weight: 500 !important;
+  letter-spacing: -0.01em !important;
+  line-height: 1.2 !important;
+  margin-bottom: 4px !important;
+  color: #1c1c1c !important;
+}
+
+/* Hangul name + links row we added in about.md */
+.about-name {
+  font-family: 'Lora', Georgia, serif !important;
+  font-size: 1.85rem !important;
+  font-weight: 500 !important;
+  margin-bottom: 2px !important;
+}
+.about-hangul {
+  font-size: 0.95rem !important;
+  color: #888 !important;
+  margin-bottom: 16px !important;
+  font-weight: 300 !important;
+}
+.about-links {
+  margin-top: 16px !important;
+  font-size: 0.875rem !important;
+  color: #555 !important;
+}
+.about-links a {
+  color: #2a5db0 !important;
+  text-decoration: none !important;
+  border-bottom: 1px solid transparent !important;
+  transition: border-color 0.15s !important;
+}
+.about-links a:hover {
+  border-color: #2a5db0 !important;
+  text-decoration: none !important;
+}
+
+/* Bio paragraphs */
+.post-description,
+.about-content p,
+article.post-content p {
+  font-size: 0.925rem !important;
+  color: #555 !important;
+  line-height: 1.8 !important;
+  margin-bottom: 0.9rem !important;
+}
+
+/* ── 6. Section headings (news, publications, etc.) ──────────────────────── */
+.post-content h2,
+.about h2,
+h2 {
+  font-family: 'Lora', Georgia, serif !important;
+  font-size: 1.1rem !important;
+  font-weight: 500 !important;
+  letter-spacing: -0.01em !important;
+  color: #1c1c1c !important;
+  border-bottom: 1px solid rgba(0,0,0,0.1) !important;
+  padding-bottom: 7px !important;
+  margin-top: 2.5rem !important;
+  margin-bottom: 1.2rem !important;
+}
+
+/* ── 7. News table ───────────────────────────────────────────────────────── */
+.news table {
+  border: none !important;
+  box-shadow: none !important;
+}
+.news table td,
+.news table th {
+  border: none !important;
+  border-bottom: 1px solid rgba(0,0,0,0.07) !important;
+  font-size: 0.875rem !important;
+  color: #555 !important;
+  line-height: 1.65 !important;
+  padding: 8px 0 !important;
+  background: transparent !important;
+  vertical-align: top !important;
+}
+.news table td:first-child {
+  color: #aaa !important;
+  font-size: 0.8rem !important;
+  white-space: nowrap !important;
+  padding-right: 20px !important;
+  width: 96px !important;
+  font-weight: 300 !important;
+}
+
+/* ── 8. Publications ─────────────────────────────────────────────────────── */
+.publications h2.bibliography {
+  font-family: 'Lora', serif !important;
+  font-size: 1.0rem !important;
+  color: #aaa !important;
+  border-bottom: 1px solid rgba(0,0,0,0.1) !important;
+  padding-bottom: 6px !important;
+  font-weight: 400 !important;
+}
+
+/* Remove numbered list style and thumbnail images */
+.publications ol.bibliography {
+  list-style: none !important;
+  padding: 0 !important;
+}
+
+.publications ol.bibliography li {
+  padding: 18px 0 !important;
+  border-bottom: 1px solid rgba(0,0,0,0.07) !important;
+  display: block !important;
+}
+
+/* Hide publication preview thumbnails */
+.publications ol.bibliography li .preview-image,
+.publications ol.bibliography li img.preview {
+  display: none !important;
+}
+
+.publications ol.bibliography li .title {
+  font-size: 0.925rem !important;
+  font-weight: 500 !important;
+  color: #1c1c1c !important;
+  line-height: 1.5 !important;
+  margin-bottom: 5px !important;
+  display: block !important;
+}
+
+.publications ol.bibliography li .author {
+  font-size: 0.855rem !important;
+  color: #777 !important;
+  margin-bottom: 4px !important;
+  display: block !important;
+}
+
+/* Bold/underline your own name in author list */
+.publications ol.bibliography li .author em,
+.publications ol.bibliography li .author strong {
+  font-style: normal !important;
+  font-weight: 500 !important;
+  color: #1c1c1c !important;
+  text-decoration: underline !important;
+  text-decoration-color: #ccc !important;
+}
+
+.publications ol.bibliography li .periodical {
+  font-size: 0.82rem !important;
+  color: #aaa !important;
+  font-style: italic !important;
+  margin-bottom: 9px !important;
+  display: block !important;
+}
+
+/* Publication action buttons */
+.publications ol.bibliography li .links a,
+.publications ol.bibliography li a.btn {
+  font-size: 0.72rem !important;
+  padding: 2px 9px !important;
+  border: 1px solid rgba(0,0,0,0.15) !important;
+  border-radius: 3px !important;
+  background: transparent !important;
+  color: #2a5db0 !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.04em !important;
+  text-transform: uppercase !important;
+  transition: background 0.12s, border-color 0.12s !important;
+  margin-right: 4px !important;
+  margin-bottom: 4px !important;
+  display: inline-block !important;
+  box-shadow: none !important;
+}
+.publications ol.bibliography li .links a:hover,
+.publications ol.bibliography li a.btn:hover {
+  background: #f0f4fb !important;
+  border-color: #9ab4de !important;
+  text-decoration: none !important;
+}
+
+/* Abstract expanded block */
+.publications ol.bibliography li .abstract {
+  font-size: 0.855rem !important;
+  color: #666 !important;
+  line-height: 1.75 !important;
+  padding: 12px 14px !important;
+  background: #f9f9f7 !important;
+  border-radius: 4px !important;
+  border-left: 3px solid #ddd !important;
+  margin-top: 10px !important;
+  border-top: none !important;
+}
+
+/* ── 9. Footer ───────────────────────────────────────────────────────────── */
+footer.fixed-bottom,
+footer.sticky-bottom,
+footer {
+  font-size: 0.78rem !important;
+  color: #aaa !important;
+  background: #f5f5f3 !important;
+  border-top: 1px solid rgba(0,0,0,0.08) !important;
+  box-shadow: none !important;
+}
+
+/* ── 10. Social icons (hide if not needed) ───────────────────────────────── */
+.social {
+  margin-top: 0 !important;
+}
+
+/* ── 11. Links globally ──────────────────────────────────────────────────── */
+a {
+  color: #2a5db0;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+a:hover {
+  color: #1a3f80;
+}
+
+/* ── 12. Remove card shadows on about page ───────────────────────────────── */
+.card {
+  box-shadow: none !important;
+  border: 1px solid rgba(0,0,0,0.1) !important;
+  border-radius: 6px !important;
+}
