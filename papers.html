@@ -13,7 +13,7 @@
       --bg:#ffffff; --bg-subtle:#f7f6f3; --ink:#191919; --ink-2:#454443;
       --ink-3:#9b9a97; --ink-4:#c7c6c4; --accent:#2e75ff; --accent-h:#1a5ce0;
       --rule:#e9e8e6; --sans:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
-      --max:720px; --pad:clamp(20px,5vw,48px);
+      --max:960px; --pad:clamp(24px,5vw,64px);
     }
     html { font-size:16px; scroll-behavior:smooth; }
     body { font-family:var(--sans); background:var(--bg); color:var(--ink); line-height:1.65; font-weight:400; -webkit-font-smoothing:antialiased; }
@@ -36,13 +36,29 @@
     .year-group:nth-child(1){animation-delay:0.1s} .year-group:nth-child(2){animation-delay:0.16s} .year-group:nth-child(3){animation-delay:0.22s}
     .year-label { font-size:0.7rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-3); margin-bottom:16px; }
     .pub-list { list-style:none; }
-    .pub-item { padding:18px 0; border-top:1px solid var(--rule); }
+    .pub-item { padding:22px 0; border-top:1px solid var(--rule); }
     .pub-item:last-child { border-bottom:1px solid var(--rule); }
-    .pub-title { font-size:0.925rem; font-weight:600; color:var(--ink); line-height:1.45; margin-bottom:5px; letter-spacing:-0.01em; }
-    .pub-authors { font-size:0.845rem; color:var(--ink-3); margin-bottom:3px; }
+    .pub-inner { display:grid; grid-template-columns:160px 1fr; gap:20px; align-items:start; }
+    .pub-figure {
+      width:160px; aspect-ratio:4/3; border-radius:7px;
+      background:var(--bg-subtle); border:1px solid var(--rule);
+      overflow:hidden; flex-shrink:0;
+    }
+    .pub-figure img { width:100%; height:100%; object-fit:cover; display:block; }
+    .pub-figure-placeholder {
+      width:100%; height:100%; display:flex; align-items:center; justify-content:center;
+      font-size:0.65rem; color:var(--ink-4); letter-spacing:0.05em; text-transform:uppercase;
+      text-align:center; padding:8px;
+    }
+    .pub-title { font-size:1rem; font-weight:600; color:var(--ink); line-height:1.45; margin-bottom:5px; letter-spacing:-0.01em; }
+    .pub-authors { font-size:0.915rem; color:var(--ink-3); margin-bottom:3px; }
     .pub-authors strong { color:var(--ink-2); font-weight:600; }
-    .pub-venue { font-size:0.8rem; color:var(--ink-3); font-style:italic; margin-bottom:11px; }
+    .pub-venue { font-size:0.875rem; color:var(--ink-3); font-style:italic; margin-bottom:11px; }
     .pub-btns { display:flex; flex-wrap:wrap; gap:6px; align-items:flex-start; }
+    @media (max-width:560px) {
+      .pub-inner { grid-template-columns:1fr; }
+      .pub-figure { width:100%; aspect-ratio:16/9; }
+    }
     .pill { font-size:0.73rem; font-weight:500; padding:4px 10px; border-radius:5px; border:1px solid var(--rule); color:var(--ink-2); background:var(--bg-subtle); text-decoration:none; transition:background 0.12s,border-color 0.12s,color 0.12s; font-family:var(--sans); cursor:pointer; display:inline-block; }
     .pill:hover { background:#e8edff; border-color:#b3c8ff; color:var(--accent); text-decoration:none; }
     .pill-blue { background:#edf3ff; border-color:#c0d4ff; color:var(--accent); }
@@ -54,6 +70,14 @@
     .abs-body { font-size:0.855rem; color:var(--ink-2); line-height:1.75; padding:14px 16px; background:var(--bg-subtle); border-radius:6px; margin-top:10px; }
     footer { margin-top:80px; padding-top:20px; border-top:1px solid var(--rule); font-size:0.77rem; color:var(--ink-3); }
   </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-M9CX181HC2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-M9CX181HC2');
+  </script>
 </head>
 <body>
 <nav>
@@ -80,14 +104,23 @@
     <div class="year-label">2026</div>
     <ul class="pub-list">
       <li class="pub-item">
-        <div class="pub-title">MM-SCALE: Grounded Multimodal Moral Reasoning via Scalar Judgment and Listwise Alignment</div>
-        <div class="pub-authors"><strong>Eunkyu Park</strong>, Wesley Hanwen Deng, Cheyon Jin, Matheus Kunzler Maldaner, Jordan Wheeler, Jason I. Hong, Hong Shen, Adam Perer, Ken Holstein, Motahhare Eslami, Gunhee Kim</div>
-        <div class="pub-venue">arXiv Pre-print · 2026</div>
-        <div class="pub-btns">
-          <details><summary>Abstract</summary>
-            <div class="abs-body">VLMs struggle with morally salient judgments in multimodal and socially ambiguous contexts. Prior works rely on binary or pairwise supervision, failing to capture the continuous and pluralistic nature of human moral reasoning. We present MM-SCALE, a large-scale dataset aligning VLMs with human moral preferences through 5-point scalar ratings and explicit modality grounding, enabling listwise preference optimization over ranked scenario sets for richer alignment signals and finer calibration of multimodal moral reasoning.</div>
-          </details>
-          <a class="pill pill-blue" href="https://arxiv.org/abs/2602.03665">arXiv</a>
+        <div class="pub-inner">
+          <div class="pub-figure">
+            <img src="assets/img/fig_mmscale.png" alt="MM-SCALE figure"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+            <div class="pub-figure-placeholder">add figure</div>
+          </div>
+          <div>
+            <div class="pub-title">MM-SCALE: Grounded Multimodal Moral Reasoning via Scalar Judgment and Listwise Alignment</div>
+            <div class="pub-authors"><strong>Eunkyu Park</strong>, Wesley Hanwen Deng, Cheyon Jin, and 8 more authors</div>
+            <div class="pub-venue">arXiv Pre-print · 2026</div>
+            <div class="pub-btns">
+              <details><summary>Abstract</summary>
+                <div class="abs-body">VLMs struggle with morally salient judgments in multimodal and socially ambiguous contexts. Prior works rely on binary or pairwise supervision, failing to capture the continuous and pluralistic nature of human moral reasoning. We present MM-SCALE, a large-scale dataset aligning VLMs with human moral preferences through 5-point scalar ratings and explicit modality grounding, enabling listwise preference optimization over ranked scenario sets for richer alignment signals and finer calibration of multimodal moral reasoning.</div>
+              </details>
+              <a class="pill pill-blue" href="https://arxiv.org/abs/2602.03665">arXiv</a>
+            </div>
+          </div>
         </div>
       </li>
     </ul>
@@ -97,36 +130,63 @@
     <div class="year-label">2025</div>
     <ul class="pub-list">
       <li class="pub-item">
-        <div class="pub-title">HalLoc: Token-level Localization of Hallucinations for Vision Language Models</div>
-        <div class="pub-authors"><strong>Eunkyu Park</strong>*, Minyeong Kim*, Gunhee Kim</div>
-        <div class="pub-venue">CVPR 2025</div>
-        <div class="pub-btns">
-          <details><summary>Abstract</summary>
-            <div class="abs-body">Hallucinations pose a significant challenge to the reliability of large vision-language models. Current detection methods often rely on computationally intensive models, leading to high latency and resource demands. We propose HalLoc, a dataset for efficient, probabilistic hallucination detection featuring 150K token-level annotated samples across VQA, instruction-following, and image captioning tasks. We also introduce a baseline model offering low-overhead, concurrent hallucination detection during generation.</div>
-          </details>
-          <a class="pill pill-blue" href="https://huggingface.co/datasets/uunicee/HalLoc">Dataset</a>
+        <div class="pub-inner">
+          <div class="pub-figure">
+            <img src="assets/img/halloc_prev.jpg" alt="HalLoc figure"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+            <div class="pub-figure-placeholder">add figure</div>
+          </div>
+          <div>
+            <div class="pub-title">HalLoc: Token-level Localization of Hallucinations for Vision Language Models</div>
+            <div class="pub-authors"><strong>Eunkyu Park</strong>*, Minyeong Kim*, Gunhee Kim</div>
+            <div class="pub-venue">CVPR 2025</div>
+            <div class="pub-btns">
+              <details><summary>Abstract</summary>
+                <div class="abs-body">Hallucinations pose a significant challenge to the reliability of large vision-language models. Current detection methods often rely on computationally intensive models, leading to high latency and resource demands. We propose HalLoc, a dataset for efficient, probabilistic hallucination detection featuring 150K token-level annotated samples across VQA, instruction-following, and image captioning tasks. We also introduce a baseline model offering low-overhead, concurrent hallucination detection during generation.</div>
+              </details>
+              <a class="pill pill-blue" href="https://huggingface.co/datasets/uunicee/HalLoc">Dataset</a>
+            </div>
+          </div>
         </div>
       </li>
       <li class="pub-item">
-        <div class="pub-title">Cognitive Chain-of-Thought: Structured Multimodal Reasoning about Social Situations</div>
-        <div class="pub-authors"><strong>Eunkyu Park</strong>, Wesley Hanwen Deng, Gunhee Kim, Motahhare Eslami, Maarten Sap</div>
-        <div class="pub-venue">Pre-print, Under Review · 2025</div>
-        <div class="pub-btns">
-          <details><summary>Abstract</summary>
-            <div class="abs-body">Chain-of-Thought (CoT) prompting helps models think step by step — but what happens when they must see, understand, and judge all at once? In visual tasks grounded in social context, flat CoT often breaks down. We introduce Cognitive Chain-of-Thought (CoCoT), a prompting strategy scaffolding VLM reasoning through three stages: perception, situation, and norm. CoCoT consistently outperforms CoT and direct prompting (+8% on average) across multiple multimodal benchmarks.</div>
-          </details>
-          <a class="pill pill-blue" href="https://arxiv.org/abs/2507.20409">arXiv</a>
+        <div class="pub-inner">
+          <div class="pub-figure">
+            <img src="assets/img/cocot_prev.png" alt="CoCoT figure"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+            <div class="pub-figure-placeholder">add figure</div>
+          </div>
+          <div>
+            <div class="pub-title">Cognitive Chain-of-Thought: Structured Multimodal Reasoning about Social Situations</div>
+            <div class="pub-authors"><strong>Eunkyu Park</strong> et al.</div>
+            <div class="pub-venue">Pre-print, Under Review · 2025</div>
+            <div class="pub-btns">
+              <details><summary>Abstract</summary>
+                <div class="abs-body">Chain-of-Thought (CoT) prompting helps models think step by step — but what happens when they must see, understand, and judge all at once? In visual tasks grounded in social context, flat CoT often breaks down. We introduce Cognitive Chain-of-Thought (CoCoT), a prompting strategy scaffolding VLM reasoning through three stages: perception, situation, and norm. CoCoT consistently outperforms CoT and direct prompting (+8% on average) across multiple multimodal benchmarks.</div>
+              </details>
+              <a class="pill pill-blue" href="https://arxiv.org/abs/2507.20409">arXiv</a>
+            </div>
+          </div>
         </div>
       </li>
       <li class="pub-item">
-        <div class="pub-title">Critical or Compliant? The Double-Edged Sword of Reasoning in Chain-of-Thought Explanations</div>
-        <div class="pub-authors"><strong>Eunkyu Park</strong>, Wesley Hanwen Deng, Vasudha Varadarajan, Mingxi Yan, Gunhee Kim, Maarten Sap*, Motahhare Eslami*</div>
-        <div class="pub-venue">arXiv Pre-print · 2025</div>
-        <div class="pub-btns">
-          <details><summary>Abstract</summary>
-            <div class="abs-body">Explanations are often promoted as tools for transparency, but they can also foster confirmation bias. We study the double-edged role of CoT explanations in multimodal moral scenarios by systematically perturbing reasoning chains and manipulating delivery tones. We find: (1) users equate trust with outcome agreement, sustaining reliance even when reasoning is flawed, and (2) confident tone suppresses error detection while maintaining reliance — showing delivery style can override correctness.</div>
-          </details>
-          <a class="pill pill-blue" href="https://arxiv.org/abs/2511.12001">arXiv</a>
+        <div class="pub-inner">
+          <div class="pub-figure">
+            <img src="assets/img/fig_critical.png" alt="Critical or Compliant figure"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+            <div class="pub-figure-placeholder">add figure</div>
+          </div>
+          <div>
+            <div class="pub-title">Critical or Compliant? The Double-Edged Sword of Reasoning in Chain-of-Thought Explanations</div>
+            <div class="pub-authors"><strong>Eunkyu Park</strong>, Wesley Hanwen Deng, Vasudha Varadarajan, and 4 more authors</div>
+            <div class="pub-venue">arXiv Pre-print · 2025</div>
+            <div class="pub-btns">
+              <details><summary>Abstract</summary>
+                <div class="abs-body">Explanations are often promoted as tools for transparency, but they can also foster confirmation bias. We study the double-edged role of CoT explanations in multimodal moral scenarios by systematically perturbing reasoning chains and manipulating delivery tones. We find: (1) users equate trust with outcome agreement, sustaining reliance even when reasoning is flawed, and (2) confident tone suppresses error detection while maintaining reliance — showing delivery style can override correctness.</div>
+              </details>
+              <a class="pill pill-blue" href="https://arxiv.org/abs/2511.12001">arXiv</a>
+            </div>
+          </div>
         </div>
       </li>
     </ul>
