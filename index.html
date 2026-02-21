@@ -21,7 +21,7 @@
       --rule:      #e9e8e6;
       --sans:      'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       --max:       960px;
-      --pad:       clamp(20px, 5vw, 48px);
+      --pad:       clamp(24px, 5vw, 64px);
     }
     html { font-size: 16px; scroll-behavior: smooth; }
     body {
@@ -66,8 +66,8 @@
 
     /* HERO */
     .hero {
-      display: grid; grid-template-columns: 1fr 136px;
-      gap: 40px; align-items: start;
+      display: grid; grid-template-columns: 1fr 240px;
+      gap: 48px; align-items: start;
       padding-bottom: 60px; border-bottom: 1px solid var(--rule);
       margin-bottom: 64px;
       opacity: 0; animation: fadeup 0.4s ease 0.05s forwards;
@@ -86,8 +86,8 @@
       letter-spacing: 0.04em; margin-bottom: 20px;
     }
     .hero p {
-      font-size: 0.925rem; color: var(--ink-2);
-      line-height: 1.75; font-weight: 400; margin-bottom: 10px;
+      font-size: 1rem; color: var(--ink-2);
+      line-height: 1.78; font-weight: 400; margin-bottom: 12px;
     }
     .hero p a { color: var(--accent); font-weight: 500; }
     .hero p a:hover { color: var(--accent-h); text-decoration: underline; }
@@ -101,11 +101,11 @@
     .hero-links .sep { color: var(--ink-4); margin: 0 10px; font-weight: 300; }
 
     .hero-photo img {
-      width: 240; height: 309px; border-radius: 10px;
+      width: 240px; height: auto; border-radius: 10px;
       object-fit: cover; display: block;
     }
     .photo-fallback {
-      width: 136px; height: 136px; border-radius: 10px;
+      width: 240px; height: 309px; border-radius: 10px;
       background: var(--bg-subtle); display: none;
       align-items: center; justify-content: center;
       font-size: 0.7rem; color: var(--ink-3); letter-spacing: 0.05em;
@@ -143,10 +143,10 @@
     /* NEWS */
     .news-list { list-style: none; }
     .news-item {
-      display: grid; grid-template-columns: 76px 1fr;
-      gap: 0 16px; padding: 10px 0;
+      display: grid; grid-template-columns: 86px 1fr;
+      gap: 0 20px; padding: 11px 0;
       border-top: 1px solid var(--rule);
-      font-size: 0.875rem; line-height: 1.6; align-items: baseline;
+      font-size: 0.95rem; line-height: 1.65; align-items: baseline;
     }
     .news-item:last-child { border-bottom: 1px solid var(--rule); }
     .nd { font-size: 0.76rem; color: var(--ink-3); font-weight: 400; }
@@ -159,12 +159,12 @@
     .pub-item { padding: 18px 0; border-top: 1px solid var(--rule); }
     .pub-item:last-child { border-bottom: 1px solid var(--rule); }
     .pub-title {
-      font-size: 0.925rem; font-weight: 600; color: var(--ink);
+      font-size: 1rem; font-weight: 600; color: var(--ink);
       line-height: 1.45; margin-bottom: 5px; letter-spacing: -0.01em;
     }
-    .pub-authors { font-size: 0.845rem; color: var(--ink-3); margin-bottom: 3px; font-weight: 400; }
+    .pub-authors { font-size: 0.915rem; color: var(--ink-3); margin-bottom: 3px; font-weight: 400; }
     .pub-authors strong { color: var(--ink-2); font-weight: 600; }
-    .pub-venue { font-size: 0.8rem; color: var(--ink-3); font-style: italic; margin-bottom: 11px; }
+    .pub-venue { font-size: 0.875rem; color: var(--ink-3); font-style: italic; margin-bottom: 11px; }
     .pub-btns { display: flex; flex-wrap: wrap; gap: 6px; align-items: flex-start; }
 
     .pill {
@@ -207,6 +207,59 @@
     .edu-school { font-size: 0.845rem; color: var(--ink-3); font-weight: 400; margin-top: 1px; }
     .edu-year { font-size: 0.78rem; color: var(--ink-3); white-space: nowrap; flex-shrink: 0; }
 
+    /* RESEARCH THEMES */
+    .research-themes { display: flex; flex-direction: column; }
+    .theme-item {
+      padding: 20px 0; border-top: 1px solid var(--rule);
+    }
+    .theme-item:last-child { border-bottom: 1px solid var(--rule); }
+    .theme-header {
+      display: flex; align-items: baseline; gap: 10px; margin-bottom: 8px;
+    }
+    .theme-number {
+      font-size: 0.72rem; font-weight: 600; color: var(--ink-4);
+      letter-spacing: 0.06em; flex-shrink: 0;
+    }
+    .theme-title {
+      font-size: 0.975rem; font-weight: 700; color: var(--ink);
+      letter-spacing: -0.01em; line-height: 1.3;
+    }
+    .theme-desc {
+      font-size: 0.9rem; color: var(--ink-2); line-height: 1.75;
+      font-weight: 400; margin-bottom: 10px;
+    }
+    .theme-desc em { font-style: italic; color: var(--ink); }
+
+    /* pink highlight tags */
+    .theme-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+    .tag {
+      font-size: 0.72rem; font-weight: 600; padding: 3px 9px;
+      border-radius: 20px; letter-spacing: 0.02em;
+    }
+    .tag-pink { background: #fce7f0; color: #b5265a; border: 1px solid #f4b8d0; }
+
+    /* paper rows */
+    .theme-papers { display: flex; flex-direction: column; gap: 7px; }
+    .theme-paper-row {
+      display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+    }
+    .theme-paper-venue {
+      font-size: 0.7rem; font-weight: 600; letter-spacing: 0.06em;
+      text-transform: uppercase; color: var(--ink-3); flex-shrink: 0;
+    }
+    .theme-paper-name {
+      font-size: 0.875rem; font-weight: 600; color: var(--ink);
+      letter-spacing: -0.01em;
+    }
+    .theme-paper-pills { display: flex; gap: 5px; }
+    .paper-kw {
+      font-size: 0.7rem; font-weight: 500; padding: 2px 8px;
+      border-radius: 4px; border: 1px solid #c0d4ff;
+      background: #edf3ff; color: var(--accent);
+      text-decoration: none; transition: background 0.12s;
+    }
+    .paper-kw:hover { background: #dce8ff; text-decoration: none; }
+
     /* FOOTER */
     footer {
       margin-top: 80px; padding-top: 20px;
@@ -218,7 +271,7 @@
     @media (max-width: 500px) {
       .hero { grid-template-columns: 1fr; }
       .hero-photo { order: -1; }
-      .hero-photo img, .photo-fallback { width: 96px; height: 96px; }
+      .hero-photo img, .photo-fallback { width: 120px; height: auto; }
       .news-item { grid-template-columns: 1fr; gap: 2px; }
       .edu-item { flex-direction: column; gap: 2px; }
     }
@@ -254,20 +307,19 @@
       <h1>Eunkyu (Eunice) Park</h1>
       <div class="hangul">박은규</div>
 
-      <p>Ph.D. Candidate in Artificial Intelligence at
+      <p>Hello!👋🏻 I am a Ph.D. Candidate in Artificial Intelligence at
         <a href="https://vision.snu.ac.kr/">Seoul National University (SNUVL)</a>,
         advised by <a href="https://vision.snu.ac.kr/gunhee/">Gunhee Kim</a>.
-        Currently a Visiting Researcher at <a href="https://hcii.cmu.edu/">CMU HCII</a>
+        Currently, I am a Visiting Researcher at <a href="https://hcii.cmu.edu/">CMU Human Computer Interaction Institute (HCII)</a>
         with <a href="https://www.motahhare.com/">Motahhare Eslami</a>, and
-        collaborating closely with <a href="https://maartensap.com/">Maarten Sap</a> at CMU LTI.</p>
+        work closely with <a href="https://maartensap.com/">Maarten Sap</a> at CMU Language Technologies Institute (LTI).</p>
 
-      <p>My research centers on the <strong>trustworthiness and interpretability of Vision-Language Models (VLMs)</strong> —
-        spanning bias-driven hallucinations, multimodal moral reasoning, and scaffolding
-        intermediate reasoning to evaluate and calibrate user trust. I design benchmarks,
+      <p>My research centers on the <strong>trustworthiness and interpretability of multimodal AI systems</strong> —
+        spanning bias-driven hallucinations, multimodal moral reasoning, and better scaffolded reasoning to evaluate and calibrate user trust. I design benchmarks,
         annotation pipelines, and preference learning techniques to improve transparency,
         safety, and alignment of multimodal systems.</p>
 
-      <p>In my free time I enjoy golf ⛳, football ⚽🩵, and good food and wine with good company ☀️.</p>
+      <p>In my free time I play golf ⛳, watching football ⚽🩵, and good food and wine with good company ☀️.</p>
 
       <div class="hero-links">
         <a href="assets/pdf/EunkyuPark_Resume2506.pdf">Curriculum Vitae</a>
