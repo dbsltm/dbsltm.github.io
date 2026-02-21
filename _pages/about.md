@@ -18,7 +18,7 @@ announcements:
   scrollable: false
   limit: 5
 ---
-
+## Eunkyu (Eunice) Park
 Hello! I am a Ph.D. student in Artificial Intelligence at Seoul National University, advised by Professor [Gunhee Kim](https://vision.snu.ac.kr/gunhee/). Before SNU, I received my B.S. in Computer Science from Columbia University 🗽 and a B.A. in Mathematics from Bard College. I am currently visiting Carnegie Mellon University's Human-Computer Interaction Institute (HCII) as a Collaborative Researcher with Professor [Motahhare Eslami](https://www.motahhare.com/)'s lab. I also work closely with Professor [Maarten Sap](https://maartensap.com/index.html) at Carnegie Mellon University's Language Technologies Institute.
 
 My research centers on multimodal AI, with a focus on the **trustworthiness and interpretability of Vision-Language Models (VLMs)**. Previous works range from (1) bias-driven hallucinations in VLMs—examining how biases in model components can lead to unfaithful outputs to (2) how VLMs make moral judgments in multimodal contexts, and how their outputs align (or misalign) with human values. Most recently, my work investigates how to scaffold intermediate reasoning in order to better evaluate and calibrate user trust in model outputs. Across these directions, I design benchmarks, annotation pipelines, and preference learning techniques to improve the transparency, safety, and alignment of multimodal systems.
