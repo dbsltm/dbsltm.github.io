@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Papers — Eunkyu (Eunice) Park</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg:#ffffff; --bg-subtle:#f7f6f3; --ink:#191919; --ink-2:#454443;
+      --ink-3:#9b9a97; --ink-4:#c7c6c4; --accent:#2e75ff; --accent-h:#1a5ce0;
+      --rule:#e9e8e6; --sans:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+      --max:720px; --pad:clamp(20px,5vw,48px);
+    }
+    html { font-size:16px; scroll-behavior:smooth; }
+    body { font-family:var(--sans); background:var(--bg); color:var(--ink); line-height:1.65; font-weight:400; -webkit-font-smoothing:antialiased; }
+    a { color:var(--accent); text-decoration:none; transition:color 0.12s; }
+    a:hover { color:var(--accent-h); }
+    nav { position:sticky; top:0; z-index:100; background:rgba(255,255,255,0.92); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border-bottom:1px solid var(--rule); padding:0 var(--pad); }
+    .nav-inner { max-width:var(--max); margin:0 auto; display:flex; align-items:center; justify-content:space-between; height:50px; }
+    .nav-name { font-size:0.875rem; font-weight:600; color:var(--ink); text-decoration:none; letter-spacing:-0.01em; }
+    .nav-links { display:flex; gap:6px; list-style:none; }
+    .nav-links a { font-size:0.8rem; font-weight:500; color:var(--ink-3); text-decoration:none; padding:5px 10px; border-radius:5px; transition:background 0.12s,color 0.12s; }
+    .nav-links a:hover, .nav-links a.active { background:var(--bg-subtle); color:var(--ink); }
+    .page { max-width:var(--max); margin:0 auto; padding:64px var(--pad) 120px; }
+    .page-header { margin-bottom:48px; opacity:0; animation:fadeup 0.4s ease 0.05s forwards; }
+    @keyframes fadeup { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
+    .back-link { display:inline-flex; align-items:center; gap:5px; font-size:0.8rem; font-weight:500; color:var(--ink-3); margin-bottom:20px; transition:color 0.12s; }
+    .back-link:hover { color:var(--accent); }
+    .page-header h1 { font-size:1.8rem; font-weight:700; letter-spacing:-0.03em; color:var(--ink); margin-bottom:6px; }
+    .page-header p { font-size:0.9rem; color:var(--ink-3); }
+    .year-group { margin-bottom:48px; opacity:0; animation:fadeup 0.4s ease forwards; }
+    .year-group:nth-child(1){animation-delay:0.1s} .year-group:nth-child(2){animation-delay:0.16s} .year-group:nth-child(3){animation-delay:0.22s}
+    .year-label { font-size:0.7rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-3); margin-bottom:16px; }
+    .pub-list { list-style:none; }
+    .pub-item { padding:18px 0; border-top:1px solid var(--rule); }
+    .pub-item:last-child { border-bottom:1px solid var(--rule); }
+    .pub-title { font-size:0.925rem; font-weight:600; color:var(--ink); line-height:1.45; margin-bottom:5px; letter-spacing:-0.01em; }
+    .pub-authors { font-size:0.845rem; color:var(--ink-3); margin-bottom:3px; }
+    .pub-authors strong { color:var(--ink-2); font-weight:600; }
+    .pub-venue { font-size:0.8rem; color:var(--ink-3); font-style:italic; margin-bottom:11px; }
+    .pub-btns { display:flex; flex-wrap:wrap; gap:6px; align-items:flex-start; }
+    .pill { font-size:0.73rem; font-weight:500; padding:4px 10px; border-radius:5px; border:1px solid var(--rule); color:var(--ink-2); background:var(--bg-subtle); text-decoration:none; transition:background 0.12s,border-color 0.12s,color 0.12s; font-family:var(--sans); cursor:pointer; display:inline-block; }
+    .pill:hover { background:#e8edff; border-color:#b3c8ff; color:var(--accent); text-decoration:none; }
+    .pill-blue { background:#edf3ff; border-color:#c0d4ff; color:var(--accent); }
+    .pill-blue:hover { background:#dce8ff; }
+    details { display:inline-block; }
+    details summary { font-size:0.73rem; font-weight:500; padding:4px 10px; border-radius:5px; border:1px solid var(--rule); color:var(--ink-3); background:var(--bg-subtle); cursor:pointer; list-style:none; transition:background 0.12s,color 0.12s; user-select:none; font-family:var(--sans); }
+    details summary::-webkit-details-marker { display:none; }
+    details[open] summary, details summary:hover { background:#f0f0ee; color:var(--ink-2); }
+    .abs-body { font-size:0.855rem; color:var(--ink-2); line-height:1.75; padding:14px 16px; background:var(--bg-subtle); border-radius:6px; margin-top:10px; }
+    footer { margin-top:80px; padding-top:20px; border-top:1px solid var(--rule); font-size:0.77rem; color:var(--ink-3); }
+  </style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-name">Eunkyu (Eunice) Park</a>
+    <ul class="nav-links">
+      <li><a href="index.html#news">News</a></li>
+      <li><a href="papers.html" class="active">Papers</a></li>
+      <li><a href="assets/pdf/EunkyuPark_Resume2506.pdf">CV</a></li>
+    </ul>
+  </div>
+</nav>
+<div class="page">
+  <div class="page-header">
+    <a href="index.html" class="back-link">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+      Back
+    </a>
+    <h1>Publications</h1>
+    <p>* denotes equal contribution</p>
+  </div>
+
+  <div class="year-group">
+    <div class="year-label">2026</div>
+    <ul class="pub-list">
+      <li class="pub-item">
+        <div class="pub-title">MM-SCALE: Grounded Multimodal Moral Reasoning via Scalar Judgment and Listwise Alignment</div>
+        <div class="pub-authors"><strong>Eunkyu Park</strong>, Wesley Hanwen Deng, Cheyon Jin, and 8 more authors</div>
+        <div class="pub-venue">arXiv Pre-print · 2026</div>
+        <div class="pub-btns">
+          <details><summary>Abstract</summary>
+            <div class="abs-body">VLMs struggle with morally salient judgments in multimodal and socially ambiguous contexts. Prior works rely on binary or pairwise supervision, failing to capture the continuous and pluralistic nature of human moral reasoning. We present MM-SCALE, a large-scale dataset aligning VLMs with human moral preferences through 5-point scalar ratings and explicit modality grounding, enabling listwise preference optimization over ranked scenario sets for richer alignment signals and finer calibration of multimodal moral reasoning.</div>
+          </details>
+          <a class="pill pill-blue" href="https://arxiv.org/abs/2602.03665">arXiv</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="year-group">
+    <div class="year-label">2025</div>
+    <ul class="pub-list">
+      <li class="pub-item">
+        <div class="pub-title">HalLoc: Token-level Localization of Hallucinations for Vision Language Models</div>
+        <div class="pub-authors"><strong>Eunkyu Park</strong>*, Minyeong Kim*, Gunhee Kim</div>
+        <div class="pub-venue">CVPR 2025</div>
+        <div class="pub-btns">
+          <details><summary>Abstract</summary>
+            <div class="abs-body">Hallucinations pose a significant challenge to the reliability of large vision-language models. Current detection methods often rely on computationally intensive models, leading to high latency and resource demands. We propose HalLoc, a dataset for efficient, probabilistic hallucination detection featuring 150K token-level annotated samples across VQA, instruction-following, and image captioning tasks. We also introduce a baseline model offering low-overhead, concurrent hallucination detection during generation.</div>
+          </details>
+          <a class="pill pill-blue" href="https://huggingface.co/datasets/uunicee/HalLoc">Dataset</a>
+        </div>
+      </li>
+      <li class="pub-item">
+        <div class="pub-title">Cognitive Chain-of-Thought: Structured Multimodal Reasoning about Social Situations</div>
+        <div class="pub-authors"><strong>Eunkyu Park</strong> et al.</div>
+        <div class="pub-venue">Pre-print, Under Review · 2025</div>
+        <div class="pub-btns">
+          <details><summary>Abstract</summary>
+            <div class="abs-body">Chain-of-Thought (CoT) prompting helps models think step by step — but what happens when they must see, understand, and judge all at once? In visual tasks grounded in social context, flat CoT often breaks down. We introduce Cognitive Chain-of-Thought (CoCoT), a prompting strategy scaffolding VLM reasoning through three stages: perception, situation, and norm. CoCoT consistently outperforms CoT and direct prompting (+8% on average) across multiple multimodal benchmarks.</div>
+          </details>
+          <a class="pill pill-blue" href="https://arxiv.org/abs/2507.20409">arXiv</a>
+        </div>
+      </li>
+      <li class="pub-item">
+        <div class="pub-title">Critical or Compliant? The Double-Edged Sword of Reasoning in Chain-of-Thought Explanations</div>
+        <div class="pub-authors"><strong>Eunkyu Park</strong>, Wesley Hanwen Deng, Vasudha Varadarajan, and 4 more authors</div>
+        <div class="pub-venue">arXiv Pre-print · 2025</div>
+        <div class="pub-btns">
+          <details><summary>Abstract</summary>
+            <div class="abs-body">Explanations are often promoted as tools for transparency, but they can also foster confirmation bias. We study the double-edged role of CoT explanations in multimodal moral scenarios by systematically perturbing reasoning chains and manipulating delivery tones. We find: (1) users equate trust with outcome agreement, sustaining reliance even when reasoning is flawed, and (2) confident tone suppresses error detection while maintaining reliance — showing delivery style can override correctness.</div>
+          </details>
+          <a class="pill pill-blue" href="https://arxiv.org/abs/2511.12001">arXiv</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <footer>© 2026 Eunkyu (Eunice) Park</footer>
+</div>
+</body>
+</html>
