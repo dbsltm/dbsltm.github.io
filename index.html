@@ -223,6 +223,15 @@
       .edu-item { flex-direction: column; gap: 2px; }
     }
   </style>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-M9CX181HC2"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-M9CX181HC2');
+</script>
 </head>
 <body>
 
@@ -333,81 +342,82 @@
       My research asks: <strong>How can we design multimodal AI systems whose reasoning is transparent, trustworthy, and genuinely aligned with human values — and how do humans perceive, interact with, and sometimes misplace trust in these systems?</strong> I pursue this vision through three interrelated research themes:
     </p>
     <div class="research-themes">
+
       <div class="theme-item">
-        <div class="theme-number">01</div>
-        <div class="theme-body">
-          <div class="theme-title">Trustworthiness & Interpretability of Vision-Language Models</div>
-          <div class="theme-desc">I develop methods to detect and localize failures in VLMs, examining how model biases lead to unfaithful outputs. I also study <em>alignment</em> — whether a model's internal reasoning and outputs faithfully reflect human values and intentions, rather than superficially mimicking them.</div>
-          <div class="theme-papers">
-            <a class="theme-paper" href="https://huggingface.co/datasets/uunicee/HalLoc">
-              <span class="theme-paper-venue">CVPR 2025</span>
-              <span class="theme-paper-title">HalLoc: Token-level Localization of Hallucinations for Vision Language Models</span>
-            </a>
+        <div class="theme-header">
+          <span class="theme-number">01</span>
+          <span class="theme-title">Trustworthiness &amp; Interpretability of Vision-Language Models</span>
+        </div>
+        <div class="theme-desc">I develop methods to detect and localize failures in VLMs, examining how model biases lead to unfaithful outputs. I also study <em>alignment</em> — whether a model's internal reasoning and outputs faithfully reflect human values and intentions, rather than superficially mimicking them.</div>
+        <div class="theme-tags">
+          <span class="tag tag-pink">hallucination detection</span>
+          <span class="tag tag-pink">bias in VLMs</span>
+          <span class="tag tag-pink">alignment</span>
+        </div>
+        <div class="theme-papers">
+          <div class="theme-paper-row">
+            <span class="theme-paper-venue">CVPR 2025</span>
+            <span class="theme-paper-name">HalLoc</span>
+            <div class="theme-paper-pills">
+              <a class="paper-kw" href="https://huggingface.co/datasets/uunicee/HalLoc">Dataset</a>
+            </div>
           </div>
         </div>
       </div>
+
       <div class="theme-item">
-        <div class="theme-number">02</div>
-        <div class="theme-body">
-          <div class="theme-title">Human Perception of AI Reasoning</div>
-          <div class="theme-desc">I investigate how people evaluate, trust, and are misled by AI-generated reasoning chains. Using behavioral experiments and real-world deployments, I examine when chain-of-thought explanations genuinely support critical thinking versus when they create false confidence — and what interaction designs can encourage more careful human oversight.</div>
-          <div class="theme-papers">
-            <a class="theme-paper" href="https://arxiv.org/abs/2511.12001">
-              <span class="theme-paper-venue">arXiv 2025</span>
-              <span class="theme-paper-title">Critical or Compliant? The Double-Edged Sword of Reasoning in Chain-of-Thought Explanations</span>
-            </a>
-            <a class="theme-paper" href="https://arxiv.org/abs/2507.20409">
-              <span class="theme-paper-venue">Pre-print 2025</span>
-              <span class="theme-paper-title">Cognitive Chain-of-Thought: Structured Multimodal Reasoning about Social Situations</span>
-            </a>
+        <div class="theme-header">
+          <span class="theme-number">02</span>
+          <span class="theme-title">Human Perception of AI Reasoning</span>
+        </div>
+        <div class="theme-desc">I investigate how people evaluate, trust, and are misled by AI-generated reasoning chains. Using behavioral experiments and real-world deployments, I examine when chain-of-thought explanations genuinely support critical thinking versus when they create false confidence — and what interaction designs can encourage more careful human oversight.</div>
+        <div class="theme-tags">
+          <span class="tag tag-pink">chain-of-thought</span>
+          <span class="tag tag-pink">human-AI trust</span>
+          <span class="tag tag-pink">HCI</span>
+          <span class="tag tag-pink">reasoning evaluation</span>
+        </div>
+        <div class="theme-papers">
+          <div class="theme-paper-row">
+            <span class="theme-paper-venue">arXiv 2025</span>
+            <span class="theme-paper-name">Critical or Compliant?</span>
+            <div class="theme-paper-pills">
+              <a class="paper-kw" href="https://arxiv.org/abs/2511.12001">arXiv</a>
+            </div>
+          </div>
+          <div class="theme-paper-row">
+            <span class="theme-paper-venue">Pre-print 2025</span>
+            <span class="theme-paper-name">CoCoT</span>
+            <div class="theme-paper-pills">
+              <a class="paper-kw" href="https://arxiv.org/abs/2507.20409">arXiv</a>
+            </div>
           </div>
         </div>
       </div>
+
       <div class="theme-item">
-        <div class="theme-number">03</div>
-        <div class="theme-body">
-          <div class="theme-title">Multimodal Moral & Social Reasoning</div>
-          <div class="theme-desc">I design benchmarks and preference learning frameworks that capture the continuous, pluralistic nature of human moral judgment across text and image contexts — moving beyond binary labels toward richer, more human-aligned supervision signals.</div>
-          <div class="theme-papers">
-            <a class="theme-paper" href="https://arxiv.org/abs/2602.03665">
-              <span class="theme-paper-venue">arXiv 2026</span>
-              <span class="theme-paper-title">MM-SCALE: Grounded Multimodal Moral Reasoning via Scalar Judgment and Listwise Alignment</span>
-            </a>
+        <div class="theme-header">
+          <span class="theme-number">03</span>
+          <span class="theme-title">Multimodal Moral &amp; Social Reasoning</span>
+        </div>
+        <div class="theme-desc">I design benchmarks and preference learning frameworks that capture the continuous, pluralistic nature of human moral judgment across text and image contexts — moving beyond binary labels toward richer, more human-aligned supervision signals.</div>
+        <div class="theme-tags">
+          <span class="tag tag-pink">moral reasoning</span>
+          <span class="tag tag-pink">value alignment</span>
+          <span class="tag tag-pink">multimodal benchmarks</span>
+        </div>
+        <div class="theme-papers">
+          <div class="theme-paper-row">
+            <span class="theme-paper-venue">arXiv 2026</span>
+            <span class="theme-paper-name">MM-SCALE</span>
+            <div class="theme-paper-pills">
+              <a class="paper-kw" href="https://arxiv.org/abs/2602.03665">arXiv</a>
+            </div>
           </div>
         </div>
       </div>
+
     </div>
-  </section>
-  <!-- SELECTED PAPERS -->
-  <section id="papers">
-    <div class="section-title">Selected Papers 📤 &nbsp;<a href="papers.html" style="font-size:0.72rem; font-weight:500; text-transform:none; letter-spacing:0; color:var(--accent);">View all →</a></div>
-    <ul class="pub-list">
-
-      <li class="pub-item">
-        <div class="pub-title">HalLoc: Token-level Localization of Hallucinations for Vision Language Models</div>
-        <div class="pub-authors"><strong>Eunkyu Park</strong>*, Minyeong Kim*, Gunhee Kim</div>
-        <div class="pub-venue">CVPR 2025</div>
-        <div class="pub-btns">
-          <details><summary>Abstract</summary>
-            <div class="abs-body">Hallucinations pose a significant challenge to the reliability of large vision-language models. We propose HalLoc, a dataset for efficient, probabilistic hallucination detection featuring 150K token-level annotated samples across VQA, instruction-following, and image captioning tasks. We also introduce a baseline model offering low-overhead, concurrent hallucination detection during generation.</div>
-          </details>
-          <a class="pill pill-blue" href="https://huggingface.co/datasets/uunicee/HalLoc">Dataset</a>
-        </div>
-      </li>
-
-      <li class="pub-item">
-        <div class="pub-title">Cognitive Chain-of-Thought: Structured Multimodal Reasoning about Social Situations</div>
-        <div class="pub-authors"><strong>Eunkyu Park</strong> et al.</div>
-        <div class="pub-venue">Pre-print, Under Review · 2025</div>
-        <div class="pub-btns">
-          <details><summary>Abstract</summary>
-            <div class="abs-body">We introduce Cognitive Chain-of-Thought (CoCoT), a prompting strategy that scaffolds VLM reasoning through three stages: perception, situation, and norm. CoCoT consistently outperforms CoT and direct prompting (+8% on average) across multiple multimodal benchmarks.</div>
-          </details>
-          <a class="pill pill-blue" href="https://arxiv.org/abs/2507.20409">arXiv</a>
-        </div>
-      </li>
-
-    </ul>
   </section>
 
   <!-- EDUCATION -->
