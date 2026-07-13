@@ -36,6 +36,9 @@
     .year-group { margin-bottom:48px; opacity:0; animation:fadeup 0.4s ease forwards; }
     .year-group:nth-child(1){animation-delay:0.1s} .year-group:nth-child(2){animation-delay:0.16s} .year-group:nth-child(3){animation-delay:0.22s}
     .year-label { font-size:0.7rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-3); margin-bottom:16px; }
+    .pub-section { margin-bottom:56px; opacity:0; animation:fadeup 0.4s ease forwards; }
+    .pub-section:nth-of-type(1){animation-delay:0.1s} .pub-section:nth-of-type(2){animation-delay:0.18s}
+    .pub-section-title { font-size:1.15rem; font-weight:700; letter-spacing:-0.02em; color:var(--ink); margin-bottom:24px; padding-bottom:10px; border-bottom:1px solid var(--rule); }
     .pub-list { list-style:none; }
     .pub-item { padding:22px 0; border-top:1px solid var(--rule); }
     .pub-item:last-child { border-bottom:1px solid var(--rule); }
@@ -97,39 +100,33 @@
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
       Back
     </a>
-    <h1>Publications</h1>
+    <h1>Papers</h1>
     <p>* denotes equal contribution</p>
   </div>
 
-  <div class="year-group">
-    <div class="year-label">2026</div>
+  <div class="pub-section">
+    <div class="pub-section-title">Publications</div>
     <ul class="pub-list">
       <li class="pub-item">
         <div class="pub-inner">
           <div class="pub-figure">
-            <img src="assets/img/fig_mmscale.png" alt="MM-SCALE figure"
+            <img src="assets/img/cocot-prev-updated.png" alt="CoCoT figure"
                  onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
             <div class="pub-figure-placeholder">add figure</div>
           </div>
           <div>
-            <div class="pub-title">MM-SCALE: Grounded Multimodal Moral Reasoning via Scalar Judgment and Listwise Alignment</div>
-            <div class="pub-authors"><strong>Eunkyu Park</strong>, Wesley Hanwen Deng, Cheyon Jin, Matheus Kunzler Maldaner, Jordan Wheeler, Jason I. Hong, Hong Shen, Adam Perer, Ken Holstein, Motahhare Eslami, Gunhee Kim</div>
-            <div class="pub-venue">arXiv Pre-print · 2026</div>
+            <div class="pub-title">Cognitive Chain-of-Thought (CoCoT): Structured Multimodal Reasoning about Social Situations</div>
+            <div class="pub-authors"><strong>Eunkyu Park</strong>, Wesley Hanwen Deng, Gunhee Kim, Motahhare Eslami, Maarten Sap</div>
+            <div class="pub-venue">COLM 2026</div>
             <div class="pub-btns">
               <details><summary>Abstract</summary>
-                <div class="abs-body">VLMs struggle with morally salient judgments in multimodal and socially ambiguous contexts. Prior works rely on binary or pairwise supervision, failing to capture the continuous and pluralistic nature of human moral reasoning. We present MM-SCALE, a large-scale dataset aligning VLMs with human moral preferences through 5-point scalar ratings and explicit modality grounding, enabling listwise preference optimization over ranked scenario sets for richer alignment signals and finer calibration of multimodal moral reasoning.</div>
+                <div class="abs-body">Chain-of-Thought (CoT) prompting helps models think step by step — but what happens when they must see, understand, and judge all at once? In visual tasks grounded in social context, flat CoT often breaks down. We introduce Cognitive Chain-of-Thought (CoCoT), a prompting strategy scaffolding VLM reasoning through three stages: perception, situation, and norm. CoCoT consistently outperforms CoT and direct prompting (+8% on average) across multiple multimodal benchmarks.</div>
               </details>
-              <a class="pill pill-blue" href="https://arxiv.org/abs/2602.03665">arXiv</a>
+              <a class="pill pill-blue" href="https://arxiv.org/abs/2507.20409">arXiv</a>
             </div>
           </div>
         </div>
       </li>
-    </ul>
-  </div>
-
-  <div class="year-group">
-    <div class="year-label">2025</div>
-    <ul class="pub-list">
       <li class="pub-item">
         <div class="pub-inner">
           <div class="pub-figure">
@@ -150,22 +147,28 @@
           </div>
         </div>
       </li>
+    </ul>
+  </div>
+
+  <div class="pub-section">
+    <div class="pub-section-title">Preprints</div>
+    <ul class="pub-list">
       <li class="pub-item">
         <div class="pub-inner">
           <div class="pub-figure">
-            <img src="assets/img/cocot-prev-updated.png" alt="CoCoT figure"
+            <img src="assets/img/fig_mmscale.png" alt="MM-SCALE figure"
                  onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
             <div class="pub-figure-placeholder">add figure</div>
           </div>
           <div>
-            <div class="pub-title">Cognitive Chain-of-Thought (CoCoT): Structured Multimodal Reasoning about Social Situations</div>
-            <div class="pub-authors"><strong>Eunkyu Park</strong>, Wesley Hanwen Deng, Gunhee Kim, Motahhare Eslami, Maarten Sap</div>
-            <div class="pub-venue">COLM 2026</div>
+            <div class="pub-title">MM-SCALE: Grounded Multimodal Moral Reasoning via Scalar Judgment and Listwise Alignment</div>
+            <div class="pub-authors"><strong>Eunkyu Park</strong>, Wesley Hanwen Deng, Cheyon Jin, Matheus Kunzler Maldaner, Jordan Wheeler, Jason I. Hong, Hong Shen, Adam Perer, Ken Holstein, Motahhare Eslami, Gunhee Kim</div>
+            <div class="pub-venue">arXiv Pre-print · 2026</div>
             <div class="pub-btns">
               <details><summary>Abstract</summary>
-                <div class="abs-body">Chain-of-Thought (CoT) prompting helps models think step by step — but what happens when they must see, understand, and judge all at once? In visual tasks grounded in social context, flat CoT often breaks down. We introduce Cognitive Chain-of-Thought (CoCoT), a prompting strategy scaffolding VLM reasoning through three stages: perception, situation, and norm. CoCoT consistently outperforms CoT and direct prompting (+8% on average) across multiple multimodal benchmarks.</div>
+                <div class="abs-body">VLMs struggle with morally salient judgments in multimodal and socially ambiguous contexts. Prior works rely on binary or pairwise supervision, failing to capture the continuous and pluralistic nature of human moral reasoning. We present MM-SCALE, a large-scale dataset aligning VLMs with human moral preferences through 5-point scalar ratings and explicit modality grounding, enabling listwise preference optimization over ranked scenario sets for richer alignment signals and finer calibration of multimodal moral reasoning.</div>
               </details>
-              <a class="pill pill-blue" href="https://arxiv.org/abs/2507.20409">arXiv</a>
+              <a class="pill pill-blue" href="https://arxiv.org/abs/2602.03665">arXiv</a>
             </div>
           </div>
         </div>
