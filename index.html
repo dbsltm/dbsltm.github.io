@@ -190,6 +190,22 @@
       width: 240px; height: auto; border-radius: 10px;
       object-fit: cover; display: block;
     }
+    /* Flip card */
+    .flip-card { width: 240px; height: 309px; perspective: 1000px; }
+    .flip-inner {
+      position: relative; width: 100%; height: 100%;
+      transition: transform 0.6s ease; transform-style: preserve-3d;
+    }
+    .flip-card:hover .flip-inner { transform: rotateY(180deg); }
+    .flip-face {
+      position: absolute; inset: 0; border-radius: 10px; overflow: hidden;
+      backface-visibility: hidden; -webkit-backface-visibility: hidden;
+    }
+    .flip-face img {
+      width: 100%; height: 100%; border-radius: 10px;
+      object-fit: cover; display: block;
+    }
+    .flip-back { transform: rotateY(180deg); }
     .photo-fallback {
       width: 240px; height: 309px; border-radius: 10px;
       background: var(--bg-subtle); display: none;
@@ -358,6 +374,7 @@
       .hero { grid-template-columns: 1fr; }
       .hero-photo { order: -1; }
       .hero-photo img, .photo-fallback { width: 120px; height: auto; }
+      .flip-card { width: 120px; height: 155px; }
       .news-item { grid-template-columns: 1fr; gap: 2px; }
       .edu-item { flex-direction: column; gap: 2px; }
     }
@@ -435,8 +452,16 @@
     </div>
 
     <div class="hero-photo">
-      <img src="assets/img/prof_pic.jpg" alt="Eunice Park"
-           onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+      <div class="flip-card">
+        <div class="flip-inner">
+          <div class="flip-face flip-front">
+            <img src="assets/img/prof_pic.jpg" alt="Eunkyu Park" />
+          </div>
+          <div class="flip-face flip-back">
+            <img src="assets/img/profile-v1.png" alt="Eunkyu Park" />
+          </div>
+        </div>
+      </div>
       <div class="photo-fallback">photo</div>
     </div>
   </div>
