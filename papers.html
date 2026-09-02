@@ -11,7 +11,7 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --bg:#f0ede8; --bg-subtle:#e8e5e0; --ink:#191919; --ink-2:#454443;
+      --bg:#ffffff; --bg-subtle:#f7f6f3; --ink:#191919; --ink-2:#454443;
       --ink-3:#9b9a97; --ink-4:#c7c6c4; --accent:#2e75ff; --accent-h:#1a5ce0;
       --rule:#e9e8e6; --sans:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
       --max:960px; --pad:clamp(24px,5vw,64px);
@@ -20,7 +20,7 @@
     body { font-family:var(--sans); background:var(--bg); color:var(--ink); line-height:1.65; font-weight:400; -webkit-font-smoothing:antialiased; }
     a { color:var(--accent); text-decoration:none; transition:color 0.12s; }
     a:hover { color:var(--accent-h); }
-    nav { position:sticky; top:0; z-index:100; background:rgba(240,237,232,0.92); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border-bottom:1px solid var(--rule); padding:0 var(--pad); }
+    nav { position:sticky; top:0; z-index:100; background:rgba(255,255,255,0.92); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border-bottom:1px solid var(--rule); padding:0 var(--pad); }
     .nav-inner { max-width:var(--max); margin:0 auto; display:flex; align-items:center; justify-content:space-between; height:50px; }
     .nav-name { font-size:0.875rem; font-weight:600; color:var(--ink); text-decoration:none; letter-spacing:-0.01em; }
     .nav-links { display:flex; gap:6px; list-style:none; }
@@ -107,6 +107,26 @@
   <div class="pub-section">
     <div class="pub-section-title">Publications</div>
     <ul class="pub-list">
+      <li class="pub-item">
+        <div class="pub-inner">
+          <div class="pub-figure">
+            <img src="assets/img/fig_juryduty.png" alt="Jury Duty figure"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+            <div class="pub-figure-placeholder">add figure</div>
+          </div>
+          <div>
+            <div class="pub-title">Jury Duty: Calibration and Orientation Failures in MLLM-as-a-Judge Under Cultural Ambiguity</div>
+            <div class="pub-authors">Daniel Lee, Harsh Sharma, <strong>Eunkyu Park</strong>, Pranav Narayanan Venkit, Jeonghwan Kim, Kah Mun Chia, Andreas Vlachos, Shafiq Joty</div>
+            <div class="pub-venue">EMNLP 2026</div>
+            <div class="pub-btns">
+              <details><summary>Abstract</summary>
+                <div class="abs-body">Multimodal LLMs are increasingly used as judges, but their reliability breaks down under cultural ambiguity. Using paired image–prompt sets drawn from U.S. and Chinese contexts, we identify two systematic failures: a positivity-floor calibration failure (compressed use of the rating scale) and an orientation failure (defaulting to a single cultural perspective), revealing limits of MLLM-as-a-Judge for culturally situated evaluation.</div>
+              </details>
+              <a class="pill pill-blue" href="https://arxiv.org/abs/2606.20676">arXiv</a>
+            </div>
+          </div>
+        </div>
+      </li>
       <li class="pub-item">
         <div class="pub-inner">
           <div class="pub-figure">
