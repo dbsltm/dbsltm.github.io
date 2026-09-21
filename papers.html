@@ -4,219 +4,276 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Papers — Eunkyu (Eunice) Park</title>
+  <meta name="description" content="Publications by Eunkyu (Eunice) Park on trustworthy and interpretable multimodal AI: vision-language models, human perception of AI reasoning, and multimodal moral and social reasoning." />
+  <link rel="canonical" href="https://dbsltm.github.io/papers.html" />
   <link rel="icon" href="assets/img/love.ico" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    *, *::before, *::after { box-sizing: border-box; }
+    [hidden] { display: none !important; }
     :root {
-      --bg:#ffffff; --bg-subtle:#f7f6f3; --ink:#191919; --ink-2:#454443;
-      --ink-3:#9b9a97; --ink-4:#c7c6c4; --accent:#2e75ff; --accent-h:#1a5ce0;
-      --rule:#e9e8e6; --sans:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
-      --max:960px; --pad:clamp(24px,5vw,64px);
+      --ink: #111;
+      --ink-2: #444;
+      --ink-3: #666;
+      --ink-4: #888;
+      --rule: #e5e5e5;
+      --accent: #3b6fb6;
+      --serif: 'Spectral', Georgia, 'Times New Roman', serif;
     }
-    html { font-size:16px; scroll-behavior:smooth; }
-    body { font-family:var(--sans); background:var(--bg); color:var(--ink); line-height:1.65; font-weight:400; -webkit-font-smoothing:antialiased; }
-    a { color:var(--accent); text-decoration:none; transition:color 0.12s; }
-    a:hover { color:var(--accent-h); }
-    nav { position:sticky; top:0; z-index:100; background:rgba(255,255,255,0.92); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border-bottom:1px solid var(--rule); padding:0 var(--pad); }
-    .nav-inner { max-width:var(--max); margin:0 auto; display:flex; align-items:center; justify-content:space-between; height:50px; }
-    .nav-name { font-size:0.875rem; font-weight:600; color:var(--ink); text-decoration:none; letter-spacing:-0.01em; }
-    .nav-links { display:flex; gap:6px; list-style:none; }
-    .nav-links a { font-size:0.8rem; font-weight:500; color:var(--ink-3); text-decoration:none; padding:5px 10px; border-radius:5px; transition:background 0.12s,color 0.12s; }
-    .nav-links a:hover, .nav-links a.active { background:var(--bg-subtle); color:var(--ink); }
-    .page { max-width:var(--max); margin:0 auto; padding:64px var(--pad) 120px; }
-    .page-header { margin-bottom:48px; opacity:0; animation:fadeup 0.4s ease 0.05s forwards; }
-    @keyframes fadeup { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
-    .back-link { display:inline-flex; align-items:center; gap:5px; font-size:0.8rem; font-weight:500; color:var(--ink-3); margin-bottom:20px; transition:color 0.12s; }
-    .back-link:hover { color:var(--accent); }
-    .page-header h1 { font-size:1.8rem; font-weight:700; letter-spacing:-0.03em; color:var(--ink); margin-bottom:6px; }
-    .page-header p { font-size:0.9rem; color:var(--ink-3); }
-    .year-group { margin-bottom:48px; opacity:0; animation:fadeup 0.4s ease forwards; }
-    .year-group:nth-child(1){animation-delay:0.1s} .year-group:nth-child(2){animation-delay:0.16s} .year-group:nth-child(3){animation-delay:0.22s}
-    .year-label { font-size:0.7rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-3); margin-bottom:16px; }
-    .pub-section { margin-bottom:56px; opacity:0; animation:fadeup 0.4s ease forwards; }
-    .pub-section:nth-of-type(1){animation-delay:0.1s} .pub-section:nth-of-type(2){animation-delay:0.18s}
-    .pub-section-title { font-size:1.15rem; font-weight:700; letter-spacing:-0.02em; color:var(--ink); margin-bottom:24px; padding-bottom:10px; border-bottom:1px solid var(--rule); }
-    .pub-list { list-style:none; }
-    .pub-item { padding:22px 0; border-top:1px solid var(--rule); }
-    .pub-item:last-child { border-bottom:1px solid var(--rule); }
-    .pub-inner { display:grid; grid-template-columns:160px 1fr; gap:20px; align-items:start; }
-    .pub-figure {
-      width:160px; aspect-ratio:4/3; border-radius:7px;
-      background:var(--bg-subtle); border:1px solid var(--rule);
-      overflow:hidden; flex-shrink:0;
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: #fff;
+      color: var(--ink);
+      font-family: var(--serif);
+      -webkit-font-smoothing: antialiased;
     }
-    .pub-figure img { width:100%; height:100%; object-fit:cover; display:block; }
-    .pub-figure-placeholder {
-      width:100%; height:100%; display:flex; align-items:center; justify-content:center;
-      font-size:0.65rem; color:var(--ink-4); letter-spacing:0.05em; text-transform:uppercase;
-      text-align:center; padding:8px;
+    a {
+      color: var(--ink);
+      text-decoration: underline;
+      text-decoration-color: #bbb;
+      text-underline-offset: 3px;
     }
-    .pub-title { font-size:1rem; font-weight:600; color:var(--ink); line-height:1.45; margin-bottom:5px; letter-spacing:-0.01em; }
-    .pub-authors { font-size:0.915rem; color:var(--ink-3); margin-bottom:3px; }
-    .pub-authors strong { color:var(--ink-2); font-weight:600; }
-    .pub-venue { font-size:0.875rem; color:var(--ink-3); font-style:italic; margin-bottom:11px; }
-    .pub-btns { display:flex; flex-wrap:wrap; gap:6px; align-items:flex-start; }
-    @media (max-width:560px) {
-      .pub-inner { grid-template-columns:1fr; }
-      .pub-figure { width:100%; aspect-ratio:16/9; }
+    a:hover { color: var(--accent); text-decoration-color: var(--accent); }
+    strong { font-weight: 600; }
+
+    .page {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 56px 24px 96px;
+      display: flex;
+      flex-direction: column;
+      gap: 56px;
     }
-    .pill { font-size:0.73rem; font-weight:500; padding:4px 10px; border-radius:5px; border:1px solid var(--rule); color:var(--ink-2); background:var(--bg-subtle); text-decoration:none; transition:background 0.12s,border-color 0.12s,color 0.12s; font-family:var(--sans); cursor:pointer; display:inline-block; }
-    .pill:hover { background:#e8edff; border-color:#b3c8ff; color:var(--accent); text-decoration:none; }
-    .pill-blue { background:#edf3ff; border-color:#c0d4ff; color:var(--accent); }
-    .pill-blue:hover { background:#dce8ff; }
-    details { display:inline-block; }
-    details summary { font-size:0.73rem; font-weight:500; padding:4px 10px; border-radius:5px; border:1px solid var(--rule); color:var(--ink-3); background:var(--bg-subtle); cursor:pointer; list-style:none; transition:background 0.12s,color 0.12s; user-select:none; font-family:var(--sans); }
-    details summary::-webkit-details-marker { display:none; }
-    details[open] summary, details summary:hover { background:#f0f0ee; color:var(--ink-2); }
-    .abs-body { font-size:0.855rem; color:var(--ink-2); line-height:1.75; padding:14px 16px; background:var(--bg-subtle); border-radius:6px; margin-top:10px; }
-    footer { margin-top:80px; padding-top:20px; border-top:1px solid var(--rule); font-size:0.77rem; color:var(--ink-3); }
+    nav { display: flex; gap: 20px; font-size: 15.5px; font-weight: 500; flex-wrap: wrap; }
+    nav a { text-decoration: none; color: var(--ink-3); }
+    nav a:hover { color: var(--accent); }
+    nav a.active { color: var(--ink); font-weight: 600; }
+
+    h1 { margin: 0; font-size: 30px; font-weight: 600; letter-spacing: -.01em; line-height: 1.15; }
+    h2 { margin: 0; font-size: 20px; font-weight: 600; letter-spacing: -.01em; }
+    h3 { margin: 0; font-size: 16px; font-weight: 600; line-height: 1.4; }
+    section { display: flex; flex-direction: column; gap: 16px; }
+    section p { margin: 0; }
+
+    .link-row { font-size: 15.5px; display: flex; flex-wrap: wrap; gap: 6px 18px; }
+    .text-btn {
+      align-self: flex-start;
+      background: none; border: none; padding: 0;
+      font: inherit; font-size: 15.5px; color: var(--ink-3);
+      cursor: pointer;
+      text-decoration: underline; text-decoration-color: #bbb; text-underline-offset: 3px;
+    }
+    .text-btn:hover { color: var(--accent); text-decoration-color: var(--accent); }
+
+    .dated-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; font-size: 16px; line-height: 1.55; }
+    .dated-list li { display: grid; grid-template-columns: 76px minmax(0, 1fr); gap: 12px; }
+    .dated-list li > span:first-child { color: var(--ink-4); }
+
+    footer { font-size: 14px; color: var(--ink-4); padding-top: 24px; border-top: 1px solid var(--rule); }
+
+    @media (max-width: 480px) {
+      .page { padding-top: 40px; gap: 44px; }
+      h1 { font-size: 26px; }
+      .dated-list li { grid-template-columns: 1fr; gap: 2px; }
+    }
+  </style>
+  <style>
+    .page { gap: 48px; }
+    .papers-head { display: flex; flex-direction: column; gap: 12px; }
+    .view-row { display: flex; gap: 16px; align-items: center; font-size: 15.5px; flex-wrap: wrap; }
+    .view-btns { display: flex; gap: 12px; }
+    .view-btn {
+      font: inherit; font-size: 14px; padding: 0; border: none; background: none; cursor: pointer;
+      color: var(--ink-3); text-decoration: underline; text-decoration-color: #bbb; text-underline-offset: 3px;
+    }
+    .view-btn:hover { color: var(--accent); text-decoration-color: var(--accent); }
+    .view-btn.active { color: var(--ink); font-weight: 700; text-decoration: none; }
+    .view-note { color: var(--ink-4); }
+    .abs-toggle { align-self: auto; }
+
+    #paper-groups { display: flex; flex-direction: column; gap: 48px; }
+    .group { display: flex; flex-direction: column; gap: 20px; }
+    .group h2 { font-size: 14px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-4); }
+    .paper { display: flex; flex-direction: column; gap: 6px; padding-top: 16px; border-top: 1px solid var(--rule); scroll-margin-top: 24px; }
+    .paper:target h3 { color: var(--accent); }
+    .paper .authors { margin: 0; font-size: 15.5px; line-height: 1.55; color: var(--ink-2); }
+    .paper .authors strong { font-weight: 600; color: var(--ink); }
+    .paper .meta { font-size: 15.5px; display: flex; gap: 14px; flex-wrap: wrap; align-items: baseline; }
+    .paper .meta .venue { color: var(--ink-4); }
+    .paper .abs { margin-top: 8px; display: flex; flex-direction: column; gap: 12px; }
+    .paper .abs img { width: 100%; max-height: 280px; object-fit: contain; object-position: left; border-radius: 4px; }
+    .paper .abs p { margin: 0; font-size: 15.5px; line-height: 1.65; color: var(--ink-2); text-wrap: pretty; }
+  </style>
   </style>
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-M9CX181HC2"></script>
-  <script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-M9CX181HC2"></script>
+    <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
+
     gtag('config', 'G-M9CX181HC2');
-  </script>
+</script>
 </head>
 <body>
-<nav>
-  <div class="nav-inner">
-    <a href="index.html" class="nav-name">Eunkyu (Eunice) Park</a>
-    <ul class="nav-links">
-      <li><a href="index.html#news">News</a></li>
-      <li><a href="papers.html" class="active">Papers</a></li>
-      <li><a href="assets/pdf/EunkyuPark_Resume2608.pdf">CV</a></li>
-    </ul>
-  </div>
-</nav>
+
 <div class="page">
-  <div class="page-header">
-    <a href="index.html" class="back-link">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
-      Back
-    </a>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="index.html#research">Research</a>
+    <a href="papers.html" class="active">Papers</a>
+    <a href="assets/pdf/EunkyuPark_Resume2608.pdf">CV</a>
+  </nav>
+
+  <div class="papers-head">
     <h1>Papers</h1>
-    <p>* denotes equal contribution</p>
+    <div class="view-row">
+      <span class="view-btns" role="tablist" aria-label="Group papers">
+        <button class="view-btn active" type="button" data-view="year">By year</button>
+        <button class="view-btn" type="button" data-view="theme">By theme</button>
+        <button class="view-btn" type="button" data-view="first">First author</button>
+      </span>
+      <span class="view-note">· * equal contribution</span>
+    </div>
   </div>
 
-  <div class="pub-section">
-    <div class="pub-section-title">Publications</div>
-    <ul class="pub-list">
-      <li class="pub-item">
-        <div class="pub-inner">
-          <div class="pub-figure">
-            <img src="assets/img/fig_juryduty.png" alt="Jury Duty figure"
-                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-            <div class="pub-figure-placeholder">add figure</div>
-          </div>
-          <div>
-            <div class="pub-title">Jury Duty: Calibration and Orientation Failures in MLLM-as-a-Judge Under Cultural Ambiguity</div>
-            <div class="pub-authors">Daniel Lee, Harsh Sharma, <strong>Eunkyu Park</strong>, Pranav Narayanan Venkit, Jeonghwan Kim, Kah Mun Chia, Andreas Vlachos, Shafiq Joty</div>
-            <div class="pub-venue">EMNLP 2026</div>
-            <div class="pub-btns">
-              <details><summary>Abstract</summary>
-                <div class="abs-body">Multimodal LLMs are increasingly used as judges, but their reliability breaks down under cultural ambiguity. Using paired image–prompt sets drawn from U.S. and Chinese contexts, we identify two systematic failures: a positivity-floor calibration failure (compressed use of the rating scale) and an orientation failure (defaulting to a single cultural perspective), revealing limits of MLLM-as-a-Judge for culturally situated evaluation.</div>
-              </details>
-              <a class="pill pill-blue" href="https://arxiv.org/abs/2606.20676">arXiv</a>
-            </div>
-          </div>
-        </div>
-      </li>
-      <li class="pub-item">
-        <div class="pub-inner">
-          <div class="pub-figure">
-            <img src="assets/img/critical-or-compliant-prev.png" alt="Critical or Compliant figure"
-                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-            <div class="pub-figure-placeholder">add figure</div>
-          </div>
-          <div>
-            <div class="pub-title">Critical or Compliant? The Double-Edged Sword of Reasoning in Chain-of-Thought Explanations</div>
-            <div class="pub-authors"><strong>Eunkyu Park</strong>, Wesley Hanwen Deng, Vasudha Varadarajan, Mingxi Yan, Gunhee Kim, Maarten Sap and Motahhare Eslami </div>
-            <div class="pub-venue">EMNLP 2026</div>
-            <div class="pub-btns">
-              <details><summary>Abstract</summary>
-                <div class="abs-body">Explanations are often promoted as tools for transparency, but they can also foster confirmation bias. We study the double-edged role of CoT explanations in multimodal moral scenarios by systematically perturbing reasoning chains and manipulating delivery tones. We find: (1) users equate trust with outcome agreement, sustaining reliance even when reasoning is flawed, and (2) confident tone suppresses error detection while maintaining reliance — showing delivery style can override correctness.</div>
-              </details>
-              <a class="pill pill-blue" href="https://arxiv.org/abs/2511.12001">arXiv</a>
-            </div>
-          </div>
-        </div>
-      </li>
-      <li class="pub-item">
-        <div class="pub-inner">
-          <div class="pub-figure">
-            <img src="assets/img/cocot-prev-updated.png" alt="CoCoT figure"
-                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-            <div class="pub-figure-placeholder">add figure</div>
-          </div>
-          <div>
-            <div class="pub-title">Cognitive Chain-of-Thought (CoCoT): Structured Multimodal Reasoning about Social Situations</div>
-            <div class="pub-authors"><strong>Eunkyu Park</strong>, Wesley Hanwen Deng, Gunhee Kim, Motahhare Eslami, Maarten Sap</div>
-            <div class="pub-venue">COLM 2026</div>
-            <div class="pub-btns">
-              <details><summary>Abstract</summary>
-                <div class="abs-body">Chain-of-Thought (CoT) prompting helps models think step by step — but what happens when they must see, understand, and judge all at once? In visual tasks grounded in social context, flat CoT often breaks down. We introduce Cognitive Chain-of-Thought (CoCoT), a prompting strategy scaffolding VLM reasoning through three stages: perception, situation, and norm. CoCoT consistently outperforms CoT and direct prompting (+8% on average) across multiple multimodal benchmarks.</div>
-              </details>
-              <a class="pill pill-blue" href="https://arxiv.org/abs/2507.20409">arXiv</a>
-            </div>
-          </div>
-        </div>
-      </li>
-      <li class="pub-item">
-        <div class="pub-inner">
-          <div class="pub-figure">
-            <img src="assets/img/halloc_prev.jpg" alt="HalLoc figure"
-                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-            <div class="pub-figure-placeholder">add figure</div>
-          </div>
-          <div>
-            <div class="pub-title">HalLoc: Token-level Localization of Hallucinations for Vision Language Models</div>
-            <div class="pub-authors"><strong>Eunkyu Park</strong>*, Minyeong Kim*, Gunhee Kim</div>
-            <div class="pub-venue">CVPR 2025</div>
-            <div class="pub-btns">
-              <details><summary>Abstract</summary>
-                <div class="abs-body">Hallucinations pose a significant challenge to the reliability of large vision-language models. Current detection methods often rely on computationally intensive models, leading to high latency and resource demands. We propose HalLoc, a dataset for efficient, probabilistic hallucination detection featuring 150K token-level annotated samples across VQA, instruction-following, and image captioning tasks. We also introduce a baseline model offering low-overhead, concurrent hallucination detection during generation.</div>
-              </details>
-              <a class="pill pill-blue" href="https://huggingface.co/datasets/uunicee/HalLoc">Dataset</a>
-            </div>
-          </div>
-        </div>
-      </li>
-    </ul>
-  </div>
-
-  <div class="pub-section">
-    <div class="pub-section-title">Preprints</div>
-    <ul class="pub-list">
-      <li class="pub-item">
-        <div class="pub-inner">
-          <div class="pub-figure">
-            <img src="assets/img/fig_mmscale.png" alt="MM-SCALE figure"
-                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-            <div class="pub-figure-placeholder">add figure</div>
-          </div>
-          <div>
-            <div class="pub-title">MM-SCALE: Grounded Multimodal Moral Reasoning via Scalar Judgment and Listwise Alignment</div>
-            <div class="pub-authors"><strong>Eunkyu Park</strong>, Wesley Hanwen Deng, Cheyon Jin, Matheus Kunzler Maldaner, Jordan Wheeler, Jason I. Hong, Hong Shen, Adam Perer, Ken Holstein, Motahhare Eslami, Gunhee Kim</div>
-            <div class="pub-venue">arXiv Pre-print · 2026</div>
-            <div class="pub-btns">
-              <details><summary>Abstract</summary>
-                <div class="abs-body">VLMs struggle with morally salient judgments in multimodal and socially ambiguous contexts. Prior works rely on binary or pairwise supervision, failing to capture the continuous and pluralistic nature of human moral reasoning. We present MM-SCALE, a large-scale dataset aligning VLMs with human moral preferences through 5-point scalar ratings and explicit modality grounding, enabling listwise preference optimization over ranked scenario sets for richer alignment signals and finer calibration of multimodal moral reasoning.</div>
-              </details>
-              <a class="pill pill-blue" href="https://arxiv.org/abs/2602.03665">arXiv</a>
-            </div>
-          </div>
-        </div>
-      </li>
-    </ul>
-  </div>
+  <div id="paper-groups"></div>
 
   <footer>© 2026 Eunkyu (Eunice) Park</footer>
+
 </div>
+
+<script>
+  var PAPERS = [
+    {
+      id: "juryduty", year: 2026, short: "Jury Duty", theme: "Moral & social reasoning", venue: "EMNLP 2026",
+      title: "Jury Duty: Calibration and Orientation Failures in MLLM-as-a-Judge Under Cultural Ambiguity",
+      authors: "Daniel Lee, Harsh Sharma, <strong>Eunkyu Park</strong>, Pranav Narayanan Venkit, Jeonghwan Kim, Kah Mun Chia, Andreas Vlachos, Shafiq Joty",
+      first: false,
+      abstract: "Multimodal LLMs are increasingly used as judges, but their reliability breaks down under cultural ambiguity. Using paired image–prompt sets drawn from U.S. and Chinese contexts, we identify two systematic failures: a positivity-floor calibration failure (compressed use of the rating scale) and an orientation failure (defaulting to a single cultural perspective), revealing limits of MLLM-as-a-Judge for culturally situated evaluation.",
+      img: "", link: "https://arxiv.org/abs/2606.20676", linkLabel: "arXiv"
+    },
+    {
+      id: "critical", year: 2026, short: "Critical or Compliant?", theme: "Human perception of AI reasoning", venue: "EMNLP 2026",
+      title: "Critical or Compliant? The Double-Edged Sword of Reasoning in Chain-of-Thought Explanations",
+      authors: "<strong>Eunkyu Park</strong>, Wesley Hanwen Deng, Vasudha Varadarajan, Mingxi Yan, Gunhee Kim, Maarten Sap, Motahhare Eslami",
+      first: true,
+      abstract: "Explanations are often promoted as tools for transparency, but they can also foster confirmation bias. We study the double-edged role of CoT explanations in multimodal moral scenarios by systematically perturbing reasoning chains and manipulating delivery tones. We find: (1) users equate trust with outcome agreement, sustaining reliance even when reasoning is flawed, and (2) confident tone suppresses error detection while maintaining reliance — showing delivery style can override correctness.",
+      img: "assets/img/critical-or-compliant-prev.png", link: "https://arxiv.org/abs/2511.12001", linkLabel: "arXiv"
+    },
+    {
+      id: "cocot", year: 2026, short: "CoCoT", theme: "Human perception of AI reasoning", venue: "COLM 2026",
+      title: "Cognitive Chain-of-Thought (CoCoT): Structured Multimodal Reasoning about Social Situations",
+      authors: "<strong>Eunkyu Park</strong>, Wesley Hanwen Deng, Gunhee Kim, Motahhare Eslami, Maarten Sap",
+      first: true,
+      abstract: "Chain-of-Thought (CoT) prompting helps models think step by step — but what happens when they must see, understand, and judge all at once? In visual tasks grounded in social context, flat CoT often breaks down. We introduce Cognitive Chain-of-Thought (CoCoT), a prompting strategy scaffolding VLM reasoning through three stages: perception, situation, and norm. CoCoT consistently outperforms CoT and direct prompting (+8% on average) across multiple multimodal benchmarks.",
+      img: "assets/img/cocot-prev-updated.png", link: "https://arxiv.org/abs/2507.20409", linkLabel: "arXiv"
+    },
+    {
+      id: "mmscale", year: 2026, short: "MM-SCALE", theme: "Moral & social reasoning", venue: "arXiv 2026",
+      title: "MM-SCALE: Grounded Multimodal Moral Reasoning via Scalar Judgment and Listwise Alignment",
+      authors: "<strong>Eunkyu Park</strong>, Wesley Hanwen Deng, Cheyon Jin, Matheus Kunzler Maldaner, Jordan Wheeler, Jason I. Hong, Hong Shen, Adam Perer, Ken Holstein, Motahhare Eslami, Gunhee Kim",
+      first: true,
+      abstract: "VLMs struggle with morally salient judgments in multimodal and socially ambiguous contexts. Prior works rely on binary or pairwise supervision, failing to capture the continuous and pluralistic nature of human moral reasoning. We present MM-SCALE, a large-scale dataset aligning VLMs with human moral preferences through 5-point scalar ratings and explicit modality grounding, enabling listwise preference optimization over ranked scenario sets for richer alignment signals and finer calibration of multimodal moral reasoning.",
+      img: "", link: "https://arxiv.org/abs/2602.03665", linkLabel: "arXiv"
+    },
+    {
+      id: "halloc", year: 2025, short: "HalLoc", theme: "Trustworthiness of VLMs", venue: "CVPR 2025",
+      title: "HalLoc: Token-level Localization of Hallucinations for Vision Language Models",
+      authors: "<strong>Eunkyu Park</strong>*, Minyeong Kim*, Gunhee Kim",
+      first: true,
+      abstract: "Hallucinations pose a significant challenge to the reliability of large vision-language models. Current detection methods often rely on computationally intensive models, leading to high latency and resource demands. We propose HalLoc, a dataset for efficient, probabilistic hallucination detection featuring 150K token-level annotated samples across VQA, instruction-following, and image captioning tasks. We also introduce a baseline model offering low-overhead, concurrent hallucination detection during generation.",
+      img: "assets/img/halloc_prev.jpg", link: "https://huggingface.co/datasets/uunicee/HalLoc", linkLabel: "Dataset"
+    }
+  ];
+
+  var THEME_ORDER = ["Trustworthiness of VLMs", "Human perception of AI reasoning", "Moral & social reasoning"];
+
+  (function () {
+    var container = document.getElementById('paper-groups');
+    var buttons = document.querySelectorAll('.view-btn');
+    var openAbs = {};
+
+    function byYear(list) {
+      var years = [];
+      list.forEach(function (p) { if (years.indexOf(p.year) < 0) years.push(p.year); });
+      years.sort(function (a, b) { return b - a; });
+      return years.map(function (y) {
+        return { label: String(y), papers: list.filter(function (p) { return p.year === y; }) };
+      });
+    }
+
+    function groupsFor(mode) {
+      if (mode === 'theme') {
+        return THEME_ORDER.map(function (label) {
+          return { label: label, papers: PAPERS.filter(function (p) { return p.theme === label; }) };
+        });
+      }
+      if (mode === 'first') {
+        return byYear(PAPERS.filter(function (p) { return p.first; }));
+      }
+      return byYear(PAPERS);
+    }
+
+    function renderPaper(p) {
+      var open = !!openAbs[p.id];
+      var html = '<article class="paper" id="' + p.id + '">' +
+        '<h3>' + p.title + '</h3>' +
+        '<p class="authors">' + p.authors + '</p>' +
+        '<div class="meta">' +
+          '<span class="venue">' + p.venue + '</span>' +
+          '<a href="' + p.link + '">' + p.linkLabel + '</a>' +
+          '<button class="text-btn abs-toggle" type="button" data-id="' + p.id + '" aria-expanded="' + open + '">' +
+            (open ? 'Hide abstract' : 'Abstract') +
+          '</button>' +
+        '</div>';
+      if (open) {
+        html += '<div class="abs">' +
+          (p.img ? '<img src="' + p.img + '" alt="' + p.short + ' figure">' : '') +
+          '<p>' + p.abstract + '</p>' +
+        '</div>';
+      }
+      return html + '</article>';
+    }
+
+    function render(mode) {
+      container.innerHTML = groupsFor(mode).map(function (g) {
+        return '<section class="group">' +
+          '<h2>' + g.label + '</h2>' +
+          g.papers.map(renderPaper).join('') +
+        '</section>';
+      }).join('');
+      buttons.forEach(function (b) { b.classList.toggle('active', b.dataset.view === mode); });
+    }
+
+    var mode = 'year';
+    buttons.forEach(function (b) {
+      b.addEventListener('click', function () { mode = b.dataset.view; render(mode); });
+    });
+    container.addEventListener('click', function (e) {
+      var t = e.target.closest('.abs-toggle');
+      if (!t) return;
+      openAbs[t.dataset.id] = !openAbs[t.dataset.id];
+      render(mode);
+    });
+
+    render(mode);
+
+    // Open the abstract of a paper linked by hash (e.g. papers.html#cocot).
+    if (location.hash) {
+      var id = location.hash.slice(1);
+      if (PAPERS.some(function (p) { return p.id === id; })) {
+        openAbs[id] = true;
+        render(mode);
+        var el = document.getElementById(id);
+        if (el) el.scrollIntoView();
+      }
+    }
+  })();
+</script>
 </body>
 </html>
