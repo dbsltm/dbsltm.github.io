@@ -164,12 +164,12 @@
     }
   </style>
   <style>
-    .intro { display: grid; grid-template-columns: minmax(0, 1fr) 200px; gap: 40px; align-items: start; }
+    .intro { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 40px; align-items: start; }
     .intro-text { display: flex; flex-direction: column; gap: 20px; min-width: 0; }
     .intro-photo { width: 100%; height: auto; border-radius: 4px; background: #eee; }
     @media (max-width: 640px) {
       .intro { grid-template-columns: 1fr; gap: 24px; }
-      .intro-photo { width: 140px; order: -1; }
+      .intro-photo { width: 140px; }
     }
     .intro-sub { margin: 4px 0 0; font-size: 15.5px; color: var(--ink-3); }
     .intro-bio { font-size: 17.5px; line-height: 1.65; text-wrap: pretty; }
@@ -206,6 +206,7 @@
 
   <!-- INTRO -->
   <section id="intro" class="intro">
+    <img class="intro-photo" src="assets/img/prof_pic.jpg" alt="Eunkyu Park">
     <div class="intro-text">
       <div>
         <h1>Eunkyu (Eunice) Park</h1>
@@ -222,7 +223,6 @@
         <a href="mailto:eunkyup@andrew.cmu.edu">eunkyup@andrew.cmu.edu</a>
       </p>
     </div>
-    <img class="intro-photo" src="assets/img/prof_pic.jpg" alt="Eunkyu Park">
   </section>
 
   <!-- NEWS -->
