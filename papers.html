@@ -150,6 +150,14 @@
 <script>
   var PAPERS = [
     {
+      id: "mmscale", year: 2026, short: "MM-SCALE", theme: "Moral & social reasoning", venue: "NeurIPS 2026, Evaluations & Datasets Track",
+      title: "MM-SCALE: Grounded Multimodal Moral Reasoning via Scalar Judgment and Listwise Alignment",
+      authors: "<strong>Eunkyu Park</strong>, Wesley Hanwen Deng, Cheyon Jin, Matheus Kunzler Maldaner, Jordan Wheeler, Jason I. Hong, Hong Shen, Adam Perer, Ken Holstein, Motahhare Eslami, Gunhee Kim",
+      first: true,
+      abstract: "VLMs struggle with morally salient judgments in multimodal and socially ambiguous contexts. Prior works rely on binary or pairwise supervision, failing to capture the continuous and pluralistic nature of human moral reasoning. We present MM-SCALE, a large-scale dataset aligning VLMs with human moral preferences through 5-point scalar ratings and explicit modality grounding, enabling listwise preference optimization over ranked scenario sets for richer alignment signals and finer calibration of multimodal moral reasoning.",
+      img: "", link: "https://arxiv.org/abs/2602.03665", linkLabel: "arXiv"
+    },
+    {
       id: "juryduty", year: 2026, short: "Jury Duty", theme: "Moral & social reasoning", venue: "EMNLP 2026",
       title: "Jury Duty: Calibration and Orientation Failures in MLLM-as-a-Judge Under Cultural Ambiguity",
       authors: "Daniel Lee, Harsh Sharma, <strong>Eunkyu Park</strong>, Pranav Narayanan Venkit, Jeonghwan Kim, Kah Mun Chia, Andreas Vlachos, Shafiq Joty",
@@ -172,14 +180,6 @@
       first: true,
       abstract: "Chain-of-Thought (CoT) prompting helps models think step by step — but what happens when they must see, understand, and judge all at once? In visual tasks grounded in social context, flat CoT often breaks down. We introduce Cognitive Chain-of-Thought (CoCoT), a prompting strategy scaffolding VLM reasoning through three stages: perception, situation, and norm. CoCoT consistently outperforms CoT and direct prompting (+8% on average) across multiple multimodal benchmarks.",
       img: "assets/img/cocot-prev-updated.png", link: "https://arxiv.org/abs/2507.20409", linkLabel: "arXiv"
-    },
-    {
-      id: "mmscale", year: 2026, short: "MM-SCALE", theme: "Moral & social reasoning", venue: "NeurIPS 2026, Evaluations & Datasets Track",
-      title: "MM-SCALE: Grounded Multimodal Moral Reasoning via Scalar Judgment and Listwise Alignment",
-      authors: "<strong>Eunkyu Park</strong>, Wesley Hanwen Deng, Cheyon Jin, Matheus Kunzler Maldaner, Jordan Wheeler, Jason I. Hong, Hong Shen, Adam Perer, Ken Holstein, Motahhare Eslami, Gunhee Kim",
-      first: true,
-      abstract: "VLMs struggle with morally salient judgments in multimodal and socially ambiguous contexts. Prior works rely on binary or pairwise supervision, failing to capture the continuous and pluralistic nature of human moral reasoning. We present MM-SCALE, a large-scale dataset aligning VLMs with human moral preferences through 5-point scalar ratings and explicit modality grounding, enabling listwise preference optimization over ranked scenario sets for richer alignment signals and finer calibration of multimodal moral reasoning.",
-      img: "", link: "https://arxiv.org/abs/2602.03665", linkLabel: "arXiv"
     },
     {
       id: "halloc", year: 2025, short: "HalLoc", theme: "Trustworthiness of VLMs", venue: "CVPR 2025",
