@@ -58,7 +58,7 @@
     - title: "MM-SCALE: Grounded Multimodal Moral Reasoning via Scalar Judgment and Listwise Alignment"
       year: 2026
       description:
-        - arXiv Pre-print
+        - NeurIPS 2026, Evaluations and Datasets Track
 
 - title: Research Interests
   type: nested_list
