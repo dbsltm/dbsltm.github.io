@@ -55,7 +55,7 @@
       year: 2025
       description:
         - arXiv Pre-print
-    - title: "MM-SCALE: Grounded Multimodal Moral Reasoning via Scalar Judgment and Listwise Alignment"
+    - title: "MM-SCALE: Evaluating Evidence-Grounded Moral Judgment in Vision-Language Models"
       year: 2026
       description:
         - NeurIPS 2026, Evaluations and Datasets Track
