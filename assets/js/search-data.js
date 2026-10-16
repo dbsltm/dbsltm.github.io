@@ -18,7 +18,7 @@ ninja.data = [{
           },
         },{id: "nav-cv",
           title: "cv",
-          description: "Eunkyu (Eunice) Park&#39;s CV.",
+          description: "Eunice Eunkyu Park&#39;s CV.",
           section: "Navigation",
           handler: () => {
             window.location.href = "/cv/";
