@@ -92,7 +92,7 @@
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; }
     [hidden] { display: none !important; }
@@ -103,14 +103,14 @@
       --ink-4: #888;
       --rule: #e5e5e5;
       --accent: #3b6fb6;
-      --serif: 'Spectral', Georgia, 'Times New Roman', serif;
+      --sans: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
     }
     html { scroll-behavior: smooth; }
     body {
       margin: 0;
       background: #fff;
       color: var(--ink);
-      font-family: var(--serif);
+      font-family: var(--sans);
       -webkit-font-smoothing: antialiased;
     }
     a {
@@ -190,6 +190,24 @@
     .theme-papers { margin-top: 4px !important; gap: 4px 16px; }
     .theme-papers span { color: var(--ink-4); }
     .all-papers { font-size: 15.5px; font-weight: 600; align-self: flex-start; }
+
+    /* News timeline: rail between date and text, one dot per item */
+    #news-list { gap: 0; }
+    #news-list li { position: relative; grid-template-columns: 88px minmax(0, 1fr); gap: 0; padding-bottom: 14px; }
+    #news-list li > span:first-child { font-variant-numeric: tabular-nums; white-space: nowrap; }
+    #news-list li > span:last-child { padding-left: 24px; }
+    #news-list li::before { content: ""; position: absolute; left: 88px; top: 0; bottom: 0; width: 1px; background: var(--rule); }
+    #news-list li::after { content: ""; position: absolute; left: 85px; top: 9px; width: 7px; height: 7px; border-radius: 50%; background: #bbb; box-shadow: 0 0 0 3px #fff; }
+    #news-list li:first-child::before { top: 12px; }
+    #news-list li:first-child::after { background: var(--accent); }
+    #news-list li:not(:has(~ li:not([hidden])))::before { bottom: auto; height: 12px; }
+    #news-list li:not(:has(~ li:not([hidden]))) { padding-bottom: 0; }
+    @media (max-width: 480px) {
+      #news-list li { grid-template-columns: 1fr; gap: 2px; padding-left: 20px; }
+      #news-list li > span:last-child { padding-left: 0; }
+      #news-list li::before { left: 3px; }
+      #news-list li::after { left: 0; }
+    }
   </style>
   </style>
   <!-- Google tag (gtag.js) -->
@@ -231,7 +249,7 @@
       </div>
     </div>
     <div class="intro-text">
-      <p class="intro-bio">Hi! I am a Ph.D. Candidate in the Interdisciplinary Program in Artificial Intelligence at Seoul National University. My research focuses on <strong>trustworthy artificial intelligence and human&ndash;AI interaction</strong>, with an emphasis on connecting human-centered evaluation to model training and alignment. I study how multimodal AI systems reason about social situations, how people evaluate and rely on AI explanations, and how human&ndash;AI collaboration can improve model auditing. Through human behavioral studies, model evaluation, and post-training, I aim to develop AI systems that are not only capable but also trustworthy and responsive to human values.</p>
+      <p class="intro-bio">Hi! I am a Ph.D. Candidate in the Interdisciplinary Program in Artificial Intelligence at Seoul National University. My research focuses on <strong>trustworthy artificial intelligence and human&ndash;AI interaction</strong>, with an emphasis on connecting human-centered evaluation to model training and alignment. I study how AI systems reason about social situations, how people evaluate and rely on AI explanations, and how human&ndash;AI collaboration can improve model auditing. Through human behavioral studies, model evaluation, and post-training, I aim to develop AI systems that are not only capable but also trustworthy and responsive to human values.</p>
       <p class="intro-adv">I am advised by Professor <a href="https://vision.snu.ac.kr/gunhee/">Gunhee Kim</a> at <a href="https://vision.snu.ac.kr/">SNU Vision &amp; Learning Lab</a>. At CMU, I am visiting Professor <a href="https://www.motahhare.com/">Motahhare Eslami</a>'s lab at <a href="https://hcii.cmu.edu/">HCII</a> and work closely with Professor <a href="https://maartensap.com/">Maarten Sap</a> at <a href="https://lti.cs.cmu.edu/">LTI</a>.</p>
     </div>
   </section>
@@ -275,7 +293,7 @@
       </li>
       <li>
         <h3>Trustworthiness &amp; Interpretability of VLMs</h3>
-        <p>Detecting and localizing failures in vision-language models, examining how model biases lead to unfaithful outputs, and whether model reasoning faithfully reflects human values rather than mimicking them.</p>
+        <p>Detecting and localizing failures in models, examining how model biases lead to unfaithful outputs, and whether model reasoning faithfully reflects human values rather than mimicking them.</p>
         <p class="link-row theme-papers">
           <a href="papers.html#halloc">HalLoc <span>(CVPR 2025)</span></a>
         </p>
