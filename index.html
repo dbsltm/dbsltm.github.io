@@ -92,123 +92,129 @@
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <!-- Gelasio is metric-compatible with Georgia; only downloaded where Georgia is missing (Android, Linux) -->
+  <link href="https://fonts.googleapis.com/css2?family=Gelasio:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; }
     [hidden] { display: none !important; }
     :root {
-      --ink: #111;
+      --ink: #222;
       --ink-2: #444;
-      --ink-3: #666;
-      --ink-4: #888;
-      --rule: #e5e5e5;
-      --accent: #3b6fb6;
-      --sans: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+      --muted: #666;
+      --rule: #e4e4e4;
+      --link: #2b5797;
+      --serif: Georgia, Gelasio, 'Times New Roman', serif;
+      --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
     }
     html { scroll-behavior: smooth; }
     body {
       margin: 0;
       background: #fff;
       color: var(--ink);
-      font-family: var(--sans);
+      font: 16px/1.6 var(--sans);
       -webkit-font-smoothing: antialiased;
     }
-    a {
-      color: var(--ink);
-      text-decoration: underline;
-      text-decoration-color: #bbb;
-      text-underline-offset: 3px;
-    }
-    a:hover { color: var(--accent); text-decoration-color: var(--accent); }
+    a { color: var(--link); text-decoration: none; text-underline-offset: 3px; }
+    a:hover { text-decoration: underline; }
+    a:focus-visible, button:focus-visible { outline: 2px solid var(--link); outline-offset: 3px; }
     strong { font-weight: 600; }
 
     .page {
       max-width: 960px;
       margin: 0 auto;
-      padding: 56px 24px 96px;
+      padding: 30px 24px 48px;
       display: flex;
       flex-direction: column;
-      gap: 56px;
+      gap: 44px;
     }
-    nav { display: flex; gap: 20px; font-size: 15.5px; font-weight: 500; flex-wrap: wrap; }
-    nav a { text-decoration: none; color: var(--ink-3); }
-    nav a:hover { color: var(--accent); }
-    nav a.active { color: var(--ink); font-weight: 600; }
+    .masthead {
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;
+      gap: 6px 28px; padding-bottom: 20px; border-bottom: 1px solid var(--rule);
+      margin-bottom: -12px;
+    }
+    .site-name { margin: 0; font: 400 31px/1.2 var(--serif); color: var(--ink); }
+    a.site-name:hover { color: var(--link); text-decoration: none; }
+    nav { display: flex; gap: 24px; font-size: 15.5px; font-weight: 500; flex-wrap: wrap; }
+    nav a { color: var(--muted); }
+    nav a:hover { color: var(--link); }
+    nav a.active { color: var(--link); text-decoration: underline; }
 
-    h1 { margin: 0; font-size: 30px; font-weight: 600; letter-spacing: -.01em; line-height: 1.15; }
-    h2 { margin: 0; font-size: 20px; font-weight: 600; letter-spacing: -.01em; }
+    h2 { margin: 0; font: 400 25px/1.3 var(--serif); }
     h3 { margin: 0; font-size: 16px; font-weight: 600; line-height: 1.4; }
-    section { display: flex; flex-direction: column; gap: 16px; }
+    section { display: flex; flex-direction: column; gap: 14px; }
     section p { margin: 0; }
 
-    .link-row { font-size: 15.5px; display: flex; flex-wrap: wrap; gap: 6px 18px; }
+    .link-row { font-size: 14px; display: flex; flex-wrap: wrap; gap: 6px 18px; }
     .text-btn {
       align-self: flex-start;
       background: none; border: none; padding: 0;
-      font: inherit; font-size: 15.5px; color: var(--ink-3);
+      font: inherit; font-size: 14px; color: var(--link);
       cursor: pointer;
-      text-decoration: underline; text-decoration-color: #bbb; text-underline-offset: 3px;
     }
-    .text-btn:hover { color: var(--accent); text-decoration-color: var(--accent); }
+    .text-btn:hover { text-decoration: underline; }
 
-    .dated-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; font-size: 16px; line-height: 1.55; }
-    .dated-list li { display: grid; grid-template-columns: 76px minmax(0, 1fr); gap: 12px; }
-    .dated-list li > span:first-child { color: var(--ink-4); }
+    .dated-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; font: 16px/1.55 var(--serif); }
+    .dated-list li { display: grid; grid-template-columns: 88px minmax(0, 1fr); gap: 0; }
+    .dated-list li > span:first-child { font: 13.5px/1.8 var(--sans); color: var(--muted); font-variant-numeric: tabular-nums; }
 
-    footer { font-size: 14px; color: var(--ink-4); padding-top: 24px; border-top: 1px solid var(--rule); }
+    footer { font-size: 13px; color: var(--muted); padding-top: 20px; border-top: 1px solid var(--rule); }
 
+    @media (max-width: 640px) {
+      .page { padding-top: 24px; gap: 36px; }
+      .site-name { font-size: 26px; }
+      nav { gap: 18px; }
+    }
     @media (max-width: 480px) {
-      .page { padding-top: 40px; gap: 44px; }
-      h1 { font-size: 26px; }
-      .dated-list li { grid-template-columns: 1fr; gap: 2px; }
+      .dated-list li { grid-template-columns: 1fr; gap: 0; }
     }
   </style>
   <style>
-    .intro { display: grid; grid-template-columns: 250px minmax(0, 1fr); gap: 44px; align-items: start; }
-    .intro-side { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
-    .intro-photo { width: 100%; height: auto; border-radius: 4px; background: #eee; margin-bottom: 6px; }
-    .intro-side h1 { font-size: 23px; }
-    .intro-sub { margin: 0; font-size: 14.5px; line-height: 1.5; color: var(--ink-3); }
-    .intro-icons { display: flex; align-items: center; gap: 12px; margin-top: 4px; }
-    .intro-icons a { display: inline-flex; color: var(--ink-2); text-decoration: none; }
-    .intro-icons a:hover { color: var(--accent); }
-    .intro-icons svg { width: 18px; height: 18px; fill: currentColor; }
-    .intro-mail { display: flex; flex-direction: column; gap: 2px; font-size: 13.5px; }
-    .intro-mail a { color: var(--ink-2); text-decoration: none; word-break: break-all; }
-    .intro-mail a:hover { color: var(--accent); }
-    .intro-text { display: flex; flex-direction: column; gap: 20px; min-width: 0; }
+    .intro { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 44px; align-items: start; }
+    .intro-text { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+    .intro-bio, .intro-adv { font: 17px/1.62 var(--serif); text-wrap: pretty; }
+    .intro-bio a, .intro-adv a { text-decoration: underline; }
+    .intro-links { margin-top: 4px; }
+    .intro-side { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+    .intro-photo { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 12%; border-radius: 6px; background: #eee; }
+    .intro-caption { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+    .intro-sub { margin: 0; font-size: 13px; line-height: 1.5; color: var(--muted); }
+    .intro-mail { display: flex; flex-direction: column; gap: 1px; font-size: 12.5px; line-height: 1.5; }
+    .intro-mail a { word-break: break-all; }
     @media (max-width: 640px) {
-      .intro { grid-template-columns: 1fr; gap: 28px; }
-      .intro-photo { width: 160px; }
+      .intro { grid-template-columns: 1fr; gap: 20px; }
+      .intro-side { flex-direction: row; align-items: center; gap: 16px; }
+      .intro-photo { width: 104px; flex: none; }
+      .intro-bio, .intro-adv { font-size: 16px; }
     }
-    .intro-bio { font-size: 17.5px; line-height: 1.65; text-wrap: pretty; }
-    .intro-adv, .research-q { font-size: 16.5px; line-height: 1.65; color: var(--ink-2); text-wrap: pretty; }
 
-    .themes { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 24px; }
-    .themes li { display: flex; flex-direction: column; gap: 6px; padding-top: 20px; border-top: 1px solid var(--rule); }
-    .themes li > p:not(.theme-papers) { font-size: 17.5px; line-height: 1.65; color: var(--ink-2); text-wrap: pretty; }
+    .section-heading { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 2px 20px; }
+    .section-heading a { font-size: 14px; }
+    .research-q { font: 17px/1.62 var(--serif); color: var(--ink-2); text-wrap: pretty; }
+
+    .themes { list-style: none; margin: 0; padding: 0; }
+    .themes li { display: flex; flex-direction: column; gap: 6px; padding: 20px 0; border-top: 1px solid var(--rule); }
+    .themes li:last-child { padding-bottom: 0; }
+    .themes li > p:not(.theme-papers) { font: 16px/1.58 var(--serif); color: var(--ink-2); text-wrap: pretty; }
     .theme-papers { margin-top: 4px !important; gap: 4px 16px; }
-    .theme-papers span { color: var(--ink-4); }
-    .all-papers { font-size: 15.5px; font-weight: 600; align-self: flex-start; }
+    .theme-papers span { color: var(--muted); }
 
     /* News timeline: rail between date and text, one dot per item */
     #news-list { gap: 0; }
-    #news-list li { position: relative; grid-template-columns: 88px minmax(0, 1fr); gap: 0; padding-bottom: 14px; }
-    #news-list li > span:first-child { font-variant-numeric: tabular-nums; white-space: nowrap; }
+    #news-list li { position: relative; padding-bottom: 12px; }
+    #news-list li > span:first-child { white-space: nowrap; }
     #news-list li > span:last-child { padding-left: 24px; }
     #news-list li::before { content: ""; position: absolute; left: 88px; top: 0; bottom: 0; width: 1px; background: var(--rule); }
     #news-list li::after { content: ""; position: absolute; left: 85px; top: 9px; width: 7px; height: 7px; border-radius: 50%; background: #bbb; box-shadow: 0 0 0 3px #fff; }
     #news-list li:first-child::before { top: 12px; }
-    #news-list li:first-child::after { background: var(--accent); }
+    #news-list li:first-child::after { background: var(--link); }
     #news-list li:not(:has(~ li:not([hidden])))::before { bottom: auto; height: 12px; }
     #news-list li:not(:has(~ li:not([hidden]))) { padding-bottom: 0; }
     @media (max-width: 480px) {
-      #news-list li { grid-template-columns: 1fr; gap: 2px; padding-left: 20px; }
+      #news-list li { padding-left: 20px; }
       #news-list li > span:last-child { padding-left: 0; }
       #news-list li::before { left: 3px; }
       #news-list li::after { left: 0; }
     }
-  </style>
   </style>
   <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-M9CX181HC2"></script>
@@ -224,33 +230,38 @@
 
 <div class="page">
 
-  <nav>
-    <a href="#news">News</a>
-    <a href="#research">Research</a>
-    <a href="papers.html">Papers</a>
-    <a href="assets/pdf/EunkyuPark_Resume2610.pdf">CV</a>
-  </nav>
+  <header class="masthead">
+    <h1 class="site-name">Eunice Eunkyu Park</h1>
+    <nav>
+      <a href="#news">News</a>
+      <a href="#research">Research</a>
+      <a href="papers.html">Papers</a>
+      <a href="assets/pdf/EunkyuPark_Resume2610.pdf">CV</a>
+    </nav>
+  </header>
 
   <!-- INTRO -->
   <section id="intro" class="intro">
     <div class="intro-side">
       <img class="intro-photo" src="assets/img/prof_pic.jpg" alt="Eunice Eunkyu Park">
-      <h1>Eunice Eunkyu Park</h1>
-      <p class="intro-sub">박은규<br>Ph.D. Candidate, Seoul National University<br>Visiting Researcher, CMU HCII</p>
-      <div class="intro-icons">
-        <a href="https://scholar.google.com/citations?user=Su2mSPsAAAAJ" title="Google Scholar" aria-label="Google Scholar"><svg viewBox="0 0 24 24"><path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 10a8 8 0 0 1 7.162 3.44L24 9.5z"/></svg></a>
-        <a href="https://github.com/dbsltm" title="GitHub" aria-label="GitHub"><svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg></a>
-        <a href="https://www.linkedin.com/in/eunkyu-park/" title="LinkedIn" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
-        <a href="https://twitter.com/uunicee_" title="X" aria-label="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
-      </div>
-      <div class="intro-mail">
-        <a href="mailto:eunkyup@andrew.cmu.edu">eunkyup@andrew.cmu.edu</a>
-        <a href="mailto:eunkyu.park@vision.snu.ac.kr">eunkyu.park@vision.snu.ac.kr</a>
+      <div class="intro-caption">
+        <p class="intro-sub">박은규<br>Ph.D. Candidate, SNU<br>Visiting Researcher, CMU</p>
+        <div class="intro-mail">
+          <a href="mailto:eunkyup@andrew.cmu.edu">eunkyup@andrew.cmu.edu</a>
+          <a href="mailto:eunkyu.park@vision.snu.ac.kr">eunkyu.park@vision.snu.ac.kr</a>
+        </div>
       </div>
     </div>
     <div class="intro-text">
-      <p class="intro-bio">Hi! I am a final-year Ph.D. student in the Interdisciplinary Program in Artificial Intelligence at Seoul National University. My research focuses on <strong>trustworthy artificial intelligence and human&ndash;AI interaction</strong>, with an emphasis on connecting human-centered evaluation to model training and alignment. I study how AI systems reason about social situations, how people evaluate and rely on AI explanations, and how human&ndash;AI collaboration can improve model auditing. Through human behavioral studies, model evaluation, and post-training, I aim to develop AI systems that are not only capable but also trustworthy and responsive to human values.</p>
-      <p class="intro-adv">I am advised by Professor <a href="https://vision.snu.ac.kr/gunhee/">Gunhee Kim</a> at <a href="https://vision.snu.ac.kr/">SNU Vision &amp; Learning Lab</a>. At CMU, I am visiting Professor <a href="https://www.motahhare.com/">Motahhare Eslami</a>'s lab at <a href="https://hcii.cmu.edu/">HCII</a> and work closely with Professor <a href="https://maartensap.com/">Maarten Sap</a> at <a href="https://lti.cs.cmu.edu/">LTI</a>.</p>
+      <p class="intro-bio">I am a Ph.D. candidate in the Interdisciplinary Program in Artificial Intelligence at Seoul National University. My research focuses on <strong>trustworthy artificial intelligence and human&ndash;AI interaction</strong>, with an emphasis on connecting human-centered evaluation to model training and alignment. I study how AI systems reason about social situations, how people evaluate and rely on AI explanations, and how human&ndash;AI collaboration can improve model auditing. Through human behavioral studies, model evaluation, and post-training, I aim to develop AI systems that are not only capable but also trustworthy and responsive to human values.</p>
+      <p class="intro-adv">I am advised by Professor <a href="https://vision.snu.ac.kr/gunhee/">Gunhee Kim</a> at <a href="https://vision.snu.ac.kr/">SNU Vision &amp; Learning Lab</a>. At CMU, I am visiting Professor <a href="https://maartensap.com/">Maarten Sap</a>'s lab at <a href="https://lti.cs.cmu.edu/">LTI</a> and work closely with Professor <a href="https://www.motahhare.com/">Motahhare Eslami</a> at <a href="https://hcii.cmu.edu/">HCII</a>.</p>
+      <p class="link-row intro-links">
+        <a href="assets/pdf/EunkyuPark_Resume2610.pdf">CV</a>
+        <a href="https://scholar.google.com/citations?user=Su2mSPsAAAAJ">Google Scholar</a>
+        <a href="https://github.com/dbsltm">GitHub</a>
+        <a href="https://www.linkedin.com/in/eunkyu-park/">LinkedIn</a>
+        <a href="https://twitter.com/uunicee_">X</a>
+      </p>
     </div>
   </section>
 
@@ -271,8 +282,11 @@
   </section>
 
   <!-- RESEARCH -->
-  <section id="research" style="gap:24px">
-    <h2>Research</h2>
+  <section id="research">
+    <div class="section-heading">
+      <h2>Research</h2>
+      <a href="papers.html">All papers →</a>
+    </div>
     <p class="research-q">How can we design multimodal AI systems whose reasoning is transparent, trustworthy, and aligned with human values, and how do humans perceive, interact with, and sometimes misplace trust in these systems?</p>
     <ol class="themes">
       <li>
@@ -299,7 +313,6 @@
         </p>
       </li>
     </ol>
-    <a href="papers.html" class="all-papers">All papers →</a>
   </section>
 
   <!-- EDUCATION -->

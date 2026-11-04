@@ -9,104 +9,109 @@
   <link rel="icon" href="assets/img/love.ico" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <!-- Gelasio is metric-compatible with Georgia; only downloaded where Georgia is missing (Android, Linux) -->
+  <link href="https://fonts.googleapis.com/css2?family=Gelasio:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; }
     [hidden] { display: none !important; }
     :root {
-      --ink: #111;
+      --ink: #222;
       --ink-2: #444;
-      --ink-3: #666;
-      --ink-4: #888;
-      --rule: #e5e5e5;
-      --accent: #3b6fb6;
-      --sans: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+      --muted: #666;
+      --rule: #e4e4e4;
+      --link: #2b5797;
+      --serif: Georgia, Gelasio, 'Times New Roman', serif;
+      --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
     }
     html { scroll-behavior: smooth; }
     body {
       margin: 0;
       background: #fff;
       color: var(--ink);
-      font-family: var(--sans);
+      font: 16px/1.6 var(--sans);
       -webkit-font-smoothing: antialiased;
     }
-    a {
-      color: var(--ink);
-      text-decoration: underline;
-      text-decoration-color: #bbb;
-      text-underline-offset: 3px;
-    }
-    a:hover { color: var(--accent); text-decoration-color: var(--accent); }
+    a { color: var(--link); text-decoration: none; text-underline-offset: 3px; }
+    a:hover { text-decoration: underline; }
+    a:focus-visible, button:focus-visible { outline: 2px solid var(--link); outline-offset: 3px; }
     strong { font-weight: 600; }
 
     .page {
       max-width: 960px;
       margin: 0 auto;
-      padding: 56px 24px 96px;
+      padding: 30px 24px 48px;
       display: flex;
       flex-direction: column;
-      gap: 56px;
+      gap: 44px;
     }
-    nav { display: flex; gap: 20px; font-size: 15.5px; font-weight: 500; flex-wrap: wrap; }
-    nav a { text-decoration: none; color: var(--ink-3); }
-    nav a:hover { color: var(--accent); }
-    nav a.active { color: var(--ink); font-weight: 600; }
+    .masthead {
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;
+      gap: 6px 28px; padding-bottom: 20px; border-bottom: 1px solid var(--rule);
+      margin-bottom: -12px;
+    }
+    .site-name { margin: 0; font: 400 31px/1.2 var(--serif); color: var(--ink); }
+    a.site-name:hover { color: var(--link); text-decoration: none; }
+    nav { display: flex; gap: 24px; font-size: 15.5px; font-weight: 500; flex-wrap: wrap; }
+    nav a { color: var(--muted); }
+    nav a:hover { color: var(--link); }
+    nav a.active { color: var(--link); text-decoration: underline; }
 
-    h1 { margin: 0; font-size: 30px; font-weight: 600; letter-spacing: -.01em; line-height: 1.15; }
-    h2 { margin: 0; font-size: 20px; font-weight: 600; letter-spacing: -.01em; }
+    h2 { margin: 0; font: 400 25px/1.3 var(--serif); }
     h3 { margin: 0; font-size: 16px; font-weight: 600; line-height: 1.4; }
-    section { display: flex; flex-direction: column; gap: 16px; }
+    section { display: flex; flex-direction: column; gap: 14px; }
     section p { margin: 0; }
 
-    .link-row { font-size: 15.5px; display: flex; flex-wrap: wrap; gap: 6px 18px; }
+    .link-row { font-size: 14px; display: flex; flex-wrap: wrap; gap: 6px 18px; }
     .text-btn {
       align-self: flex-start;
       background: none; border: none; padding: 0;
-      font: inherit; font-size: 15.5px; color: var(--ink-3);
+      font: inherit; font-size: 14px; color: var(--link);
       cursor: pointer;
-      text-decoration: underline; text-decoration-color: #bbb; text-underline-offset: 3px;
     }
-    .text-btn:hover { color: var(--accent); text-decoration-color: var(--accent); }
+    .text-btn:hover { text-decoration: underline; }
 
-    .dated-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; font-size: 16px; line-height: 1.55; }
-    .dated-list li { display: grid; grid-template-columns: 76px minmax(0, 1fr); gap: 12px; }
-    .dated-list li > span:first-child { color: var(--ink-4); }
+    .dated-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; font: 16px/1.55 var(--serif); }
+    .dated-list li { display: grid; grid-template-columns: 88px minmax(0, 1fr); gap: 0; }
+    .dated-list li > span:first-child { font: 13.5px/1.8 var(--sans); color: var(--muted); font-variant-numeric: tabular-nums; }
 
-    footer { font-size: 14px; color: var(--ink-4); padding-top: 24px; border-top: 1px solid var(--rule); }
+    footer { font-size: 13px; color: var(--muted); padding-top: 20px; border-top: 1px solid var(--rule); }
 
+    @media (max-width: 640px) {
+      .page { padding-top: 24px; gap: 36px; }
+      .site-name { font-size: 26px; }
+      nav { gap: 18px; }
+    }
     @media (max-width: 480px) {
-      .page { padding-top: 40px; gap: 44px; }
-      h1 { font-size: 26px; }
-      .dated-list li { grid-template-columns: 1fr; gap: 2px; }
+      .dated-list li { grid-template-columns: 1fr; gap: 0; }
     }
   </style>
   <style>
-    .page { gap: 48px; }
-    .papers-head { display: flex; flex-direction: column; gap: 12px; }
-    .view-row { display: flex; gap: 16px; align-items: center; font-size: 15.5px; flex-wrap: wrap; }
-    .view-btns { display: flex; gap: 12px; }
-    .view-btn {
-      font: inherit; font-size: 14px; padding: 0; border: none; background: none; cursor: pointer;
-      color: var(--ink-3); text-decoration: underline; text-decoration-color: #bbb; text-underline-offset: 3px;
-    }
-    .view-btn:hover { color: var(--accent); text-decoration-color: var(--accent); }
-    .view-btn.active { color: var(--ink); font-weight: 700; text-decoration: none; }
-    .view-note { color: var(--ink-4); }
+    .page { gap: 36px; }
+    .papers-head { display: flex; flex-direction: column; gap: 10px; }
+    .papers-head h1 { margin: 0; font: 400 28px/1.2 var(--serif); }
+    .view-row { display: flex; gap: 16px; align-items: center; font-size: 14px; flex-wrap: wrap; }
+    .view-btns { display: flex; gap: 14px; }
+    .view-btn { font: inherit; padding: 0; border: none; background: none; cursor: pointer; color: var(--link); }
+    .view-btn:hover { text-decoration: underline; }
+    .view-btn.active { color: var(--ink); font-weight: 600; }
+    .view-note { color: var(--muted); }
     .abs-toggle { align-self: auto; }
 
-    #paper-groups { display: flex; flex-direction: column; gap: 48px; }
-    .group { display: flex; flex-direction: column; gap: 20px; }
-    .group h2 { font-size: 14px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-4); }
-    .paper { display: flex; flex-direction: column; gap: 6px; padding-top: 16px; border-top: 1px solid var(--rule); scroll-margin-top: 24px; }
-    .paper:target h3 { color: var(--accent); }
-    .paper .authors { margin: 0; font-size: 15.5px; line-height: 1.55; color: var(--ink-2); }
-    .paper .authors strong { font-weight: 600; color: var(--ink); }
-    .paper .meta { font-size: 15.5px; display: flex; gap: 14px; flex-wrap: wrap; align-items: baseline; }
-    .paper .meta .venue { color: var(--ink-4); }
-    .paper .abs { margin-top: 8px; display: flex; flex-direction: column; gap: 12px; }
+    #paper-groups { display: flex; flex-direction: column; gap: 40px; }
+    .group { display: flex; flex-direction: column; gap: 0; }
+    .group h2 { padding-bottom: 8px; border-bottom: 1px solid var(--rule); }
+    .paper { display: flex; flex-direction: column; gap: 4px; padding: 18px 0; scroll-margin-top: 24px; }
+    .paper + .paper { border-top: 1px solid var(--rule); }
+    .paper:last-child { padding-bottom: 0; }
+    .paper:target h3 a { text-decoration: underline; }
+    .paper .authors { margin: 0; font-size: 13.5px; line-height: 1.55; color: var(--muted); }
+    .paper .authors strong { color: var(--ink); }
+    .paper .meta { font-size: 13.5px; display: flex; gap: 4px 14px; flex-wrap: wrap; align-items: baseline; margin-top: 2px; }
+    .paper .meta .venue { color: var(--ink); font-weight: 600; }
+    .paper .meta .text-btn { font-size: 13.5px; }
+    .paper .abs { margin-top: 10px; display: flex; flex-direction: column; gap: 12px; }
     .paper .abs img { width: 100%; max-height: 280px; object-fit: contain; object-position: left; border-radius: 4px; }
-    .paper .abs p { margin: 0; font-size: 15.5px; line-height: 1.65; color: var(--ink-2); text-wrap: pretty; }
-  </style>
+    .paper .abs p { margin: 0; font: 15.5px/1.6 var(--serif); color: var(--ink-2); text-wrap: pretty; }
   </style>
   <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-M9CX181HC2"></script>
@@ -122,12 +127,15 @@
 
 <div class="page">
 
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="index.html#research">Research</a>
-    <a href="papers.html" class="active">Papers</a>
-    <a href="assets/pdf/EunkyuPark_Resume2610.pdf">CV</a>
-  </nav>
+  <header class="masthead">
+    <a class="site-name" href="index.html">Eunice Eunkyu Park</a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="index.html#research">Research</a>
+      <a href="papers.html" class="active">Papers</a>
+      <a href="assets/pdf/EunkyuPark_Resume2610.pdf">CV</a>
+    </nav>
+  </header>
 
   <div class="papers-head">
     <h1>Papers</h1>
@@ -222,11 +230,11 @@
     function renderPaper(p) {
       var open = !!openAbs[p.id];
       var html = '<article class="paper" id="' + p.id + '">' +
-        '<h3>' + p.title + '</h3>' +
+        '<h3><a href="' + p.link + '">' + p.title + '</a></h3>' +
         '<p class="authors">' + p.authors + '</p>' +
         '<div class="meta">' +
           '<span class="venue">' + p.venue + '</span>' +
-          '<a href="' + p.link + '">' + p.linkLabel + '</a>' +
+          '<a href="' + p.link + '">' + p.linkLabel + ' <span aria-hidden="true">↗</span></a>' +
           '<button class="text-btn abs-toggle" type="button" data-id="' + p.id + '" aria-expanded="' + open + '">' +
             (open ? 'Hide abstract' : 'Abstract') +
           '</button>' +
