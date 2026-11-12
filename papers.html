@@ -19,6 +19,9 @@
       --muted: #666;
       --rule: #e4e4e4;
       --link: #2b5797;
+      --c-contact: #D76787;
+      --c-people: #5297F9;
+      --c-paper: #9346F7;
       --serif: 'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
       --sans: 'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
     }
@@ -103,6 +106,7 @@
     .paper + .paper { border-top: 1px solid var(--rule); }
     .paper:last-child { padding-bottom: 0; }
     .paper:target h3 a { text-decoration: underline; }
+    .paper h3 a { color: var(--c-paper); }
     .paper .authors { margin: 0; font-size: 13.5px; line-height: 1.55; color: var(--muted); }
     .paper .authors strong { color: var(--ink); }
     .paper .meta { font-size: 13.5px; display: flex; gap: 4px 14px; flex-wrap: wrap; align-items: baseline; margin-top: 2px; }
@@ -157,7 +161,15 @@
 <script>
   var PAPERS = [
     {
-      id: "mmscale", year: 2026, short: "MM-SCALE", theme: "Moral & social reasoning", venue: "NeurIPS 2026, Evaluations & Datasets Track",
+      id: "haac", year: 2026, short: "HAAC", theme: "Safe & reliable human–AI interaction", venue: "Preprint",
+      title: "Who Does What in AI Auditing? Designing Human-AI Collaboration for Auditing Generative AI",
+      authors: "<strong>Eunkyu Park</strong>, Markelle Roesti, Wesley Hanwen Deng, Renata Barreto, Mohammad Tahaei, Kenneth Holstein, Jason Hong, Motahhare Eslami",
+      first: true,
+      abstract: "AI auditing increasingly incorporates AI agents to expand the scale and breadth of audit coverage, yet little is known about how auditing work should be divided without displacing human judgment. We introduce Human-Agent Audit Collaboration (HAAC), a workflow and system for structuring human-AI collaboration in AI auditing. Drawing on prior work and formative consultations with AI auditing practitioners, HAAC specifies how agents can support exploration, assessment, reporting, and review while preserving human oversight where contextual judgment is critical. We instantiate HAAC for conversational shopping agents and evaluate it through two studies. With 71 auditors, AI assistance increased attack success and broadened exploration, while also shaping later attacks and increasing auditors' reliance on AI-generated assessments and reports. Interviews with Responsible AI practitioners showed that actionable audits require visibility into coverage, reproducible attack trajectories, and evaluation of the auditing agents themselves. Our findings identify design considerations for effective and accountable human-AI auditing.",
+      img: "", link: "https://arxiv.org/abs/2609.24986", linkLabel: "arXiv"
+    },
+    {
+      id: "mmscale", year: 2026, short: "MM-SCALE", theme: "Model understanding", venue: "NeurIPS 2026, Evaluations & Datasets Track",
       title: "MM-SCALE: Evaluating Evidence-Grounded Moral Judgment in Vision-Language Models",
       authors: "<strong>Eunkyu Park</strong>, Wesley Hanwen Deng, Cheyon Jin, Matheus Kunzler Maldaner, Jordan Wheeler, Jason I. Hong, Hong Shen, Adam Perer, Ken Holstein, Motahhare Eslami, Gunhee Kim",
       first: true,
@@ -165,7 +177,7 @@
       img: "", link: "https://arxiv.org/abs/2602.03665", linkLabel: "arXiv"
     },
     {
-      id: "juryduty", year: 2026, short: "Jury Duty", theme: "Moral & social reasoning", venue: "EMNLP 2026",
+      id: "juryduty", year: 2026, short: "Jury Duty", theme: "Model understanding", venue: "EMNLP 2026",
       title: "Jury Duty: Calibration and Orientation Failures in MLLM-as-a-Judge Under Cultural Ambiguity",
       authors: "Daniel Lee, Harsh Sharma, <strong>Eunkyu Park</strong>, Pranav Narayanan Venkit, Jeonghwan Kim, Kah Mun Chia, Andreas Vlachos, Shafiq Joty",
       first: false,
@@ -173,7 +185,7 @@
       img: "", link: "https://arxiv.org/abs/2606.20676", linkLabel: "arXiv"
     },
     {
-      id: "critical", year: 2026, short: "Critical or Compliant?", theme: "Human perception of AI reasoning", venue: "EMNLP 2026",
+      id: "critical", year: 2026, short: "Critical or Compliant?", theme: "Human evaluation of AI reasoning", venue: "EMNLP 2026",
       title: "Critical or Compliant? The Double-Edged Sword of Reasoning in Chain-of-Thought Explanations",
       authors: "<strong>Eunkyu Park</strong>, Wesley Hanwen Deng, Vasudha Varadarajan, Mingxi Yan, Gunhee Kim, Maarten Sap, Motahhare Eslami",
       first: true,
@@ -181,7 +193,7 @@
       img: "assets/img/critical-or-compliant-prev.png", link: "https://arxiv.org/abs/2511.12001", linkLabel: "arXiv"
     },
     {
-      id: "cocot", year: 2026, short: "CoCoT", theme: "Human perception of AI reasoning", venue: "COLM 2026",
+      id: "cocot", year: 2026, short: "CoCoT", theme: "Model understanding", venue: "COLM 2026",
       title: "Cognitive Chain-of-Thought (CoCoT): Structured Multimodal Reasoning about Social Situations",
       authors: "<strong>Eunkyu Park</strong>, Wesley Hanwen Deng, Gunhee Kim, Motahhare Eslami, Maarten Sap",
       first: true,
@@ -189,7 +201,7 @@
       img: "assets/img/cocot-prev-updated.png", link: "https://arxiv.org/abs/2507.20409", linkLabel: "arXiv"
     },
     {
-      id: "halloc", year: 2025, short: "HalLoc", theme: "Trustworthiness of VLMs", venue: "CVPR 2025",
+      id: "halloc", year: 2025, short: "HalLoc", theme: "Model understanding", venue: "CVPR 2025",
       title: "HalLoc: Token-level Localization of Hallucinations for Vision Language Models",
       authors: "<strong>Eunkyu Park</strong>*, Minyeong Kim*, Gunhee Kim",
       first: true,
@@ -198,7 +210,7 @@
     }
   ];
 
-  var THEME_ORDER = ["Human perception of AI reasoning", "Moral & social reasoning", "Trustworthiness of VLMs"];
+  var THEME_ORDER = ["Model understanding", "Human evaluation of AI reasoning", "Safe & reliable human–AI interaction"];
 
   (function () {
     var container = document.getElementById('paper-groups');
@@ -218,7 +230,7 @@
       if (mode === 'theme') {
         return THEME_ORDER.map(function (label) {
           return { label: label, papers: PAPERS.filter(function (p) { return p.theme === label; }) };
-        });
+        }).filter(function (g) { return g.papers.length; });
       }
       if (mode === 'first') {
         return byYear(PAPERS.filter(function (p) { return p.first; }));

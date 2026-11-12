@@ -102,6 +102,9 @@
       --muted: #666;
       --rule: #e4e4e4;
       --link: #2b5797;
+      --c-contact: #D76787;
+      --c-people: #5297F9;
+      --c-paper: #9346F7;
       --serif: 'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
       --sans: 'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
     }
@@ -196,6 +199,9 @@
     .themes li > p:not(.theme-papers) { font: 16px/1.58 var(--serif); color: var(--ink-2); text-wrap: pretty; }
     .theme-papers { margin-top: 4px !important; gap: 4px 16px; }
     .theme-papers span { color: var(--muted); }
+    .intro-mail a, .intro-links a { color: var(--c-contact); }
+    .intro-adv a { color: var(--c-people); }
+    #news-list a, .theme-papers a { color: var(--c-paper); }
 
     /* News timeline: rail between date and text, one dot per item */
     #news-list { gap: 0; }
@@ -268,16 +274,17 @@
   <section id="news">
     <h2>News</h2>
     <ul class="dated-list" id="news-list">
+      <li><span>Sep 2026</span><span>New preprint <a href="https://arxiv.org/abs/2609.24986">Who Does What in AI Auditing? (HAAC)</a> is on arXiv.</span></li>
       <li><span>Sep 2026</span><span><a href="https://arxiv.org/abs/2602.03665">MM-SCALE</a> is accepted to NeurIPS 2026 (Evaluations &amp; Datasets Track).</span></li>
       <li><span>Aug 2026</span><span><a href="https://arxiv.org/abs/2511.12001">Critical or Compliant?</a> is accepted to EMNLP 2026.</span></li>
       <li><span>Jul 2026</span><span><a href="https://arxiv.org/abs/2507.20409">CoCoT</a> is accepted to COLM 2026.</span></li>
-      <li><span>Feb 2026</span><span>New preprint <a href="https://arxiv.org/abs/2602.03665">MM-SCALE</a> is on arXiv.</span></li>
+      <li class="news-extra" hidden><span>Feb 2026</span><span>New preprint <a href="https://arxiv.org/abs/2602.03665">MM-SCALE</a> is on arXiv.</span></li>
       <li class="news-extra" hidden><span>Feb 2026</span><span>Extending my position at CMU HCII as a Visiting Scholar through the end of 2026.</span></li>
       <li class="news-extra" hidden><span>Jul 2025</span><span><a href="https://arxiv.org/abs/2507.20409">CoCoT</a> is out, written during my first month at CMU.</span></li>
       <li class="news-extra" hidden><span>Jun 2025</span><span><a href="https://huggingface.co/datasets/uunicee/HalLoc">HalLoc V1</a> dataset released on HuggingFace.</span></li>
       <li class="news-extra" hidden><span>May 2025</span><span>Joining CMU HCII as a Visiting Scholar through Fall 2025.</span></li>
     </ul>
-    <button class="text-btn" id="news-toggle" type="button" aria-expanded="false">Show all 8</button>
+    <button class="text-btn" id="news-toggle" type="button" aria-expanded="false">Show all 9</button>
   </section>
 
   <!-- RESEARCH -->
@@ -289,26 +296,27 @@
     <p class="research-q">How can we design multimodal AI systems whose reasoning is transparent, trustworthy, and aligned with human values, and how do humans perceive, interact with, and sometimes misplace trust in these systems?</p>
     <ol class="themes">
       <li>
-        <h3>Human Perception of AI Reasoning</h3>
-        <p>How people evaluate, trust, and are misled by AI reasoning chains. When chain-of-thought explanations support critical thinking versus create false confidence, and what interaction designs encourage careful oversight.</p>
+        <h3>Model Understanding</h3>
+        <p>How can models reliably perceive and interpret socially situated information? I study three levels of reliability: grounding what is present, interpreting what is happening, and judging what is appropriate.</p>
         <p class="link-row theme-papers">
-          <a href="papers.html#critical">Critical or Compliant? <span>(EMNLP 2026)</span></a>
+          <a href="papers.html#halloc">HalLoc <span>(CVPR 2025)</span></a>
           <a href="papers.html#cocot">CoCoT <span>(COLM 2026)</span></a>
-        </p>
-      </li>
-      <li>
-        <h3>Multimodal Moral &amp; Social Reasoning</h3>
-        <p>Benchmarks and preference learning frameworks that capture the continuous, pluralistic nature of human moral judgment across text and image, moving beyond binary labels toward human-aligned supervision.</p>
-        <p class="link-row theme-papers">
           <a href="papers.html#mmscale">MM-SCALE <span>(NeurIPS 2026)</span></a>
           <a href="papers.html#juryduty">Jury Duty <span>(EMNLP 2026)</span></a>
         </p>
       </li>
       <li>
-        <h3>Trustworthiness &amp; Interpretability of VLMs</h3>
-        <p>Detecting and localizing failures in models, examining how model biases lead to unfaithful outputs, and whether model reasoning faithfully reflects human values rather than mimicking them.</p>
+        <h3>Human Evaluation of AI Reasoning</h3>
+        <p>How do people's beliefs, values, and expectations shape their scrutiny of and reliance on AI reasoning? And how should alignment be measured so that it reflects both users' stated and unstated intent?</p>
         <p class="link-row theme-papers">
-          <a href="papers.html#halloc">HalLoc <span>(CVPR 2025)</span></a>
+          <a href="papers.html#critical">Critical or Compliant? <span>(EMNLP 2026)</span></a>
+        </p>
+      </li>
+      <li>
+        <h3>Toward Safe and Reliable Human&ndash;AI Interaction</h3>
+        <p>How should AI systems be designed to support safe, reliable, and helpful human judgments and interactions? This includes evaluating the downstream effects of human&ndash;AI interaction in personal, everyday settings, and building models that can anticipate and cope with the inconsistencies of human behavior across contexts.</p>
+        <p class="link-row theme-papers">
+          <a href="papers.html#haac">HAAC <span>(Preprint)</span></a>
         </p>
       </li>
     </ol>
