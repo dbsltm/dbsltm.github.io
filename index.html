@@ -202,6 +202,8 @@
     .intro-mail a, .intro-links a { color: var(--c-contact); }
     .intro-adv a { color: var(--c-people); }
     #news-list a, .theme-papers a { color: var(--c-paper); }
+    #news-list a:hover, .theme-papers a:hover { color: var(--c-people); }
+    .section-heading a { color: var(--c-people); }
 
     /* News timeline: rail between date and text, one dot per item */
     #news-list { gap: 0; }
@@ -211,7 +213,7 @@
     #news-list li::before { content: ""; position: absolute; left: 88px; top: 0; bottom: 0; width: 1px; background: var(--rule); }
     #news-list li::after { content: ""; position: absolute; left: 85px; top: 9px; width: 7px; height: 7px; border-radius: 50%; background: #bbb; box-shadow: 0 0 0 3px #fff; }
     #news-list li:first-child::before { top: 12px; }
-    #news-list li:first-child::after { background: var(--link); }
+    #news-list li:first-child::after { background: var(--c-people); }
     #news-list li:not(:has(~ li:not([hidden])))::before { bottom: auto; height: 12px; }
     #news-list li:not(:has(~ li:not([hidden]))) { padding-bottom: 0; }
     @media (max-width: 480px) {
