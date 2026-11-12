@@ -124,17 +124,17 @@
     .page {
       max-width: 960px;
       margin: 0 auto;
-      padding: 30px 24px 48px;
+      padding: 72px 24px 48px;
       display: flex;
       flex-direction: column;
       gap: 44px;
     }
     .masthead {
       display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;
-      gap: 6px 28px; padding-bottom: 20px; border-bottom: 1px solid var(--rule);
+      gap: 6px 28px;
       margin-bottom: -12px;
     }
-    .site-name { margin: 0; font: 400 31px/1.2 var(--serif); color: var(--ink); }
+    .site-name { margin: 0; font: 700 31px/1.2 var(--serif); color: var(--ink); }
     a.site-name:hover { color: var(--link); text-decoration: none; }
     nav { display: flex; gap: 24px; font-size: 15.5px; font-weight: 500; flex-wrap: wrap; }
     nav a { color: var(--muted); }
@@ -162,7 +162,7 @@
     footer { font-size: 13px; color: var(--muted); padding-top: 20px; border-top: 1px solid var(--rule); }
 
     @media (max-width: 640px) {
-      .page { padding-top: 24px; gap: 36px; }
+      .page { padding-top: 44px; gap: 36px; }
       .site-name { font-size: 26px; }
       nav { gap: 18px; }
     }
@@ -171,11 +171,17 @@
     }
   </style>
   <style>
-    .intro { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 44px; align-items: start; }
+    .intro { display: grid; grid-template-columns: 260px minmax(0, 1fr); gap: 44px; align-items: start; }
     .intro-text { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
     .intro-bio, .intro-adv { font: 17px/1.62 var(--serif); text-wrap: pretty; }
     .intro-bio a, .intro-adv a { text-decoration: underline; }
-    .intro-links { margin-top: 4px; }
+    .intro-links { margin: 4px 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 4px; font-size: 15px; }
+    .intro-links a + a { margin-left: 14px; }
+    .icon { width: 1em; height: 1em; vertical-align: -0.12em; margin-right: 0.45em; }
+    .intro-find { margin: 0; font-size: 12.5px; line-height: 1.6; color: var(--muted); }
+    .intro-find-links { display: block; white-space: nowrap; }
+    .intro-find a { color: var(--c-contact); }
+    .intro-find a + a { margin-left: 10px; }
     .intro-side { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
     .intro-photo { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 12%; border-radius: 6px; background: #eee; }
     .intro-caption { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
@@ -185,7 +191,7 @@
     @media (max-width: 640px) {
       .intro { grid-template-columns: 1fr; gap: 20px; }
       .intro-side { flex-direction: row; align-items: center; gap: 16px; }
-      .intro-photo { width: 104px; flex: none; }
+      .intro-photo { width: 128px; flex: none; }
       .intro-bio, .intro-adv { font-size: 16px; }
     }
 
@@ -257,18 +263,16 @@
           <a href="mailto:eunkyup@andrew.cmu.edu">eunkyup@andrew.cmu.edu</a>
           <a href="mailto:eunkyu.park@vision.snu.ac.kr">eunkyu.park@vision.snu.ac.kr</a>
         </div>
+        <p class="intro-find"><img class="icon" src="assets/img/icons/link.png" alt="">Find me at:<span class="intro-find-links"><a href="https://scholar.google.com/citations?user=Su2mSPsAAAAJ">Google Scholar</a><a href="https://www.linkedin.com/in/eunkyu-park/">LinkedIn</a><a href="https://twitter.com/uunicee_">X</a><a href="https://github.com/dbsltm">GitHub</a></span></p>
       </div>
     </div>
     <div class="intro-text">
       <p class="intro-bio">I am a Ph.D. candidate in the Interdisciplinary Program in Artificial Intelligence at Seoul National University. My research focuses on <strong>trustworthy artificial intelligence and human&ndash;AI interaction</strong>, with an emphasis on connecting human-centered evaluation to model training and alignment. I study how AI systems reason about social situations, how people evaluate and rely on AI explanations, and how human&ndash;AI collaboration can improve model auditing. Through human behavioral studies, model evaluation, and post-training, I aim to develop AI systems that are not only capable but also trustworthy and responsive to human values.</p>
       <p class="intro-adv">I am advised by Professor <a href="https://vision.snu.ac.kr/gunhee/">Gunhee Kim</a> at <a href="https://vision.snu.ac.kr/">SNU Vision &amp; Learning Lab</a>. At CMU, I am visiting Professor <a href="https://maartensap.com/">Maarten Sap</a>'s lab at <a href="https://lti.cs.cmu.edu/">LTI</a> and work closely with Professor <a href="https://www.motahhare.com/">Motahhare Eslami</a> at <a href="https://hcii.cmu.edu/">HCII</a>.</p>
-      <p class="link-row intro-links">
-        <a href="assets/pdf/EunkyuPark_Resume2610.pdf">CV</a>
-        <a href="https://scholar.google.com/citations?user=Su2mSPsAAAAJ">Google Scholar</a>
-        <a href="https://github.com/dbsltm">GitHub</a>
-        <a href="https://www.linkedin.com/in/eunkyu-park/">LinkedIn</a>
-        <a href="https://twitter.com/uunicee_">X</a>
-      </p>
+      <ul class="intro-links">
+        <li><img class="icon" src="assets/img/icons/publication.png" alt=""><a href="papers.html">Full publications →</a></li>
+        <li><img class="icon" src="assets/img/icons/heart.png" alt=""><a href="assets/pdf/EunkyuPark_Resume2610.pdf">CV</a><a href="assets/pdf/EunkyuPark_Research_Statement.pdf">Research Statement</a></li>
+      </ul>
     </div>
   </section>
 
