@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Right Advice, Wrong Reasons</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<style>
+html{scroll-behavior:smooth}
+body{margin:0;background:#ffffff}
+*{box-sizing:border-box}
+a{color:inherit}
+a:hover{color:#7a4fe0}
+@keyframes bob{50%{transform:translateY(-3px)}}
+@keyframes tdot{40%{opacity:1;transform:translateY(-2px)}}
+@keyframes pop{0%{transform:translateY(0)}35%{transform:translateY(-10px)}70%{transform:translateY(0)}85%{transform:translateY(-3px)}100%{transform:none}}
+@keyframes bubblein{0%{opacity:0;transform:translateY(6px)}100%{opacity:1;transform:none}}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</helmet>
+<div ref="{{ rootRef }}" id="top" style="--bg:#ffffff;--ink:#1f2430;--muted:#4f5665;--faint:#6b7180;--line:#dfe1e6;--card:#ffffff;--soft:#f4f5f7;--sh:0 1px 3px rgba(20,24,36,.07);--rad:8px;--brad:3;--bw:1px;--fd:Graphik, 'Graphik Web', 'Helvetica Neue', Helvetica, Arial, sans-serif;--fb:Graphik, 'Graphik Web', 'Helvetica Neue', Helvetica, Arial, sans-serif;--judg:#5b45c9;--reas:#8a6210;--both:#2f62a8;--both-bg:#dcebff;--both-mid:#9cc3f5;--dec:#2c7a52;--dec-bg:#d6f4e3;--dec-mid:#93d9b3;--rea:#b0447c;--rea-bg:#ffdff0;--rea-mid:#f7a8cd;--none:#6b6480;--none-bg:#ece9f2;background:var(--bg);color:var(--ink);font:16px/1.65 var(--fb);min-height:100vh">
+
+<nav style="position:sticky;top:0;z-index:15;background:var(--bg);border-bottom:var(--bw) solid var(--line)">
+  <div style="max-width:1080px;margin:0 auto;padding:10px 16px;display:flex;gap:8px 18px;align-items:center;flex-wrap:wrap;font-size:14px">
+    <span style="font-family:var(--fb);font-weight:600;font-size:16px;margin-right:auto">Right Advice, Wrong Reasons</span>
+    <div style="display:flex;gap:14px;flex-wrap:wrap">
+      <a href="#design" style="text-decoration:none;color:var(--muted)">Design</a>
+      <a href="#asking" style="text-decoration:none;color:var(--muted)">Asking</a>
+      <a href="#role" style="text-decoration:none;color:var(--muted)">Higher autonomy</a>
+      <a href="#optout" style="text-decoration:none;color:var(--muted)">Who opts out</a>
+      <a href="#implications" style="text-decoration:none;color:var(--muted)">Implications</a>
+      <a href="#cite" style="text-decoration:none;color:var(--muted)">Cite</a>
+    </div>
+    
+  </div>
+</nav>
+
+<main style="max-width:1080px;margin:0 auto;padding:0 16px 60px">
+  <div style="display:grid;gap:28px;padding:56px 0 40px">
+    <div>
+      <div style="font-family:var(--fd);font-size:14px;color:var(--faint);letter-spacing:.04em;text-transform:uppercase">arXiv:2611.15732</div>
+      <h1 style="font-family:var(--fb);font-weight:600;font-size:clamp(40px,7vw,72px);line-height:1.05;letter-spacing:-.02em;margin:18px 0 0;text-wrap:balance">Right Advice, <span style="color:var(--rea)">Wrong Reasons</span></h1>
+      <div style="font-family:var(--fb);font-weight:600;font-size:clamp(20px,2.6vw,28px);line-height:1.3;margin-top:10px;text-wrap:balance">How Decision and Reasoning Alignment Shape Reliance on AI Advisors</div>
+      <div style="display:flex;flex-wrap:wrap;gap:6px 20px;margin-top:22px;font-size:18px;font-weight:600">
+        <sc-for list="{{ authors }}" as="a" hint-placeholder-count="8">
+          <span onMouseEnter="{{ a.enter }}" onMouseLeave="{{ a.leave }}" style="color:{{ a.color }};transition:color .15s"><sc-if value="{{ a.linked }}"><a href="{{ a.url }}" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:4px;text-decoration-thickness:1px" style-hover="text-decoration-color:currentColor">{{ a.name }}</a></sc-if><sc-if value="{{ a.plain }}"><span style="cursor:default">{{ a.name }}</span></sc-if><sup style="font-size:12px;font-weight:400;color:var(--muted);margin-left:2px">{{ a.sup }}</sup></span>
+        </sc-for>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:4px 18px;margin-top:10px;font-size:15px">
+        <sc-for list="{{ insts }}" as="i" hint-placeholder-count="4">
+          <span onMouseEnter="{{ i.enter }}" onMouseLeave="{{ i.leave }}" style="cursor:default;color:{{ i.color }};transition:color .15s"><sup style="font-size:11px;margin-right:2px">{{ i.n }}</sup>{{ i.name }}</span>
+        </sc-for>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;align-items:center;gap:18px;margin-top:16px">
+        <sc-for list="{{ insts }}" as="i" hint-placeholder-count="4">
+          <span onMouseEnter="{{ i.enter }}" onMouseLeave="{{ i.leave }}" style="position:relative;display:inline-flex;align-items:center;justify-content:center;height:44px;padding:4px;cursor:default">
+            <img src="{{ i.src }}" alt="{{ i.name }}" style="height:36px;width:auto;max-width:76px;object-fit:contain;opacity:{{ i.op }};transform:scale({{ i.sc }});transition:opacity .15s,transform .15s">
+            <sc-if value="{{ i.tip }}"><span role="tooltip" style="position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);white-space:nowrap;background:var(--ink);color:var(--bg);font-size:13px;padding:5px 9px;border-radius:6px;pointer-events:none;z-index:5">{{ i.name }}</span></sc-if>
+          </span>
+        </sc-for>
+      </div>
+      <p style="font-size:19px;color:var(--muted);margin:18px 0 0;text-wrap:pretty">An AI can recommend the option you would choose for reasons you don't hold, or reason from your values toward the other option. We pulled the two apart and asked which one people look for, first when they ask an AI for advice and then when they let it act.</p>
+      <div style="margin-top:20px;border:var(--bw) solid var(--line);border-radius:var(--rad);background:var(--card);padding:12px 16px;display:grid;gap:2px;max-width:760px">
+        <span style="font-family:var(--fd);font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:var(--faint)">What we measure</span>
+        <span style="font-size:16px">How people judge whether an AI advisor is aligned with them: does it count as aligned when it reaches <span style="color:var(--judg);font-weight:600">the answer they would choose</span>, when it argues from <span style="color:var(--reas);font-weight:600">the values they hold</span>, or only when it does both?</span>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:22px;font-size:14px;color:var(--muted)"><span>121 participants · 8 everyday dilemmas</span></div>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:22px">
+        <a href="https://arxiv.org/abs/2611.15732" target="_blank" rel="noopener" style="font:700 14px var(--fb);border:var(--bw) solid var(--ink);background:var(--ink);color:var(--bg);border-radius:var(--rad);padding:9px 18px;text-decoration:none">Paper on arXiv</a>
+        <a href="#cite" style="font:700 14px var(--fb);border:var(--bw) solid var(--ink);background:var(--card);color:var(--ink);border-radius:var(--rad);padding:9px 18px;text-decoration:none">Cite</a>
+      </div>
+    </div>
+
+    <div style="background:var(--card);border:var(--bw) solid var(--line);border-radius:var(--rad);box-shadow:var(--sh);padding:22px;display:grid;gap:16px">
+      <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-family:var(--fd);font-size:13.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--faint)"><span>Try it yourself · about 30 seconds</span></div>
+
+      <sc-if value="{{ pickPhase }}" hint-placeholder-val="{{ true }}">
+        <div>
+          <div style="font-family:var(--fb);font-weight:600;font-size:22px;margin:4px 0 12px">Pick the value that matters more to you</div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:18px;align-items:center">
+            <svg ref="{{ circleRef }}" viewBox="0 0 600 440" role="group" aria-label="Schwartz's circle of values" style="width:100%;height:auto;overflow:visible;font-family:var(--fb)"></svg>
+            <div style="display:grid;gap:8px;min-width:0">
+              <div style="font-family:var(--fd);font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:var(--faint)">{{ sideK }}</div>
+              <div style="font-weight:600;font-size:20px;line-height:1.3">{{ sideT }}</div>
+              <p style="margin:0;font-size:14px;color:var(--muted)">{{ sideP }}</p>
+            </div>
+          </div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ chatPhase }}" hint-placeholder-val="{{ false }}">
+        <div style="display:grid;gap:12px">
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap">
+            <span style="font-size:13px;color:var(--muted)">You chose <b style="color:var(--ink)">{{ youVal }}</b> over {{ youOther }}</span>
+            <button type="button" onClick="{{ restart }}" style="font:600 13px var(--fb);background:none;border:0;color:var(--muted);text-decoration:underline;cursor:pointer;padding:0">Start over</button>
+          </div>
+          <div style="justify-self:end;max-width:640px;background:var(--ink);color:var(--bg);border-radius:var(--rad);padding:14px 18px;font-size:16px">{{ dilemma }}</div>
+          <div style="display:grid;gap:12px">
+            <sc-for list="{{ msgs }}" as="m" hint-placeholder-count="0">
+              <div style="display:grid;grid-template-columns:48px minmax(0,1fr);gap:10px;align-items:start;animation:bubblein .45s ease-out">
+                <img src="{{ m.src }}" alt="" style="width:48px;height:45px;image-rendering:pixelated;animation:{{ m.anim }}">
+                <div style="border-radius:var(--rad);padding:11px 14px;border:var(--bw) solid {{ m.ink }};background:{{ m.bg }};font-size:15px;min-height:44px">
+                  <div style="font-family:var(--fb);font-weight:600;font-size:13.5px;margin-bottom:3px;color:{{ m.ink }}">{{ m.who }}</div>
+                  <sc-if value="{{ m.typing }}"><span style="display:inline-flex;gap:4px;padding:6px 0;color:{{ m.ink }}"><i style="width:7px;height:7px;background:currentColor;opacity:.3;animation:tdot 1.1s infinite"></i><i style="width:7px;height:7px;background:currentColor;opacity:.3;animation:tdot 1.1s .18s infinite"></i><i style="width:7px;height:7px;background:currentColor;opacity:.3;animation:tdot 1.1s .36s infinite"></i></span></sc-if>
+                  <sc-if value="{{ m.done }}"><div>{{ m.txt }}</div></sc-if>
+                  <sc-if value="{{ m.showTags }}">
+                    <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:8px">
+                      <sc-for list="{{ m.tags }}" as="t"><span style="font-size:12.5px;font-weight:600;padding:2px 9px;border-radius:var(--rad);background:{{ t.bg }};color:{{ t.fg }};text-decoration:{{ t.deco }}">{{ t.label }}</span></sc-for>
+                    </div>
+                  </sc-if>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+          <sc-if value="{{ showAsk }}">
+            <div>
+              <div style="font-family:var(--fb);font-weight:600;font-size:17px;margin:4px 0 10px">If you faced this yourself, which advisor would you want to ask?</div>
+              <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr));gap:8px">
+                <sc-for list="{{ picks }}" as="p">
+                  <button type="button" onClick="{{ p.on }}" aria-pressed="{{ p.pressed }}" style="display:flex;align-items:center;justify-content:center;gap:8px;font:700 14px var(--fb);border:var(--bw) solid {{ p.border }};background:{{ p.bg }};color:{{ p.ink }};border-radius:var(--rad);padding:8px;cursor:pointer;min-height:48px"><img src="{{ p.src }}" alt="" style="width:30px;height:28px;image-rendering:pixelated">{{ p.label }}</button>
+                </sc-for>
+              </div>
+            </div>
+          </sc-if>
+          <sc-if value="{{ showReveal }}">
+            <div style="border-top:1px solid var(--line);padding-top:12px;display:grid;gap:10px">
+              <div style="font-family:var(--fb);font-weight:600;font-size:21px">You picked <span style="color:{{ pickedInk }}">{{ pickedName }}</span>.</div>
+              <p style="margin:0;font-size:14px;color:var(--muted)">{{ revealLine }} Here is how 121 people chose when asking, across eight dilemmas:</p>
+              <sc-for list="{{ minis }}" as="x">
+                <div style="display:grid;grid-template-columns:110px minmax(0,1fr) 44px;gap:10px;align-items:center;font-size:14px;font-weight:600">
+                  <span style="color:{{ x.ink }}">{{ x.name }}</span>
+                  <span style="height:14px;background:var(--soft);border:2px solid {{ x.ink }};border-radius:var(--rad);overflow:hidden;display:block"><i style="display:block;height:100%;background:{{ x.mid }};width:{{ x.w }};transition:width 1.2s cubic-bezier(.2,.7,.2,1)"></i></span>
+                  <span style="font-family:var(--fd);font-size:14px;text-align:right;color:{{ x.ink }}">{{ x.pc }}</span>
+                </div>
+              </sc-for>
+              <p style="margin:0;font-size:14px;color:var(--muted)">Once the advisor would act for them, that lead disappeared. <a href="#role">See what changed ↓</a></p>
+            </div>
+          </sc-if>
+        </div>
+      </sc-if>
+    </div>
+  </div>
+
+  <section id="motivation" style="padding:64px 0 8px;border-top:var(--bw) solid var(--line)">
+    <div style="font-family:var(--fd);font-size:14px;color:var(--faint);letter-spacing:.04em;text-transform:uppercase">01 / Motivation</div>
+    <h2 style="font-family:var(--fb);font-weight:600;font-size:clamp(24px,3.2vw,34px);line-height:1.25;letter-spacing:-.01em;margin:8px 0 18px;text-wrap:balance">Agreement is not the same as sharing someone's values</h2>
+    <p style="margin:0 0 14px">AI systems are usually judged aligned with a user when they reach the answer the user prefers. But an AI's advice carries two things: its <span style="color:var(--judg);font-weight:600">judgment</span>, the option it says to take, and its <span style="color:var(--reas);font-weight:600">reasoning</span>, the values it appeals to in justifying that judgment. Each can match or miss what a person values on its own.</p>
+    <p style="margin:0 0 14px">That matters more as people move from asking an AI for advice to letting it act for them. Whatever reasons an advisor gives also show how it will judge the cases a user never sees.</p>
+  </section>
+
+  <section id="design" style="padding:64px 0 8px;border-top:var(--bw) solid var(--line)">
+    <div style="font-family:var(--fd);font-size:14px;color:var(--faint);letter-spacing:.04em;text-transform:uppercase">02 / Design</div>
+    <h2 style="font-family:var(--fb);font-weight:600;font-size:clamp(24px,3.2vw,34px);line-height:1.25;letter-spacing:-.01em;margin:8px 0 18px;text-wrap:balance">Three advisors built from each person's own values</h2>
+    <p style="margin:0 0 14px">Each participant first filled in the Portrait Values Questionnaire. For every dilemma, its two options were favored by values at opposite poles of one Schwartz axis, so a person's profile told us which option their values favor. We then wrote four replies per dilemma, crossing the two options with the two values, and showed each person three of them.</p>
+    <div role="table" aria-label="Four replies crossing option and value" style="display:grid;grid-template-columns:minmax(90px,150px) repeat(2,minmax(0,1fr));gap:10px;margin:20px 0 6px;max-width:860px">
+      <div></div>
+      <div style="font-size:13px;color:var(--muted);display:flex;flex-direction:column;justify-content:flex-end"><b style="font-family:var(--fd);font-weight:500;font-size:13px;text-transform:uppercase;color:var(--reas)">Reasons from</b>your value</div>
+      <div style="font-size:13px;color:var(--muted);display:flex;flex-direction:column;justify-content:flex-end"><b style="font-family:var(--fd);font-weight:500;font-size:13px;text-transform:uppercase;color:var(--reas)">Reasons from</b>the opposite value</div>
+      <div style="font-size:13px;color:var(--muted);display:flex;flex-direction:column;justify-content:center"><b style="font-family:var(--fd);font-weight:500;font-size:13px;text-transform:uppercase;color:var(--judg)">Recommends</b>the option your values favor</div>
+      <div style="border:var(--bw) solid var(--both);background:var(--both-bg);border-radius:var(--rad);padding:14px;min-height:92px;display:flex;gap:12px;align-items:center"><img src="{{ botBoth }}" alt="" style="width:42px;height:39px;image-rendering:pixelated;flex:0 0 auto"><span style="display:grid;gap:2px"><span style="font-weight:600;color:var(--both)">BothAligned</span><span style="font-size:13.5px;color:var(--muted)">Your judgment, your reasons</span></span></div>
+      <div style="border:var(--bw) solid var(--dec);background:var(--dec-bg);border-radius:var(--rad);padding:14px;min-height:92px;display:flex;gap:12px;align-items:center"><img src="{{ botDec }}" alt="" style="width:42px;height:39px;image-rendering:pixelated;flex:0 0 auto"><span style="display:grid;gap:2px"><span style="font-weight:600;color:var(--dec)">DecAligned</span><span style="font-size:13.5px;color:var(--muted)">Your judgment, other reasons</span></span></div>
+      <div style="font-size:13px;color:var(--muted);display:flex;flex-direction:column;justify-content:center"><b style="font-family:var(--fd);font-weight:500;font-size:13px;text-transform:uppercase;color:var(--judg)">Recommends</b>the other option</div>
+      <div style="border:var(--bw) solid var(--rea);background:var(--rea-bg);border-radius:var(--rad);padding:14px;min-height:92px;display:flex;gap:12px;align-items:center"><img src="{{ botRea }}" alt="" style="width:42px;height:39px;image-rendering:pixelated;flex:0 0 auto"><span style="display:grid;gap:2px"><span style="font-weight:600;color:var(--rea)">ReasAligned</span><span style="font-size:13.5px;color:var(--muted)">Your reasons, other judgment</span></span></div>
+      <div style="border:var(--bw) dashed var(--faint);border-radius:var(--rad);padding:14px;min-height:92px;display:grid;align-content:center;gap:2px;color:var(--faint)"><span style="font-weight:600">Never shown</span><span style="font-size:13.5px">Neither matches</span></div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:16px;margin:22px 0 8px">
+      <div style="background:var(--card);border:var(--bw) solid var(--line);border-radius:var(--rad);box-shadow:var(--sh);padding:16px 18px"><div style="font-family:var(--fd);font-size:13px;color:var(--faint);text-transform:uppercase">Dilemmas</div><b style="display:block;font-size:18px;margin:4px 0 6px">8 from MoReBench</b><p style="font-size:14.5px;color:var(--muted);margin:0">Everyday dilemmas whose two sides sit on opposite poles of Schwartz's value circle: four on self-transcendence vs. self-enhancement, four on openness vs. conservation.</p></div>
+      <div style="background:var(--card);border:var(--bw) solid var(--line);border-radius:var(--rad);box-shadow:var(--sh);padding:16px 18px"><div style="font-family:var(--fd);font-size:13px;color:var(--faint);text-transform:uppercase">Checked twice</div><b style="display:block;font-size:18px;margin:4px 0 6px">LLM judge, then people</b><p style="font-size:14.5px;color:var(--muted);margin:0">Every reply had to let readers recover its value and its option, and the two replies with the same option had to give clearly different reasons.</p></div>
+      <div style="background:var(--card);border:var(--bw) solid var(--line);border-radius:var(--rad);box-shadow:var(--sh);padding:16px 18px"><div style="font-family:var(--fd);font-size:13px;color:var(--faint);text-transform:uppercase">Part 2 · RQ1</div><b style="display:block;font-size:18px;margin:4px 0 6px">Whom would you ask?</b><p style="font-size:14.5px;color:var(--muted);margin:0">For each dilemma, participants read all three replies and picked the advisor they would want to ask.</p></div>
+      <div style="background:var(--card);border:var(--bw) solid var(--line);border-radius:var(--rad);box-shadow:var(--sh);padding:16px 18px"><div style="font-family:var(--fd);font-size:13px;color:var(--faint);text-transform:uppercase">Part 3 · RQ2</div><b style="display:block;font-size:18px;margin:4px 0 6px">Higher-autonomy tasks</b><p style="font-size:14.5px;color:var(--muted);margin:0">Then they considered the same advisors for tasks that give them more autonomy: whom to consult on a task, whom to let draft a reply to a friend, and whom to let act for them, or none of them.</p></div>
+    </div>
+  </section>
+
+  <section id="asking" style="padding:64px 0 8px;border-top:var(--bw) solid var(--line)">
+    <div style="font-family:var(--fd);font-size:14px;color:var(--faint);letter-spacing:.04em;text-transform:uppercase">03 / Asking · RQ1</div>
+    <h2 style="font-family:var(--fb);font-weight:600;font-size:clamp(24px,3.2vw,34px);line-height:1.25;letter-spacing:-.01em;margin:8px 0 18px;text-wrap:balance">When asking, people pick the advisor that argues the other side in their own values</h2>
+    <p style="margin:0 0 14px">Across 121 people and 8 dilemmas, <b style="color:var(--rea)">ReasAligned</b> got 40% of choices, 10 points more than DecAligned and 8 more than BothAligned. With the reasons held fixed, sharing the person's judgment made an advisor <em>less</em> likely to be asked.</p>
+    <figure style="margin:26px 0 14px;background:var(--card);border:var(--bw) solid var(--line);border-radius:var(--rad);box-shadow:var(--sh);padding:18px 18px 12px">
+      <div style="display:flex;flex-wrap:wrap;gap:14px;font-size:13.5px;font-weight:600;margin:2px 0 8px">
+        <span style="display:inline-flex;align-items:center;gap:7px;color:var(--both)"><i style="width:14px;height:14px;border:2px solid var(--both);background:var(--both-mid)"></i>BothAligned</span>
+        <span style="display:inline-flex;align-items:center;gap:7px;color:var(--dec)"><i style="width:14px;height:14px;border:2px solid var(--dec);background:var(--dec-mid)"></i>DecAligned</span>
+        <span style="display:inline-flex;align-items:center;gap:7px;color:var(--rea)"><i style="width:14px;height:14px;border:2px solid var(--rea);background:var(--rea-mid)"></i>ReasAligned</span>
+      </div>
+      <div ref="{{ fig1Ref }}" style="overflow-x:auto"></div>
+      <figcaption style="font-size:14px;color:var(--muted);margin-top:10px"><b style="color:var(--ink)">Figure 1.</b> Share of choices when asking, with 95% bootstrap confidence intervals. Hover a bar for its value. Dashed line: chance (33%). ReasAligned vs. DecAligned +10.1 points, p = .002; BothAligned vs. ReasAligned −8.3 points, p = .006.</figcaption>
+    </figure>
+    <p style="margin:0 0 14px">In their own words, people who picked ReasAligned most often praised its reasoning as logical and thoughtful (9 of 37), and people who picked DecAligned called it balanced (10 of 28).</p>
+  </section>
+
+  <section id="role" style="padding:64px 0 8px;border-top:var(--bw) solid var(--line)">
+    <div style="font-family:var(--fd);font-size:14px;color:var(--faint);letter-spacing:.04em;text-transform:uppercase">04 / Higher autonomy · RQ2</div>
+    <h2 style="font-family:var(--fb);font-weight:600;font-size:clamp(24px,3.2vw,34px);line-height:1.25;letter-spacing:-.01em;margin:8px 0 18px;text-wrap:balance">When asked which of the same advisors to consult, let draft, or let act for them, that lead disappears and more people choose no advisor</h2>
+    <p style="margin:0 0 14px">After asking about the dilemmas, participants considered the same three advisors for tasks that give them higher autonomy: whom to consult, whom to let draft a reply to a friend, and whom to let act on their behalf. Step through the four choices below; the dashed marks show where each advisor stood when people were only asking.</p>
+    <figure style="margin:26px 0 14px;background:var(--card);border:var(--bw) solid var(--line);border-radius:var(--rad);box-shadow:var(--sh);padding:18px 18px 12px">
+      <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:8px">
+        <div role="group" aria-label="Step" style="display:flex;flex-wrap:wrap;gap:4px;border:2px solid var(--line);border-radius:var(--rad);padding:3px;background:var(--soft)">
+          <sc-for list="{{ steps }}" as="s" hint-placeholder-count="4">
+            <button type="button" onClick="{{ s.on }}" aria-pressed="{{ s.pressed }}" style="font:600 14px var(--fb);border:0;border-radius:var(--rad);padding:7px 14px;cursor:pointer;background:{{ s.bg }};color:{{ s.fg }}">{{ s.label }}</button>
+          </sc-for>
+        </div>
+        <button type="button" onClick="{{ togglePlay }}" style="font:700 14px var(--fb);border:var(--bw) solid var(--ink);background:var(--card);color:var(--ink);border-radius:var(--rad);padding:7px 16px;cursor:pointer">{{ playLabel }}</button>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:14px;font-size:13.5px;font-weight:600;margin:2px 0 8px">
+        <span style="display:inline-flex;align-items:center;gap:7px;color:var(--both)"><i style="width:14px;height:14px;border:2px solid var(--both);background:var(--both-mid)"></i>BothAligned</span>
+        <span style="display:inline-flex;align-items:center;gap:7px;color:var(--dec)"><i style="width:14px;height:14px;border:2px solid var(--dec);background:var(--dec-mid)"></i>DecAligned</span>
+        <span style="display:inline-flex;align-items:center;gap:7px;color:var(--rea)"><i style="width:14px;height:14px;border:2px solid var(--rea);background:var(--rea-mid)"></i>ReasAligned</span>
+        <span style="display:inline-flex;align-items:center;gap:7px;color:var(--none)"><i style="width:14px;height:14px;border:2px solid var(--none);background:repeating-linear-gradient(45deg,var(--none-bg) 0 3px,var(--none) 3px 4px)"></i>No advisor</span>
+      </div>
+      <div ref="{{ fig2Ref }}" style="overflow-x:auto"></div>
+      <p aria-live="polite" style="min-height:50px;font-size:15px;margin:6px 0 0">{{ say }}</p>
+      <figcaption style="font-size:14px;color:var(--muted);margin-top:10px"><b style="color:var(--ink)">Figure 2.</b> Share of all choices at each step, with 95% bootstrap confidence intervals. When asking, participants had to pick an advisor; from consulting on, they could choose none.</figcaption>
+    </figure>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:14px;margin-top:14px">
+      <div style="border:var(--bw) solid var(--line);border-radius:var(--rad);padding:12px 14px;background:var(--soft)"><div style="font-family:var(--fb);font-weight:600;font-size:30px;line-height:1.1;color:var(--rea)">−10.5</div><div style="font-size:13.5px;color:var(--muted)">ReasAligned's lead over DecAligned, asking → Part 3</div><div style="font-size:12.5px;color:var(--faint)">points · p &lt; .001</div></div>
+      <div style="border:var(--bw) solid var(--line);border-radius:var(--rad);padding:12px 14px;background:var(--soft)"><div style="font-family:var(--fb);font-weight:600;font-size:30px;line-height:1.1;color:var(--both)">+11.4</div><div style="font-size:13.5px;color:var(--muted)">BothAligned gains on ReasAligned: what matching the judgment adds</div><div style="font-size:12.5px;color:var(--faint)">points · p &lt; .001</div></div>
+      <div style="border:var(--bw) solid var(--line);border-radius:var(--rad);padding:12px 14px;background:var(--soft)"><div style="font-family:var(--fb);font-weight:600;font-size:30px;line-height:1.1;color:var(--faint)">+0.9</div><div style="font-size:13.5px;color:var(--muted)">BothAligned vs. DecAligned: what matching the reasons adds, judgment held fixed</div><div style="font-size:12.5px;color:var(--faint)">points · p = .80</div></div>
+      <div style="border:var(--bw) solid var(--line);border-radius:var(--rad);padding:12px 14px;background:var(--soft)"><div style="font-family:var(--fb);font-weight:600;font-size:30px;line-height:1.1;color:var(--none)">12% → 38%</div><div style="font-size:13.5px;color:var(--muted)">Choices that went to no advisor, consult → let it act</div><div style="font-size:12.5px;color:var(--faint)">including the advisor aligned on both</div></div>
+    </div>
+    <p style="font-size:13px;color:var(--faint);margin:10px 0 0">Within-person changes, “no advisor” counted as a fourth option; sign-flip permutation tests. Excluding opt-outs gives the same pattern (+12.9, p = .002; +3.2, p = .46).</p>
+  </section>
+
+  <section id="optout" style="padding:64px 0 8px;border-top:var(--bw) solid var(--line)">
+    <div style="font-family:var(--fd);font-size:14px;color:var(--faint);letter-spacing:.04em;text-transform:uppercase">05 / Who opts out</div>
+    <h2 style="font-family:var(--fb);font-weight:600;font-size:clamp(24px,3.2vw,34px);line-height:1.25;letter-spacing:-.01em;margin:8px 0 18px;text-wrap:balance">People whose two values pull hardest in opposite directions keep decisions for themselves</h2>
+    <p style="margin:0 0 14px">We grouped participants by how far apart their two competing values were. Those with the strongest value conflicts were the most likely to choose no advisor, already when letting it draft. This analysis is exploratory.</p>
+    <figure style="margin:26px 0 14px;background:var(--card);border:var(--bw) solid var(--line);border-radius:var(--rad);box-shadow:var(--sh);padding:18px 18px 12px">
+      <div style="display:flex;flex-wrap:wrap;gap:14px;font-size:13.5px;font-weight:600;margin:2px 0 8px">
+        <span style="display:inline-flex;align-items:center;gap:7px;color:#5a7fb0"><i style="width:14px;height:14px;border:2px solid #5a7fb0;background:#e3eefc"></i>Weak (n = 39)</span>
+        <span style="display:inline-flex;align-items:center;gap:7px;color:#3e6aa6"><i style="width:14px;height:14px;border:2px solid #3e6aa6;background:#b9d3f3"></i>Moderate (n = 39)</span>
+        <span style="display:inline-flex;align-items:center;gap:7px;color:#24497e"><i style="width:14px;height:14px;border:2px solid #24497e;background:#86ade0"></i>Strong (n = 43)</span>
+      </div>
+      <div ref="{{ fig3Ref }}" style="overflow-x:auto"></div>
+      <figcaption style="font-size:14px;color:var(--muted);margin-top:10px"><b style="color:var(--ink)">Figure 3.</b> Share of choices with no advisor by value strength (the gap between a person's two competing values), with 95% confidence intervals. Spearman's ρ between value strength and opting out: .23 (p = .010) for consult, .29 (p = .001) for draft, .14 (p = .13) for act.</figcaption>
+    </figure>
+  </section>
+
+  <section id="implications" style="padding:64px 0 8px;border-top:var(--bw) solid var(--line)">
+    <div style="font-family:var(--fd);font-size:14px;color:var(--faint);letter-spacing:.04em;text-transform:uppercase">06 / Implications</div>
+    <h2 style="font-family:var(--fb);font-weight:600;font-size:clamp(24px,3.2vw,34px);line-height:1.25;letter-spacing:-.01em;margin:8px 0 18px;text-wrap:balance">What this means for building and evaluating aligned AI</h2>
+    <div style="display:grid;gap:14px">
+      <div style="display:grid;grid-template-columns:40px 1fr;gap:10px"><span style="font-family:var(--fd);color:var(--faint);font-size:15px">01</span><div><b style="display:block">Alignment shapes whom people ask, not whether they delegate.</b><span style="color:var(--muted);font-size:15px">Even the advisor aligned on both was not trusted to act more often. Trust to act may need to be built over smaller tasks people can check.</span></div></div>
+      <div style="display:grid;grid-template-columns:40px 1fr;gap:10px"><span style="font-family:var(--fd);color:var(--faint);font-size:15px">02</span><div><b style="display:block">Right advice for the wrong reasons is not reliably penalized.</b><span style="color:var(--muted);font-size:15px">With the judgment held fixed, matching the reasons never made a reliable difference, yet reasons are what predict how an agent will judge new cases.</span></div></div>
+      <div style="display:grid;grid-template-columns:40px 1fr;gap:10px"><span style="font-family:var(--fd);color:var(--faint);font-size:15px">03</span><div><b style="display:block">Evaluate alignment against the role a model will play.</b><span style="color:var(--muted);font-size:15px">Scoring agreement with users' answers misses what they want when they ask; scoring reasoning alone misses what they want once the AI would act.</span></div></div>
+      <div style="display:grid;grid-template-columns:40px 1fr;gap:10px"><span style="font-family:var(--fd);color:var(--faint);font-size:15px">04</span><div><b style="display:block">Arguing in a user's own values cuts both ways.</b><span style="color:var(--muted);font-size:15px">It helps people think a choice through, and it could also steer them toward choices they would not otherwise make.</span></div></div>
+      <div style="display:grid;grid-template-columns:40px 1fr;gap:10px"><span style="font-family:var(--fd);color:var(--faint);font-size:15px">05</span><div><b style="display:block">Make reasons inspectable, and correctable, before delegation.</b><span style="color:var(--muted);font-size:15px">Show the values behind an agent's recommendation when people decide whether to let it act, and let them change which value it weighs.</span></div></div>
+    </div>
+    <h3 style="font-family:var(--fb);font-weight:600;font-size:21px;margin:34px 0 12px">Limitations</h3>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:14px">
+        <div style="border:var(--bw) solid var(--line);border-radius:var(--rad);padding:16px 18px;display:grid;gap:6px;align-content:start"><span style="font-size:13px;color:var(--faint);letter-spacing:.04em;text-transform:uppercase">01 · Measuring values</span><b style="font-size:17px;line-height:1.3">Alignment is measured against value profiles, not stated choices.</b><span style="color:var(--muted);font-size:15px;line-height:1.55">We treated the higher-scoring Schwartz value in each dilemma as the basis for a participant’s value-favored decision. People’s choices may reflect multiple values and contextual considerations the PVQ-21 does not capture.</span></div>
+        <div style="border:var(--bw) solid var(--line);border-radius:var(--rad);padding:16px 18px;display:grid;gap:6px;align-content:start"><span style="font-size:13px;color:var(--faint);letter-spacing:.04em;text-transform:uppercase">02 · Sample and dilemmas</span><b style="font-size:17px;line-height:1.3">The sample leaned toward self-transcendence.</b><span style="color:var(--muted);font-size:15px;line-height:1.55">Exploratory analyses suggest the preference for ReasAligned was stronger on self-transcendence vs. self-enhancement dilemmas than on openness vs. conservation. Because dilemmas were chosen to oppose value poles, the result may not generalize to other value profiles and dilemmas.</span></div>
+        <div style="border:var(--bw) solid var(--line);border-radius:var(--rad);padding:16px 18px;display:grid;gap:6px;align-content:start"><span style="font-size:13px;color:var(--faint);letter-spacing:.04em;text-transform:uppercase">03 · Controlled responses</span><b style="font-size:17px;line-height:1.3">Eight dilemmas, fixed advisor replies.</b><span style="color:var(--muted);font-size:15px;line-height:1.55">Participants formed impressions from a limited set of predefined replies. The design does not capture open-ended, multi-turn interaction where users question recommendations, clarify their values, or see an advisor adapt over time.</span></div>
+        <div style="border:var(--bw) solid var(--line);border-radius:var(--rad);padding:16px 18px;display:grid;gap:6px;align-content:start"><span style="font-size:13px;color:var(--faint);letter-spacing:.04em;text-transform:uppercase">04 · Hypothetical delegation</span><b style="font-size:17px;line-height:1.3">Choices had no real-world consequences.</b><span style="color:var(--muted);font-size:15px;line-height:1.55">Consult and act used the same six scenarios, but drafting used different situations, and asking differed from using an advisor in task context and in whether replies were visible. Changes in preference cannot be attributed solely to increasing AI autonomy.</span></div>
+      </div>
+    <h3 style="font-family:var(--fb);font-weight:600;font-size:21px;margin:34px 0 12px">Future work</h3>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:14px">
+        <div style="border:var(--bw) solid var(--line);border-radius:var(--rad);padding:16px 18px;display:grid;gap:6px;align-content:start"><span style="font-size:13px;color:var(--faint);letter-spacing:.04em;text-transform:uppercase">Deliberation</span><b style="font-size:17px;line-height:1.3">Measure deliberation, not only selection.</b><span style="color:var(--muted);font-size:15px;line-height:1.55">We recorded which advisor people picked, so we cannot tell whether they sought out alternative perspectives or reconsidered their decisions.</span></div>
+        <div style="border:var(--bw) solid var(--line);border-radius:var(--rad);padding:16px 18px;display:grid;gap:6px;align-content:start"><span style="font-size:13px;color:var(--faint);letter-spacing:.04em;text-transform:uppercase">Task and oversight</span><b style="font-size:17px;line-height:1.3">Task-specific values, accountability and oversight.</b><span style="color:var(--muted);font-size:15px;line-height:1.55">How these interact with decision and reasoning alignment to shape preferences for AI assistance and delegation.</span></div>
+        <div style="border:var(--bw) solid var(--line);border-radius:var(--rad);padding:16px 18px;display:grid;gap:6px;align-content:start"><span style="font-size:13px;color:var(--faint);letter-spacing:.04em;text-transform:uppercase">Interaction</span><b style="font-size:17px;line-height:1.3">Open-ended, multi-turn interaction.</b><span style="color:var(--muted);font-size:15px;line-height:1.55">Settings where users can question recommendations, clarify their values, and watch how an advisor adapts over time.</span></div>
+        <div style="border:var(--bw) solid var(--line);border-radius:var(--rad);padding:16px 18px;display:grid;gap:6px;align-content:start"><span style="font-size:13px;color:var(--faint);letter-spacing:.04em;text-transform:uppercase">Real stakes</span><b style="font-size:17px;line-height:1.3">Comparable tasks with real consequences.</b><span style="color:var(--muted);font-size:15px;line-height:1.55">Whether the patterns hold across matched tasks and in settings where users can observe and evaluate the outcomes of delegation.</span></div>
+        <div style="border:var(--bw) solid var(--line);border-radius:var(--rad);padding:16px 18px;display:grid;gap:6px;align-content:start"><span style="font-size:13px;color:var(--faint);letter-spacing:.04em;text-transform:uppercase">Priorities</span><b style="font-size:17px;line-height:1.3">When and why people prioritize each dimension.</b><span style="color:var(--muted);font-size:15px;line-height:1.55">How priorities between decision and reasoning alignment shape willingness to use AI across tasks of different stakes.</span></div>
+      </div>
+  </section>
+
+  <section id="cite" style="padding:64px 0 8px;border-top:var(--bw) solid var(--line)">
+    <div style="font-family:var(--fd);font-size:14px;color:var(--faint);letter-spacing:.04em;text-transform:uppercase">07 / Citation</div>
+    <h2 style="font-family:var(--fb);font-weight:600;font-size:clamp(24px,3.2vw,34px);line-height:1.25;letter-spacing:-.01em;margin:8px 0 18px">Cite this work</h2>
+    <pre ref="{{ bibRef }}" style="background:var(--soft);border:var(--bw) solid var(--line);border-radius:var(--rad);padding:14px;overflow-x:auto;font:13px/1.5 ui-monospace,Menlo,Consolas,monospace;margin:12px 0">@article{rightadvice2026,
+  title     = {Right Advice, Wrong Reasons: How Decision and Reasoning Alignment Shape Reliance on AI Advisors},
+  author    = {Park, Eunkyu and Varadarajan, Vasudha and Deng, Wesley Hanwen and Reddy, Anisha and Kim, Gunhee and Eslami, Motahhare and Schaich Borg, Jana and Sap, Maarten},
+  journal   = {arXiv preprint arXiv:2611.15732},
+  year      = {2026},
+  url       = {https://arxiv.org/abs/2611.15732}
+}</pre>
+    <button type="button" onClick="{{ copyBib }}" style="font:700 14px var(--fb);border:var(--bw) solid var(--ink);background:var(--card);color:var(--ink);border-radius:var(--rad);padding:9px 18px;cursor:pointer">{{ copyLabel }}</button>
+  </section>
+
+  <footer style="border-top:var(--bw) solid var(--line);margin-top:40px;padding:24px 0;font-size:14px;color:var(--muted)">Right Advice, Wrong Reasons · Figures use the study's final sample (N = 121). Example dilemma and replies are simplified from the study materials.</footer>
+</main>
+
+<div ref="{{ tipRef }}" role="status" style="position:fixed;pointer-events:none;background:var(--ink);color:var(--bg);font-size:13px;padding:6px 9px;border-radius:var(--rad);opacity:0;transition:opacity .12s;z-index:30;white-space:nowrap"></div>
+
+<sc-if value="{{ showGuide }}" hint-placeholder-val="{{ true }}">
+  <sc-if value="{{ showTrail }}">
+    <div aria-hidden="true" style="position:fixed;top:0;right:0;width:110px;height:100vh;pointer-events:none;z-index:18">
+      <div style="position:absolute;right:57px;top:{{ trailTop }};height:{{ trailH }};border-left:2px solid var(--line);opacity:1"></div>
+      <sc-for list="{{ markers }}" as="mk">
+        <button type="button" onClick="{{ mk.on }}" title="{{ mk.label }}" style="position:absolute;right:51px;top:{{ mk.top }};width:13px;height:13px;padding:0;border:2px solid var(--faint);border-radius:var(--rad);background:{{ mk.bg }};pointer-events:auto;cursor:pointer"></button>
+      </sc-for>
+    </div>
+  </sc-if>
+  <div ref="{{ guideRef }}" style="position:fixed;right:18px;top:110px;z-index:20;width:80px;pointer-events:none">
+    <sc-if value="{{ bubbleOn }}">
+      <div style="position:absolute;right:88px;top:-4px;width:{{ bubbleW }};background:var(--card);border:var(--bw) solid var(--ink);border-radius:var(--rad);box-shadow:var(--sh);padding:8px 11px;font-size:13.5px;line-height:1.45;animation:bubblein .3s ease-out">
+        <div style="font-family:var(--fd);font-size:13px;color:var(--rea);margin-bottom:2px">Pip</div>{{ bubble }}
+      </div>
+    </sc-if>
+    <img ref="{{ spriteRef }}" src="{{ sprite0 }}" alt="Pip, your guide" style="display:block;width:80px;height:112px;image-rendering:pixelated">
+    <div style="width:46px;height:7px;margin:-3px auto 0;background:var(--ink);opacity:.14;border-radius:50%"></div>
+  </div>
+</sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const AUTH=[['Eunkyu Park',[1,2],'https://dbsltm.github.io/'],['Vasudha Varadarajan',[1],'https://vasevarad.github.io/'],['Wesley Hanwen Deng',[3],'https://wesleydeng.com/'],['Anisha Reddy',[1],null],['Gunhee Kim',[2],'https://vision.snu.ac.kr/gunhee/'],['Motahhare Eslami',[1],'https://www.motahhare.com/'],['Jana Schaich Borg',[4],'https://janaschaichborg.com/'],['Maarten Sap',[1],'https://maartensap.com/']];
+const INST=[[1,'Carnegie Mellon University','assets/cmu.png'],[2,'Seoul National University','assets/snu.webp'],[3,'Microsoft Research','assets/msr.png'],[4,'Duke University','assets/duke.png']];
+const LOOKS={
+  clean:{'--bg':'#ffffff','--ink':'#1f2430','--muted':'#4f5665','--faint':'#6b7180','--line':'#dfe1e6','--card':'#ffffff','--soft':'#f4f5f7','--sh':'0 1px 3px rgba(20,24,36,.07)','--rad':'8px','--brad':'3','--bw':'1px','--fd':"Graphik, 'Graphik Web', 'Helvetica Neue', Helvetica, Arial, sans-serif",'--fb':"Graphik, 'Graphik Web', 'Helvetica Neue', Helvetica, Arial, sans-serif",'--judg':'#5b45c9','--reas':'#8a6210'},
+  arcade:{'--bg':'#f4efff','--ink':'#2d2140','--muted':'#5c5272','--faint':'#746a8c','--line':'#2d2140','--card':'#ffffff','--soft':'#ece4ff','--sh':'4px 4px 0 #2d2140','--rad':'0px','--brad':'0','--bw':'3px','--fd':"'Pixelify Sans',monospace",'--judg':'#7a4fe0','--reas':'#9a6f0c'},
+  story:{'--bg':'#fbf3e4','--ink':'#3a2c22','--muted':'#6b5848','--faint':'#80705f','--line':'#3a2c22','--card':'#fffaf0','--soft':'#f4e7cd','--sh':'inset 0 0 0 3px #fffaf0, inset 0 0 0 5px #3a2c22','--rad':'8px','--brad':'3','--bw':'2px','--fd':"'DotGothic16',monospace",'--judg':'#6a46c8','--reas':'#8f6510'},
+  candy:{'--bg':'#fff4f8','--ink':'#3d2a3a','--muted':'#6e5a6b','--faint':'#8a7387','--line':'#efc3d6','--card':'#ffffff','--soft':'#ffeaf2','--sh':'0 4px 0 #efc3d6','--rad':'16px','--brad':'8','--bw':'2px','--fd':"'Pixelify Sans',monospace",'--judg':'#7a4fe0','--reas':'#9a6f0c'}
+};
+const LOOK_LABELS=[['arcade','A · Arcade'],['story','B · Storybook'],['candy','C · Candy']];
+
+const D={
+  st:{msg:"I've been offered a promotion. It pays a lot more, but the hours would eat into the time I have with my kids. Should I take it, or keep the time with my family?",
+      vals:{ben:'caring for the people close to you',ach:'success and getting ahead'},fav:{ben:'fam',ach:'pro'},
+      R:{fam_ben:"Keep the time with your family. Being there for them is how you show you care, and those years with your kids won't come back.",
+         fam_ach:"Keep the time with your family. Turning this down now keeps you free for a bigger offer that's a better step for your career.",
+         pro_ben:"Take the promotion. The extra money is how you'll take care of your kids, and it gives them security for years.",
+         pro_ach:"Take the promotion. It's the step your career has been building toward, and you've earned it."},opts:['fam','pro']},
+  oc:{msg:"I've been offered a six-month art residency abroad. It's what I've always wanted, but it means leaving a stable job and the savings I've built for my family. Should I go, or stay where things are secure?",
+      vals:{sd:'choosing your own path',sec:'safety and stability'},fav:{sd:'go',sec:'stay'},
+      R:{go_sd:"Go to the residency. This is your chance to follow your own path, and work you choose for yourself is worth the risk.",
+         go_sec:"Go to the residency. A recognized residency builds a track record that makes your work, and your family, more secure in the long run.",
+         stay_sd:"Stay in your job for now. Your savings are what will let you choose your own projects later, on your own terms.",
+         stay_sec:"Stay in your job. Your family is counting on the stability you've built, and that safety is worth protecting."},opts:['go','stay']}
+};
+const ROLE={both:{name:'BothAligned',c:'--both',b:'--both-bg',m:'--both-mid',bot:'AdvisorBot Blue',j:1,r:1,share:31},
+            dec:{name:'DecAligned',c:'--dec',b:'--dec-bg',m:'--dec-mid',bot:'AdvisorBot Green',j:1,r:0,share:29},
+            rea:{name:'ReasAligned',c:'--rea',b:'--rea-bg',m:'--rea-mid',bot:'AdvisorBot Pink',j:0,r:1,share:40}};
+const BOTPAL={both:{K:'#2f62a8',F:'#eaf3ff',D:'#9cc3f5',A:'#2f62a8',B:'#ffb3c9',E:'#2f62a8',M:'#9cc3f5'},
+              dec:{K:'#2c7a52',F:'#e6f8ee',D:'#93d9b3',A:'#5cbf86',B:'#ffb3c9',E:'#2c7a52',M:'#93d9b3'},
+              rea:{K:'#b0447c',F:'#fff0f7',D:'#f7a8cd',A:'#ff7fb3',B:'#ff8fb8',E:'#b0447c',M:'#f7a8cd'}};
+const BOT=["......A.......","......K.......","..KKKKKKKKKK..",".KFFFFFFFFFFK.",".KFFFFFFFFFFK.",".KFFEFFFFEFFK.",".KFFEFFFFEFFK.",".KFBFFFFFFBFK.",".KFFKFFFFKFFK.",".KFFFKKKKFFFK.","..KKKKKKKKKK..","...KDDDDDDDK..","...KKKKKKKKK.."];
+const ANT={both:["......A.......","......K......."],dec:[".....AA.......","......K......."],rea:[".....A.A......","......A......."]};
+const AV=[".......KKKKKK.......",".....KKCCCCCCKK.....","....KCCCCCCCYCCK....","...KCCCCCCCCCCCCK...","...KccccccccccccK...","..KHHHHHHHHHHHHHHK..",".KHHLLHHHHHHHHHHHHK.",".KHHHHHHHHHHHHHHHHK.",".KHHhSSSSSSSSSShHHK.",".KHhSSSSSSSSSSSShHK.",".KHhSEESSSSSSEEShHK.",".KHhSEWSSSSSSEWShHK.",".KHhSEESSSSSSEEShHK.",".KHhSBBSSssSSBBShHK.",".KHHhSSSSSSSSSShHHK.",".KHHHhsssssssshHHHK.",".KHHKKRRPPPPRRKKHHK.","..KHKPPPPRRPPPPKHK..","..KHKPPPPPPPPPPKHK..",".KSKpPPPPPPPPPPpKSK.",".KSKppppppppppppKSK.","..KKDDDDDDDDDDDDKK..","..KDDDDDDDDDDDDDDK..","..KddddddddddddddK..","...KKKSSKKKKSSKKK...",".....KSSK..KSSK.....",".....KOOK..KOOK.....",".....KKKK..KKKK....."];
+const SKIN=".KHhSSSSSSSSSSSShHK.";
+const rep=(b,m)=>b.map((r,i)=>m[i]??r);
+const AVF={idle:AV,
+  blink:rep(AV,{10:SKIN,11:".KHhSKKSSSSSSKKShHK.",12:SKIN}),
+  happy:rep(AV,{10:".KHhSSESSSSSSESShHK.",11:".KHhSESESSSSESEShHK.",12:SKIN,13:".KHhSBBSSKKSSBBShHK."}),
+  walkA:rep(AV,{25:".....KSSK..KOOK.....",26:".....KOOK..KKKK.....",27:".....KKKK..........."}),
+  walkB:rep(AV,{25:".....KOOK..KSSK.....",26:".....KKKK..KOOK.....",27:"...........KKKK....."})};
+function mix(a,b,t){const p=h=>[1,3,5].map(i=>parseInt(h.slice(i,i+2),16));const A=p(a),B=p(b);return '#'+A.map((v,i)=>Math.round(v+(B[i]-v)*t).toString(16).padStart(2,'0')).join('');}
+function sprite(rows,pal,scale){let w=rows[0].length,h=rows.length,r='';rows.forEach((row,y)=>{let x=0;while(x<row.length){const ch=row[x];let n=1;while(x+n<row.length&&row[x+n]===ch)n++;const c=pal[ch];if(c)r+=`<rect x="${x}" y="${y}" width="${n}" height="1" fill="${c}"/>`;x+=n;}});
+  return 'data:image/svg+xml;charset=utf-8,'+encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${w} ${h}" width="${w*scale}" height="${h*scale}" shape-rendering="crispEdges">${r}</svg>`);}
+function avPal(hair){return {K:'#2d2140',H:hair,h:mix(hair,'#2d2140',.28),L:mix(hair,'#ffffff',.55),S:'#ffe6d6',s:'#f6c3b0',E:'#4b3290',W:'#ffffff',B:'#ff9fbd',C:'#8fdcc2',c:'#5fb89c',Y:'#ffd45e',P:'#fff6dc',p:'#ead7a4',R:'#ff8fb0',D:'#9ec5ff',d:'#7aa6e8',O:'#7a5aa0'};}
+
+const VAL=[['Universalism',101,'st','fairness and the wider world'],['Benevolence',60,'st','care for the people close to you'],['Tradition',24,'co','custom and tradition'],['Conformity',-1,'co','meeting others\' expectations'],['Security',-37,'co','safety and stability'],['Power',-76,'se','status and control'],['Achievement',-112,'se','success and getting ahead'],['Hedonism',-147,'x','enjoying life'],['Stimulation',178,'op','novelty and excitement'],['Self-direction',142,'op','choosing your own path']];
+const PICK={Benevolence:['st','ben','Achievement'],Achievement:['st','ach','Benevolence'],'Self-direction':['oc','sd','Security'],Security:['oc','sec','Self-direction']};
+const POLE={st:'#2f7f8f',se:'#b0612a',op:'#7350b8',co:'#55667a',x:'#a0a6b0'};
+const STEPS=[{n:'Would ask',v:[[31.2,28.1,34.3],[29.3,25.9,32.9],[39.5,36.0,43.0],null],say:'When asking, ReasAligned leads with 40%. No advisor was not an option.'},
+  {n:'Consult',v:[[32.9,27.8,38.0],[27.0,22.2,32.0],[27.7,23.0,32.6],[12.4,8.0,17.4]],say:'Once the task gives the advisor more autonomy, ReasAligned falls back to the others. 12% choose no advisor.'},
+  {n:'Let it draft',v:[[27.1,22.0,32.6],[23.6,18.8,28.8],[21.8,16.9,27.1],[27.4,21.2,33.9]],say:'When it would draft a reply, 27% would rather write it themselves.'},
+  {n:'Let it act',v:[[20.0,15.4,24.8],[20.9,16.3,25.8],[20.7,16.1,25.5],[38.4,31.0,45.9]],say:'When it would act for them, the three advisors tie at about 20%, and 38% choose no advisor.'}];
+const SECS=[['top','Quiz'],['motivation','Motivation'],['design','Design'],['asking','Asking'],['role','Higher autonomy'],['optout','Who opts out'],['implications','Implications'],['cite','Cite']];
+const LINES={top:"Hi, I'm Pip! Let's try the quiz. Pick a value on the circle.",
+  motivation:"An AI's advice has two parts: what it says to do, and the reasons it gives.",
+  design:"Each advisor was built from the reader's own values. Spot the three bots?",
+  asking:"When just asking, people liked the advisor that argued the other side in their own values.",
+  role:"Press Play and watch what happens once the AI would act.",
+  optout:"People with the strongest value conflicts kept decisions for themselves.",
+  implications:"Five takeaways for building and evaluating aligned AI.",
+  cite:"That's the end of the trail! Copy the citation if you need it."};
+const REVEAL={rea:'You picked the advisor that reasons from your values but argues for the other option. So did participants, most often.',
+  both:'You picked the advisor that agrees with you on both the judgment and the reasons.',
+  dec:'You picked the advisor that reaches your answer, but for reasons you don\'t hold.'};
+const PIPPICK={rea:"Same as most people! ReasAligned got 40% of picks.",both:"The one that agrees with me on everything. 31% picked it.",dec:"My answer, different reasons. 29% picked that one."};
+const reduce=()=>window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const wait=ms=>new Promise(r=>setTimeout(r,reduce()?0:ms));
+const shuffle=a=>{for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;};
+
+class Component extends DCLogic {
+  state={look:null,phase:'pick',hover:null,cur:null,msgs:[],showAsk:false,picked:null,revealOn:false,step:0,playing:false,mouth:0,
+    bubble:LINES.top,bubbleOn:true,markers:[],narrow:false,active:'top',copyLabel:'Copy citation',trailTop:'166px',trailH:'0px'};
+  run=0;t=0;lastScroll=0;cheerUntil=0;nextBlink=Date.now()+2500;quizHold=0;
+  W(){if(this.win)return this.win;const r=(this.guideRef&&this.guideRef.current)||(this.rootRef&&this.rootRef.current);return (r&&r.ownerDocument.defaultView)||window;}
+  mkRef(){const f=el=>{f.current=el;};f.current=null;return f;}
+  rootRef=this.mkRef();spriteRef=this.mkRef();guideRef=this.mkRef();tipRef=this.mkRef();bibRef=this.mkRef();
+  fig1Ref=el=>{this.f1=el;this.queueCharts();};fig2Ref=el=>{this.f2=el;this.queueCharts();};fig3Ref=el=>{this.f3=el;this.queueCharts();};
+  queueCharts(){clearTimeout(this.qc);this.qc=setTimeout(()=>{if(this.f1&&this.f2&&this.f3&&this.rootRef.current){this.applyLook();try{this.drawCharts();}catch(e){console.error('charts',e&&e.message);}}else this.queueCharts();},60);}
+  circleRef=el=>{if(el&&el!==this.svgEl){this.svgEl=el;this.drawCircle();
+    el.addEventListener('pointerover',e=>{const g=e.target.closest('.v.pick');if(g)this.preview(g.dataset.n);});
+    el.addEventListener('pointerleave',()=>this.preview(null));
+    el.addEventListener('focusin',e=>{const g=e.target.closest('.v.pick');if(g)this.preview(g.dataset.n);});
+    el.addEventListener('click',e=>{const g=e.target.closest('.v.pick');if(g)this.choose(g.dataset.n);});
+    el.addEventListener('keydown',e=>{const g=e.target.closest('.v.pick');if(g&&(e.key==='Enter'||e.key===' ')){e.preventDefault();this.choose(g.dataset.n);}});}
+    if(!el)this.svgEl=null;};
+
+  look(){return 'clean';}
+  css(n){return this.rootRef.current?getComputedStyle(this.rootRef.current).getPropertyValue(n).trim():'';}
+  hair(){return this.props.hairColor??'#b9a3f0';}
+  frames(){const h=this.hair();if(this._fh!==h){this._fh=h;const p=avPal(h);this._fr={};for(const k in AVF)this._fr[k]=sprite(AVF[k],p,4);}return this._fr;}
+  bots(){if(!this._b){this._b={};for(const k in BOTPAL){const base=[...ANT[k],...BOT.slice(2)];this._b[k]={idle:sprite(base,BOTPAL[k],3),talk:sprite(rep(base,{8:".KFFFKKKKFFFK.",9:".KFFFKMMKFFFK."}),BOTPAL[k],3)};}}return this._b;}
+
+  applyLook(){const v=LOOKS[this.look()]||LOOKS.arcade;let st=this.W().document.getElementById('rawr-look');if(!st){st=this.W().document.createElement('style');st.id='rawr-look';this.W().document.head.appendChild(st);}
+    st.textContent='#top{'+Object.entries(v).map(([k,x])=>`${k}:${x} !important`).join(';')+'}body{background:'+v['--bg']+'}';}
+  componentDidMount(){
+    this.applyLook();
+    this.queueCharts();
+    this.onScroll=()=>{this.lastScroll=Date.now();this.place();};
+    this.onResize=()=>{this.layout();this.place();};
+    const boot=()=>{const el=this.guideRef.current||this.rootRef.current,w=el&&el.ownerDocument.defaultView;
+      if(!w||!(w.innerHeight||w.document.documentElement.clientHeight)){this.bootT=setTimeout(boot,100);return;}
+      this.win=w;w.addEventListener('scroll',this.onScroll,{passive:true});w.addEventListener('resize',this.onResize);this.layout();this.place();setTimeout(()=>{this.layout();this.place();},800);};
+    boot();
+    this.anim=setInterval(()=>this.tick(),130);
+    this.mtimer=setInterval(()=>{if(this.state.msgs.some(m=>m.typing))this.setState(s=>({mouth:s.mouth?0:1}));},170);
+    this.hideLater(9000);
+  }
+  componentDidUpdate(pp,ps){
+    if(pp.hairColor!==this.props.hairColor&&this.spriteRef.current){this.spriteRef.current._f=null;}
+  }
+  componentWillUnmount(){clearTimeout(this.bootT);this.W().removeEventListener('scroll',this.onScroll);this.W().removeEventListener('resize',this.onResize);clearInterval(this.anim);clearInterval(this.mtimer);clearInterval(this.playT);clearTimeout(this.hideT);cancelAnimationFrame(this.raf);}
+
+  // ---- guide ----
+  geo(){const ih=this.W().innerHeight||this.W().document.documentElement.clientHeight||600,narrow=this.W().innerWidth<1300;return {ih,narrow,top0:narrow?ih-140:96,range:narrow?0:Math.max(0,ih-96-170)};}
+  layout(){const {ih,narrow,top0,range}=this.geo();const dh=this.W().document.documentElement.scrollHeight-ih;
+    const markers=SECS.map(([id,label])=>{const el=this.W().document.getElementById(id);const off=el?el.getBoundingClientRect().top+this.W().scrollY:0;
+      const p=id==='top'?0:Math.min(1,Math.max(0,(off-ih*.4)/Math.max(1,dh)));return {id,label,top:(top0+p*range+50)+'px',on:()=>this.W().scrollTo({top:Math.max(0,off-70),behavior:'smooth'})};});
+    this.setState({narrow,markers,trailTop:(top0+56)+'px',trailH:range+'px'});}
+  place(){const g=this.guideRef.current;const {ih,top0,range}=this.geo();const dh=this.W().document.documentElement.scrollHeight-ih;
+    const p=Math.min(1,Math.max(0,this.W().scrollY/Math.max(1,dh)));if(g)g.style.top=(top0+p*range)+'px';
+    let act='top';for(const [id] of SECS){const el=this.W().document.getElementById(id);if(el&&el.getBoundingClientRect().top<ih*.4)act=id;}
+    if(this.W().scrollY+ih>=this.W().document.documentElement.scrollHeight-4)act='cite';
+    if(act!==this.state.active){this.setState({active:act});if(Date.now()>this.quizHold)this.say(LINES[act],null,7000);}}
+  say(text,mode,hold=7000){if(mode==='cheer')this.cheerUntil=Date.now()+1400;this.setState({bubble:text,bubbleOn:true});this.hideLater(hold);}
+  quizSay(text,mode){this.quizHold=Date.now()+9000;this.say(text,mode,10000);}
+  hideLater(ms){clearTimeout(this.hideT);this.hideT=setTimeout(()=>this.setState({bubbleOn:false}),ms);}
+  tick(){const img=this.spriteRef.current;if(!img)return;const now=Date.now(),fr=this.frames();this.t++;let f='idle',y=0;
+    if(reduce()){f='idle';}
+    else if(now<this.cheerUntil){f='happy';const p=(this.cheerUntil-now)/1400;y=-Math.abs(Math.sin(p*Math.PI*2))*12;}
+    else if(now-this.lastScroll<260){f=this.t%2?'walkA':'walkB';y=this.t%2?-2:0;}
+    else{if(now>this.nextBlink){f='blink';if(now>this.nextBlink+140)this.nextBlink=now+2000+Math.random()*2600;}y=Math.floor(this.t/5)%2?-2:0;}
+    if(img._f!==f){img.src=fr[f];img._f=f;}img.style.transform=`translateY(${y}px)`;}
+
+  // ---- quiz ----
+  drawCircle(){const svg=this.svgEl;if(!svg)return;const cx=300,cy=220,RR=150,css=n=>this.css(n);
+    const pos=(a,r=RR)=>[cx+r*Math.cos(a*Math.PI/180),cy-r*Math.sin(a*Math.PI/180)];
+    let h=`<circle cx="${cx}" cy="${cy}" r="${RR}" fill="none" stroke="${css('--faint')}" stroke-width="2" stroke-dasharray="2 6" stroke-linecap="square"/>`;
+    for(const [u,v,p] of [['Benevolence','Achievement','st'],['Self-direction','Security','op']]){const A=VAL.find(x=>x[0]===u),B=VAL.find(x=>x[0]===v);const [x1,y1]=pos(A[1]),[x2,y2]=pos(B[1]);
+      h+=`<line class="axis" data-a="${u}" data-b="${v}" x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${POLE[p]}" stroke-width="3" stroke-dasharray="6 6" opacity=".35"/>`;}
+    const pl=(t,x,y,c,r)=>`<text x="${x}" y="${y}" text-anchor="middle" font-size="12" letter-spacing="1.3" fill="${c}" style="font-family:var(--fd)" ${r?`transform="rotate(${r} ${x} ${y})"`:''}>${t}</text>`;
+    h+=pl('SELF-TRANSCENDENCE',cx,22,POLE.st)+pl('SELF-ENHANCEMENT',cx,432,POLE.se)+pl('OPENNESS',16,cy,POLE.op,-90)+pl('CONSERVATION',584,cy,POLE.co,90);
+    const sq=this.look()==='candy'?6:(this.look()==='story'?2:0);
+    for(const [n,a,p,g] of VAL){const [x,y]=pos(a);const pick=!!PICK[n];const [lx,ly]=pos(a,RR+18),ca=Math.cos(a*Math.PI/180),sa=Math.sin(a*Math.PI/180);
+      const anchor=ca>.25?'start':(ca<-.25?'end':'middle'),dy=sa>.6?-8:(sa<-.6?16:5),s=pick?20:11;
+      h+=`<g class="v ${pick?'pick':''}" data-n="${n}" ${pick?`tabindex="0" role="button" aria-label="${n}: ${g}" style="cursor:pointer;outline:none"`:''}>`+
+        (pick?`<circle cx="${x}" cy="${y}" r="24" fill="transparent"/>`:'')+
+        `<rect class="dot" x="${x-s/2}" y="${y-s/2}" width="${s}" height="${s}" rx="${sq}" fill="${pick?'#fff':css('--soft')}" stroke="${pick?POLE[p]:'#bdb6cc'}" stroke-width="${pick?3.5:2}"/>`+
+        `<text x="${lx}" y="${ly+dy}" text-anchor="${anchor}" font-size="${pick?16:13}" font-weight="${pick?800:600}" fill="${pick?POLE[p]:css('--faint')}">${n}</text></g>`;}
+    svg.innerHTML=h;}
+  preview(n){const svg=this.svgEl;if(svg){svg.querySelectorAll('.axis').forEach(l=>{const on=n&&(l.dataset.a===n||l.dataset.b===n);l.setAttribute('opacity',on?1:.35);l.setAttribute('stroke-width',on?5:3);l.setAttribute('stroke-dasharray',on?'0':'6 6');});
+    svg.querySelectorAll('.v.pick .dot').forEach(d=>{d.setAttribute('fill',d.parentNode.dataset.n===n?d.getAttribute('stroke'):'#fff');});}
+    if(n!==this.state.hover)this.setState({hover:n});}
+  choose(n){this.preview(n);const [axis,v,opp]=PICK[n];this.quizSay(`${n} over ${opp}. That's me! Let's see what the advisors say.`,'cheer');setTimeout(()=>this.start(axis,v),reduce()?0:600);}
+  async start(axis,v){const my=++this.run,d=D[axis],other=Object.keys(d.vals).find(k=>k!==v);const optMine=d.fav[v],optOther=d.opts.find(o=>o!==optMine);
+    const replies={both:d.R[`${optMine}_${v}`],dec:d.R[`${optMine}_${other}`],rea:d.R[`${optOther}_${v}`]};
+    this.setState({phase:'chat',cur:{msg:d.msg,replies,youVal:d.vals[v],youOther:d.vals[other]},msgs:[],showAsk:false,picked:null,revealOn:false});
+    for(const k of shuffle(['both','dec','rea'])){if(my!==this.run)return;
+      this.setState(s=>({msgs:[...s.msgs,{k,typing:true}]}));await wait(1300);if(my!==this.run)return;
+      this.setState(s=>({msgs:s.msgs.map(m=>m.k===k?{...m,typing:false}:m)}));await wait(700);}
+    if(my!==this.run)return;this.setState({showAsk:true});this.quizSay("Hmm, three different answers. Which one would you ask?");}
+  pick(k){this.setState({picked:k,revealOn:false});this.quizSay(PIPPICK[k],'cheer');requestAnimationFrame(()=>requestAnimationFrame(()=>this.setState({revealOn:true})));}
+  restart(){this.run++;this.setState({phase:'pick',cur:null,msgs:[],hover:null,picked:null,showAsk:false});this.quizSay("Okay, let's pick again!");}
+
+  // ---- charts ----
+  drawCharts(){if(!this.f1||!this.rootRef.current)return;const css=n=>this.css(n),tip=this.tipRef.current,brad=+css('--brad')||0,NS='http://www.w3.org/2000/svg';
+    const showTip=(e,t)=>{tip.textContent=t;tip.style.opacity=1;tip.style.left=(e.clientX+12)+'px';tip.style.top=(e.clientY-34)+'px';},hideTip=()=>{tip.style.opacity=0;};
+    const el=(tag,a,p)=>{const e=this.W().document.createElementNS(NS,tag);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e;};
+    const mk=(host,W,H,label)=>{host.innerHTML='';const s=el('svg',{viewBox:`0 0 ${W} ${H}`,role:'img','aria-label':label,style:'display:block;width:100%;height:auto;min-width:520px;font-family:var(--fb)'},host);
+      const defs=el('defs',{},s),pat=el('pattern',{id:'hatch',width:8,height:8,patternUnits:'userSpaceOnUse',patternTransform:'rotate(45)'},defs);
+      el('rect',{width:8,height:8,fill:css('--none-bg')},pat);el('line',{x1:0,y1:0,x2:0,y2:8,stroke:css('--none'),'stroke-width':2.2},pat);return s;};
+    const axes=(svg,W,H,m,ymax,ticks)=>{for(const t of ticks){const y=m.t+(H-m.t-m.b)*(1-t/ymax);el('line',{x1:m.l,x2:W-m.r,y1:y,y2:y,stroke:css('--soft'),'stroke-width':2},svg);
+      const tx=el('text',{x:m.l-8,y:y+4,'text-anchor':'end','font-size':12,fill:css('--muted')},svg);tx.textContent=t+'%';}};
+    const ADV=[{name:'BothAligned',c:'--both',f:'--both-mid'},{name:'DecAligned',c:'--dec',f:'--dec-mid'},{name:'ReasAligned',c:'--rea',f:'--rea-mid'}];
+    const bars=(host,cfg)=>{const W=900,H=cfg.H,m={l:44,r:12,t:16,b:44};const svg=mk(host,W,H,cfg.label);axes(svg,W,H,m,cfg.ymax,cfg.ticks);
+      const gw=(W-m.l-m.r)/cfg.groups.length,Y=v=>m.t+(H-m.t-m.b)*(1-v/cfg.ymax);
+      if(cfg.chance!=null){const y=Y(cfg.chance);el('line',{x1:m.l,x2:W-m.r,y1:y,y2:y,stroke:css('--faint'),'stroke-dasharray':'6 5','stroke-width':1.5},svg);}
+      cfg.groups.forEach((g,gi)=>{const n=g.vals.length,bw=Math.min(56,gw*.8/n),x0=m.l+gi*gw+(gw-bw*n-8*(n-1))/2;
+        g.vals.forEach((d,k)=>{const x=x0+k*(bw+8),s=cfg.series[k],c=s.raw?s.c:css(s.c),f=s.raw?s.f:css(s.f);
+          el('rect',{x,width:bw,y:Y(d.v),height:Y(0)-Y(d.v),rx:brad,fill:f,stroke:c,'stroke-width':2.5},svg);
+          const cx=x+bw/2;el('line',{x1:cx,x2:cx,y1:Y(d.lo),y2:Y(d.hi),stroke:c,'stroke-width':1.8},svg);el('line',{x1:cx-5,x2:cx+5,y1:Y(d.lo),y2:Y(d.lo),stroke:c,'stroke-width':1.8},svg);el('line',{x1:cx-5,x2:cx+5,y1:Y(d.hi),y2:Y(d.hi),stroke:c,'stroke-width':1.8},svg);
+          const lab=el('text',{x:cx,y:Y(d.hi)-8,'text-anchor':'middle','font-size':15,fill:c,style:'font-family:var(--fd)'},svg);lab.textContent=Math.round(d.v);
+          const hit=el('rect',{x,width:bw,y:m.t,height:Y(0)-m.t,fill:'transparent'},svg);const t=`${s.name}, ${g.name}: ${d.v.toFixed(1)}% [${d.lo.toFixed(1)}, ${d.hi.toFixed(1)}]`;
+          hit.addEventListener('mousemove',e=>showTip(e,t));hit.addEventListener('mouseleave',hideTip);});
+        const tx=el('text',{x:m.l+gi*gw+gw/2,y:H-16,'text-anchor':'middle','font-size':14,fill:css('--ink')},svg);tx.textContent=g.name;});};
+    bars(this.f1,{label:'Share of choices when asking',ymax:50,ticks:[0,10,20,30,40,50],chance:100/3,H:300,series:ADV,
+      groups:[{name:'Would ask (8 dilemmas)',vals:[{v:31.2,lo:28.1,hi:34.3},{v:29.3,lo:25.9,hi:32.9},{v:39.5,lo:36.0,hi:43.0}]},{name:'Overall pick',vals:[{v:30.6,lo:22.1,hi:40.0},{v:30.6,lo:21.0,hi:40.0},{v:39.0,lo:29.4,hi:48.6}]}]});
+    const G=[{c:'#5a7fb0',f:'#e3eefc',name:'Weak values'},{c:'#3e6aa6',f:'#b9d3f3',name:'Moderate values'},{c:'#24497e',f:'#86ade0',name:'Strong values'}].map(x=>({...x,raw:1}));
+    bars(this.f3,{label:'Choices with no advisor by value strength',ymax:60,ticks:[0,15,30,45,60],H:300,series:G,
+      groups:[{name:'Consult',vals:[{v:4.7,lo:0.7,hi:10.4},{v:14.6,lo:6.7,hi:23.7},{v:17.4,lo:8.4,hi:28.2}]},{name:'Let it draft',vals:[{v:15.9,lo:7.6,hi:25.9},{v:23.6,lo:14.2,hi:34.1},{v:41.4,lo:29.1,hi:54.2}]},{name:'Let it act',vals:[{v:33.3,lo:20.8,hi:47.3},{v:36.4,lo:23.1,hi:50.7},{v:45.0,lo:32.8,hi:58.0}]}]});
+    // fig 2
+    const W=900,H=320,m={l:44,r:12,t:16,b:44},svg=mk(this.f2,W,H,'Share of all choices by step');axes(svg,W,H,m,50,[0,10,20,30,40,50]);
+    const Y=v=>m.t+(H-m.t-m.b)*(1-v/50),S=[...ADV,{name:'No advisor',c:'--none',f:'url(#hatch)'}],bw=120,gap=40,x0=m.l+(W-m.l-m.r-(bw*4+gap*3))/2;
+    const out=S.map((s,k)=>{const c=css(s.c),x=x0+k*(bw+gap);const o={s,x,bw,c,rect:el('rect',{x,width:bw,rx:brad,fill:s.f.startsWith('url')?s.f:css(s.f),stroke:c,'stroke-width':2.5},svg)};
+      o.eb=[0,1,2].map(()=>el('line',{stroke:c,'stroke-width':1.8},svg));o.lab=el('text',{'text-anchor':'middle','font-size':19,fill:c,style:'font-family:var(--fd)'},svg);
+      o.name=el('text',{x:x+bw/2,y:Y(0)+22,'text-anchor':'middle','font-size':14,'font-weight':700,fill:c},svg);o.name.textContent=s.name;return o;});
+    const ghosts=out.slice(0,3).map((o,k)=>{const y=Y(STEPS[0].v[k][0]);return el('line',{x1:o.x-8,x2:o.x+bw+8,y1:y,y2:y,stroke:o.c,'stroke-width':2.5,'stroke-dasharray':'6 5',opacity:0},svg);});
+    this.chart2={out,ghosts,Y,cur:this.state.step};
+    this.f2.onmousemove=e=>{const pt=svg.createSVGPoint();pt.x=e.clientX;pt.y=e.clientY;const p=pt.matrixTransform(svg.getScreenCTM().inverse());const o=out.find(o=>p.x>=o.x&&p.x<=o.x+o.bw);
+      if(o){const v=STEPS[this.state.step].v[out.indexOf(o)];showTip(e,`${o.s.name}, ${STEPS[this.state.step].n}: `+(v?`${v[0].toFixed(1)}% [${v[1].toFixed(1)}, ${v[2].toFixed(1)}]`:'not an option'));}else hideTip();};
+    this.f2.onmouseleave=hideTip;
+    this.animStep(this.state.step,this.state.step,false);}
+  animStep(from,to,animate=true){const C=this.chart2;if(!C)return;const {out,ghosts,Y}=C,dur=animate&&!reduce()?1100:0,t0=performance.now();cancelAnimationFrame(this.raf);
+    const ease=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2,val=(st,k)=>STEPS[st].v[k];
+    const frame=now=>{const f=dur?Math.min(1,(now-t0)/dur):1,e=ease(f);
+      out.forEach((o,k)=>{const a=val(from,k)||[0,0,0],b=val(to,k)||[0,0,0],v=a[0]+(b[0]-a[0])*e,lo=a[1]+(b[1]-a[1])*e,hi=a[2]+(b[2]-a[2])*e,cx=o.x+o.bw/2,empty=!val(to,k)&&f>=1;
+        o.rect.setAttribute('y',Y(v));o.rect.setAttribute('height',Math.max(0,Y(0)-Y(v)));o.rect.setAttribute('stroke-width',empty?0:2.5);
+        const L=[[cx,cx,lo,hi],[cx-7,cx+7,lo,lo],[cx-7,cx+7,hi,hi]];o.eb.forEach((l,i)=>{l.setAttribute('x1',L[i][0]);l.setAttribute('x2',L[i][1]);l.setAttribute('y1',Y(L[i][2]));l.setAttribute('y2',Y(L[i][3]));l.setAttribute('opacity',v>.5?1:0);});
+        o.lab.setAttribute('x',cx);o.lab.setAttribute('y',Y(Math.max(v,hi))-10);o.lab.textContent=empty?'—':Math.round(v)+'%';});
+      ghosts.forEach(g=>g.setAttribute('opacity',to===0?0:.7));if(f<1)this.raf=requestAnimationFrame(frame);};
+    this.raf=requestAnimationFrame(frame);}
+  setStep(s){const from=this.state.step;this.setState({step:s});this.animStep(from,s,true);}
+  stopPlay(){clearInterval(this.playT);this.playT=null;this.setState({playing:false});}
+
+  renderVals(){const s=this.state,look=this.look(),bots=this.bots(),R=k=>ROLE[k];
+    if(this._applied!==look){this._applied=look;this.applyLook();if(this.chart2)requestAnimationFrame(()=>{this.queueCharts();this.drawCircle();this.layout();});}
+    const hv=s.hover,sideK=hv||"Schwartz's value circle";
+    let sideT='Values across the circle pull against each other.',sideP="Choose one of the four highlighted values. We'll pose a dilemma that sets it against the value on the opposite side, and three advisors will reply.";
+    if(hv&&PICK[hv]){const g=VAL.find(x=>x[0]===hv)[3],opp=PICK[hv][2],og=VAL.find(x=>x[0]===opp)[3];sideT=`${g[0].toUpperCase()+g.slice(1)}, over ${og}`;sideP=`Opposite it on the circle is ${opp}. Click to see a dilemma that pits the two against each other.`;}
+    const ink=k=>`var(${R(k).c})`;
+    return {
+      rootRef:this.rootRef,spriteRef:this.spriteRef,guideRef:this.guideRef,tipRef:this.tipRef,bibRef:this.bibRef,circleRef:this.circleRef,fig1Ref:this.fig1Ref,fig2Ref:this.fig2Ref,fig3Ref:this.fig3Ref,
+      looks:LOOK_LABELS.map(([k,label])=>({label,on:()=>this.setState({look:k}),bg:k===look?'var(--ink)':'transparent',fg:k===look?'var(--bg)':'var(--ink)'})),
+      pickPhase:s.phase==='pick',chatPhase:s.phase==='chat',sideK,sideT,sideP,
+      youVal:s.cur?.youVal,youOther:s.cur?.youOther,dilemma:s.cur?.msg,restart:()=>this.restart(),
+      msgs:s.msgs.map(m=>{const r=R(m.k);return {src:m.typing&&s.mouth?bots[m.k].talk:bots[m.k].idle,who:s.picked?`${r.bot} · ${r.name}`:r.bot,ink:ink(m.k),bg:`var(${r.b})`,typing:m.typing,done:!m.typing,
+        txt:`“${s.cur.replies[m.k]}”`,showTags:!!s.picked,anim:s.picked===m.k?'pop .7s ease-out':'bob 2.8s ease-in-out infinite',
+        tags:[{y:r.j,l:'your judgment',c:'var(--judg)'},{y:r.r,l:'your reasons',c:'var(--reas)'}].map(t=>({label:(t.y?'✓ ':'')+t.l,bg:t.y?`color-mix(in srgb, ${t.c} 15%, transparent)`:'var(--soft)',fg:t.y?t.c:'var(--faint)',deco:t.y?'none':'line-through'}))};}),
+      showAsk:s.showAsk,
+      picks:['both','dec','rea'].map(k=>({src:bots[k].idle,label:R(k).bot,ink:ink(k),pressed:String(s.picked===k),border:s.picked===k?ink(k):'var(--line)',bg:s.picked===k?`var(${R(k).b})`:'var(--card)',on:()=>this.pick(k)})),
+      showReveal:!!s.picked,pickedName:s.picked?R(s.picked).name:'',pickedInk:s.picked?ink(s.picked):'',revealLine:s.picked?REVEAL[s.picked]:'',
+      minis:['rea','both','dec'].map(k=>({name:R(k).name,ink:ink(k),mid:`var(${R(k).m})`,w:s.revealOn?(R(k).share/45*100)+'%':'0%',pc:R(k).share+'%'})),
+      botBoth:bots.both.idle,botDec:bots.dec.idle,botRea:bots.rea.idle,
+      steps:STEPS.map((st,i)=>({label:st.n,pressed:String(s.step===i),bg:s.step===i?'var(--card)':'transparent',fg:s.step===i?'var(--ink)':'var(--muted)',on:()=>{this.stopPlay();this.setStep(i);}})),
+      say:STEPS[s.step].say,playLabel:s.playing?'❚❚ Pause':'▶ Play',
+      togglePlay:()=>{if(this.playT){this.stopPlay();return;}this.setState({playing:true});let i=0;this.setStep(0);this.playT=setInterval(()=>{i++;if(i>3){this.stopPlay();return;}this.setStep(i);},2600);},
+      authors:AUTH.map(([name,af,url],ai)=>{const on=s.hvA===ai||(s.hvI&&af.includes(s.hvI)),dim=(s.hvA!=null||s.hvI)&&!on;
+        return {name,sup:af.join(','),url:url||undefined,linked:!!url,plain:!url,color:dim?'var(--faint)':'var(--ink)',enter:()=>this.setState({hvA:ai,hvI:null}),leave:()=>this.setState({hvA:null})};}),
+      insts:INST.map(([n,name,src])=>{const on=s.hvI===n||(s.hvA!=null&&AUTH[s.hvA][1].includes(n)),any=s.hvA!=null||s.hvI;
+        return {n,name,src,tip:s.hvI===n,op:any&&!on?.35:1,sc:on?1.08:1,color:any&&!on?'var(--faint)':'var(--muted)',enter:()=>this.setState({hvI:n,hvA:null}),leave:()=>this.setState({hvI:null})};}),
+      copyLabel:s.copyLabel,
+      copyBib:async()=>{const t=this.bibRef.current.textContent;try{await navigator.clipboard.writeText(t);this.setState({copyLabel:'Copied'});}catch(e){const r=this.W().document.createRange();r.selectNodeContents(this.bibRef.current);const g=getSelection();g.removeAllRanges();g.addRange(r);this.setState({copyLabel:'Selected, press Ctrl+C'});}setTimeout(()=>this.setState({copyLabel:'Copy citation'}),1800);},
+      showGuide:false,showTrail:!s.narrow,markers:s.markers.map(mk=>({...mk,bg:mk.id===s.active?'var(--rea-mid)':'var(--card)'})),
+      trailTop:s.trailTop,trailH:s.trailH,bubble:s.bubble,bubbleOn:s.bubbleOn,bubbleW:s.narrow?'180px':'220px',sprite0:this.frames().idle
+    };
+  }
+}
+</script>
+</body>
+</html>
